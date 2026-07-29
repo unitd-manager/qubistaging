@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import DemoPreviewSection from "@/components/DemoPreviewSection";
+//import DemoPreviewSection from "@/components/DemoPreviewSection";
 import { useSEO } from "@/hooks/useSEO";
 import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
@@ -76,7 +76,7 @@ const DemoPage = () => {
           </div>
         </div>
       </section>
-      <DemoPreviewSection />
+      {/* <DemoPreviewSection /> */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
@@ -104,9 +104,9 @@ const DemoPage = () => {
                     ))}
                   </div>
                 )}
-                <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all duration-200">
+             <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all duration-200">
                   <Play size={14} className="fill-primary" />Watch Demo
-                </div>
+                </div> 
               </div>
             ))}
           </div>

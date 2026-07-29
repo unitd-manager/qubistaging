@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import DemoPreviewSection from "@/components/DemoPreviewSection";
+//import DemoPreviewSection from "@/components/DemoPreviewSection";
 import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
 import { SEOHead } from "@/components/SEOHead";
@@ -19,7 +19,7 @@ const Index = () => {
       <Navbar />
       <main id="main-content">
         <HeroSection />
-        <DemoPreviewSection />
+       {/*  <DemoPreviewSection />*/}
         <DeferredSection loader={() => import("@/components/ProblemSection")} minHeight="26rem" />
         <DeferredSection loader={() => import("@/components/CapabilitiesSection")} minHeight="30rem" />
         <DeferredSection loader={() => import("@/components/OutcomesSection")} minHeight="26rem" />
