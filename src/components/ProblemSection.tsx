@@ -22,7 +22,8 @@ const ProblemSection = () => {
         }));
 
   return (
-    <section className="py-12 lg:py-16 bg-background" id="problem">
+        <section className="pt-0 pb-12 lg:pb-16 bg-background" id="problem">
+
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
