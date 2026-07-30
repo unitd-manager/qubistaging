@@ -1,17 +1,675 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Qubi Flow Orchestrator</title>
-    <meta name="author" content="Qbotica" />
-     <link rel="icon" type="image/png" href="/src/assets/qubi-logo.png" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Qubi Flow Orchestrator — a unified enterprise platform for designing, deploying, and managing intelligent workflows powered by AI agents, automation, human input, and enterprise integrations." />
+  <title>qubi — Orchestrate AI Agents, Bots, Systems & People | Enterprise Workflow Automation</title>
+  <style>
+    :root {
+      --orange: #ff5a1f;
+      --orange-bright: #ff6a2a;
+      --orange-soft: #ffebe3;
+      --ink: #171614;
+      --muted: #69645f;
+      --cream: #f7f2ea;
+      --paper: #fffdf9;
+      --line: rgba(23, 22, 20, 0.13);
+      --dark: #12110f;
+      --green: #4f7c68;
+      --radius-lg: 34px;
+      --radius-md: 22px;
+      --shadow: 0 24px 80px rgba(31, 24, 18, 0.12);
+    }
 
-    <link rel="alternate" type="text/plain" title="robots.txt" href="https://qubiorchesto.unitdtechnologies.com/robots.txt" />
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .site-shell { width: min(1460px, calc(100% - 32px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .77rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 6px rgba(255,90,31,.13);
+    }
+
+    /* Navigation */
+    .nav-wrap {
+      position: fixed;
+      inset: 18px 0 auto;
+      z-index: 50;
+      pointer-events: none;
+    }
+    .nav {
+      pointer-events: auto;
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 10px 12px 10px 20px;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 999px;
+      background: rgba(255,253,249,.82);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 44px rgba(25,19,14,.11);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform .25s ease, background .25s ease;
+    }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:-.04em; font-size:1.35rem; }
+    .brand-mark {
+      width: 30px; height: 30px; border-radius: 10px;
+      background: var(--orange);
+      display:grid; place-items:center; color:white; font-size:.9rem;
+      transform: rotate(-7deg);
+    }
+    .brand small { color: var(--muted); font-weight:700; font-size:.62rem; letter-spacing:.04em; margin-left:2px; }
+    .nav-links { display:flex; gap: 28px; align-items:center; font-size:.88rem; font-weight:700; }
+    .nav-links a { color:#3c3935; }
+    .nav-actions { display:flex; align-items:center; gap:10px; }
+    .nav-watch { border:0; background:transparent; font-weight:800; cursor:pointer; padding:11px 14px; }
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 20px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      font-weight:850;
+      cursor:pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-orange { background:var(--orange); color:white; box-shadow:0 10px 28px rgba(255,90,31,.27); }
+    .btn-dark { background:var(--ink); color:white; }
+    .btn-light { background:rgba(255,255,255,.9); color:var(--ink); border:1px solid var(--line); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 930px;
+      padding: 148px 0 78px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content:"";
+      position:absolute;
+      width:760px; height:760px;
+      right:-240px; top:-180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,90,31,.22), rgba(255,90,31,0) 67%);
+      filter:blur(3px);
+    }
+    .hero::after {
+      content:"";
+      position:absolute;
+      width:440px; height:440px;
+      left:-250px; bottom:10px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(117,143,128,.18), transparent 70%);
+    }
+    .hero-grid {
+      position:relative; z-index:2;
+      display:grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: clamp(34px, 6vw, 90px);
+      align-items:center;
+    }
+    .hero-copy h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(4.15rem, 7.35vw, 7.3rem);
+      line-height:.86;
+      letter-spacing:-.075em;
+      margin: 28px 0;
+      max-width: 780px;
+      font-weight: 500;
+    }
+    .hero-copy h1 em { color:var(--orange); font-style:italic; }
+    .hero-copy p {
+      max-width: 590px;
+      font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+      line-height:1.65;
+      color:#514d48;
+      margin:0 0 34px;
+    }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .micro-proof { margin-top:31px; display:flex; gap:20px; align-items:center; color:var(--muted); font-size:.83rem; font-weight:700; }
+    .proof-dots { display:flex; }
+    .proof-dots span { width:28px; height:28px; border-radius:50%; border:2px solid var(--cream); margin-left:-8px; background:#d8d0c5; }
+    .proof-dots span:first-child { margin-left:0; background:#ffb497; }
+    .proof-dots span:nth-child(2){ background:#9fb7aa; }
+    .proof-dots span:nth-child(3){ background:#c8b9df; }
+
+    .demo-stage {
+      position:relative;
+      min-height:610px;
+      display:grid;
+      place-items:center;
+    }
+    .orbit {
+      position:absolute;
+      border:1px dashed rgba(23,22,20,.16);
+      border-radius:50%;
+      animation: spin 30s linear infinite;
+    }
+    .orbit.one { width:590px; height:590px; }
+    .orbit.two { width:470px; height:470px; animation-direction:reverse; animation-duration:23s; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .float-pill {
+      position:absolute;
+      z-index:3;
+      padding:11px 15px;
+      border-radius:999px;
+      background:var(--paper);
+      border:1px solid var(--line);
+      box-shadow:0 12px 32px rgba(30,24,19,.12);
+      font-weight:800;
+      font-size:.76rem;
+      display:flex; align-items:center; gap:8px;
+    }
+    .float-pill i { width:9px; height:9px; border-radius:50%; background:var(--orange); }
+    .pill-1 { top:2%; left:-5%; transform:rotate(-5deg); }
+    .pill-2 { top:1%; right:-4%; transform:rotate(6deg); }
+    .pill-3 { bottom:3%; left:-8%; transform:rotate(4deg); }
+    .pill-4 { bottom:1%; right:-2%; transform:rotate(-6deg); }
+
+    .product-window {
+      position:relative;
+      z-index:4;
+      width:min(100%, 680px);
+      height:485px;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,.55);
+      background:#1b1a18;
+      box-shadow: 0 42px 100px rgba(29,22,16,.26);
+      overflow:hidden;
+      transform:rotate(1.2deg);
+    }
+    .window-top { height:52px; display:flex; align-items:center; justify-content:space-between; padding:0 18px; border-bottom:1px solid rgba(255,255,255,.09); color:white; }
+    .window-dots { display:flex; gap:7px; }
+    .window-dots span { width:9px; height:9px; border-radius:50%; background:#4d4a46; }
+    .window-title { font-size:.75rem; color:#aaa59f; font-weight:700; }
+    .window-body { display:grid; grid-template-columns:165px 1fr; height:calc(100% - 52px); }
+    .sidebar { padding:22px 14px; border-right:1px solid rgba(255,255,255,.08); color:#d7d3cf; }
+    .side-logo { font-weight:900; color:white; margin:0 8px 25px; }
+    .side-item { padding:10px 11px; border-radius:10px; font-size:.73rem; margin-bottom:5px; color:#a7a29c; }
+    .side-item.active { background:rgba(255,90,31,.14); color:#ff8a60; }
+    .workspace { position:relative; padding:24px; background:linear-gradient(150deg,#22211f,#151412); }
+    .workspace-head { display:flex; justify-content:space-between; align-items:start; color:white; }
+    .workspace-head h3 { margin:0; font-size:1.05rem; }
+    .workspace-head p { margin:6px 0 0; color:#8f8a84; font-size:.7rem; }
+    .status { color:#8fd3ad; font-size:.65rem; font-weight:800; background:rgba(83,155,112,.12); padding:7px 10px; border-radius:999px; }
+    .flow-canvas { position:absolute; inset:92px 22px 25px; border-radius:18px; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size:18px 18px; border:1px solid rgba(255,255,255,.06); overflow:hidden; }
+    .flow-line { position:absolute; height:2px; background:linear-gradient(90deg,var(--orange),#7d7a74); transform-origin:left; opacity:.85; }
+    .line-a { width:116px; left:75px; top:90px; transform:rotate(13deg); }
+    .line-b { width:122px; left:224px; top:117px; transform:rotate(-11deg); }
+    .line-c { width:116px; left:352px; top:95px; transform:rotate(20deg); }
+    .line-d { width:160px; left:220px; top:203px; transform:rotate(4deg); }
+    .flow-node { position:absolute; width:112px; min-height:69px; padding:12px; background:#2b2926; border:1px solid rgba(255,255,255,.11); border-radius:15px; color:white; box-shadow:0 10px 30px rgba(0,0,0,.22); }
+    .flow-node strong { display:block; font-size:.7rem; margin-bottom:5px; }
+    .flow-node span { font-size:.58rem; color:#9c9791; line-height:1.35; display:block; }
+    .flow-node b { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--orange); margin-right:5px; }
+    .node-1 { left:20px; top:54px; }
+    .node-2 { left:180px; top:90px; }
+    .node-3 { left:330px; top:48px; }
+    .node-4 { left:390px; top:190px; }
+    .node-5 { left:165px; top:190px; }
+    .play-overlay { position:absolute; inset:0; display:grid; place-items:center; background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.16)); cursor:pointer; z-index:10; }
+    .play-button { width:88px; height:88px; border-radius:50%; border:1px solid rgba(255,255,255,.34); background:rgba(255,255,255,.94); color:var(--orange); display:grid; place-items:center; font-size:1.5rem; box-shadow:0 18px 42px rgba(0,0,0,.28); transition:.25s; }
+    .play-overlay:hover .play-button { transform:scale(1.08); background:var(--orange); color:white; }
+    .demo-label { position:absolute; z-index:6; bottom:42px; right:35px; background:var(--orange); color:white; padding:15px 18px; border-radius:18px; transform:rotate(-4deg); box-shadow:0 18px 34px rgba(255,90,31,.28); }
+    .demo-label strong { display:block; font-size:.85rem; }
+    .demo-label span { font-size:.68rem; opacity:.82; }
+
+    /* Ticker */
+    .ticker { background:var(--orange); color:white; overflow:hidden; transform:rotate(-1.1deg) scale(1.02); position:relative; z-index:5; }
+    .ticker-track { display:flex; gap:52px; width:max-content; padding:16px 0; animation:marquee 25s linear infinite; font-weight:900; text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; }
+    .ticker-track span::after { content:"✦"; margin-left:52px; }
+    @keyframes marquee { to { transform:translateX(-50%); } }
+
+    /* Shared sections */
+    section { position:relative; }
+    .section-pad { padding: 130px 0; }
+    .section-head { display:flex; justify-content:space-between; gap:42px; align-items:start; margin-bottom:60px; }
+.section-head h2 { font-family:Georgia,serif; font-weight:500; letter-spacing:-.055em; line-height:.98; font-size:clamp(3.1rem,6vw,6rem); margin:18px 0 0; max-width:900px; }
+.section-head p { max-width:500px; line-height:1.7; color:var(--muted); margin:0; padding-top:0; font-size:1.18rem; }
+    /* Why */
+    .why { background:var(--paper); border-radius:52px 52px 0 0; margin-top:32px; overflow:hidden; }
+    .manifesto-grid { display:grid; grid-template-columns:.92fr 1.08fr; gap:70px; align-items:start; }
+    .manifesto-sticky { position:sticky; top:130px; }
+    .manifesto-sticky h2 { font-family:Georgia,serif; font-weight:500; font-size:clamp(3.2rem,5.2vw,5.6rem); line-height:.96; letter-spacing:-.06em; margin:20px 0 30px; }
+    .manifesto-sticky h2 em { color:var(--orange); font-style:italic; }
+    .manifesto-sticky p { color:var(--muted); line-height:1.7; max-width:520px; }
+    .manifesto-lines { border-top:1px solid var(--line); }
+    .manifesto-line { min-height:150px; border-bottom:1px solid var(--line); display:grid; grid-template-columns:70px 1fr; gap:28px; align-items:center; padding:24px 0; }
+    .manifesto-line .num { font-family:Georgia,serif; color:var(--orange); font-size:1.2rem; }
+    .manifesto-line h3 { margin:0; font-size:clamp(1.35rem,2.2vw,2.25rem); letter-spacing:-.035em; line-height:1.2; }
+    .manifesto-line.highlight { background:var(--orange-soft); margin:0 -28px; padding-left:28px; padding-right:28px; border-radius:24px; border-bottom:0; }
+    .manifesto-line.highlight h3 { font-family:Georgia,serif; font-size:clamp(2rem,3.1vw,3.2rem); font-weight:500; }
+    .outcome-ribbon { margin-top:70px; display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
+    .outcome-card { min-height:185px; border-radius:var(--radius-md); border:1px solid var(--line); padding:26px; background:var(--cream); display:flex; flex-direction:column; justify-content:space-between; }
+    .outcome-card:nth-child(2) { background:var(--ink); color:white; transform:translateY(18px) rotate(1deg); }
+    .outcome-card:nth-child(3) { background:var(--orange); color:white; transform:rotate(-1deg); }
+    .outcome-card strong { font-family:Georgia,serif; font-weight:500; font-size:2rem; line-height:1; }
+    .outcome-card span { font-size:.8rem; line-height:1.5; opacity:.75; }
+
+    /* How */
+    .how { background:var(--dark); color:white; }
+    .how .section-head p { color:#aaa49d; }
+    .steps { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+    .step { position:relative; min-height:340px; border-radius:26px; padding:24px; border:1px solid rgba(255,255,255,.11); background:#1b1a18; overflow:hidden; transition:.3s; }
+    .step:hover { transform:translateY(-10px); border-color:rgba(255,90,31,.6); }
+    .step::after { content:""; position:absolute; width:150px; height:150px; border-radius:50%; right:-70px; bottom:-70px; background:radial-gradient(circle,rgba(255,90,31,.25),transparent 70%); }
+    .step-no { color:var(--orange); font-family:Georgia,serif; font-size:1rem; }
+    .step-icon { margin:38px 0 26px; width:56px; height:56px; border-radius:18px; background:rgba(255,90,31,.13); display:grid; place-items:center; font-size:1.4rem; }
+    .step-icon svg { width:26px; height:26px; stroke:var(--orange); stroke-width:1.9; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .step h3 { font-size:1.25rem; margin:0 0 12px; }
+    .step p { color:#9f9992; line-height:1.6; font-size:.86rem; margin:0; }
+    .step-arrow { position:absolute; right:-12px; top:50%; width:24px; height:24px; border-radius:50%; background:var(--orange); z-index:3; display:grid; place-items:center; font-size:.7rem; }
+
+    /* Use cases */
+    .use-cases { background:var(--paper); }
+    .use-grid { display:grid; grid-template-columns: .8fr 1.2fr; gap:28px; align-items:start; }
+    .use-tabs { display:flex; flex-direction:column; gap:8px; }
+    .use-tab { text-align:left; background:transparent; border:0; border-bottom:1px solid var(--line); padding:23px 4px; font-size:clamp(1.25rem,2.5vw,2.15rem); font-family:Georgia,serif; cursor:pointer; color:#928b84; display:flex; justify-content:space-between; transition:.2s; }
+    .use-tab.active, .use-tab:hover { color:var(--ink); padding-left:16px; }
+    .use-tab.active span { color:var(--orange); }
+    .use-panel { min-height:560px; border-radius:34px; background:var(--orange-soft); padding:42px; position:relative; overflow:hidden; }
+    .use-panel h3 { font-family:Georgia,serif; font-weight:500; font-size:clamp(2.4rem,4.5vw,4.4rem); line-height:1; letter-spacing:-.05em; margin:0 0 20px; max-width:650px; }
+    .use-panel > p { color:#5f5851; max-width:620px; line-height:1.7; }
+    .scenario { margin-top:38px; background:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.8); border-radius:24px; padding:24px; max-width:560px; box-shadow:0 20px 50px rgba(86,52,37,.09); }
+    .scenario small { text-transform:uppercase; letter-spacing:.12em; font-weight:800; color:var(--orange); }
+    .scenario p { font-size:1.02rem; line-height:1.6; margin:12px 0 0; }
+    .integration-cloud { position:absolute; right:-30px; bottom:-45px; width:310px; height:310px; border-radius:50%; background:var(--paper); box-shadow:0 10px 50px rgba(80,50,35,.09); display:grid; place-items:center; }
+    .integration-cloud::before,.integration-cloud::after { content:""; position:absolute; border:1px dashed rgba(23,22,20,.15); border-radius:50%; }
+    .integration-cloud::before { width:220px;height:220px; }
+    .integration-cloud::after { width:145px;height:145px; }
+    .integration-core { width:74px;height:74px;border-radius:22px;background:var(--orange);color:white;display:grid;place-items:center;font-weight:900;z-index:2; }
+    .logo-chip { position:absolute; z-index:3; background:white; border:1px solid var(--line); border-radius:12px; padding:9px 12px; font-size:.68rem; font-weight:850; box-shadow:0 8px 20px rgba(0,0,0,.08); }
+    .chip-1 { top:30px; left:100px; }.chip-2{top:95px;right:18px}.chip-3{bottom:70px;right:28px}.chip-4{bottom:45px;left:65px}.chip-5{top:100px;left:5px}
+
+    /* Built for enterprise */
+    .enterprise { background:var(--cream); }
+   .enterprise-intro { display:grid; grid-template-columns:.9fr 1.1fr; gap:55px; align-items:start; margin-bottom:44px; }
+.enterprise-intro h2 { font-family:Georgia,serif; font-weight:500; font-size:clamp(3rem,5.8vw,6rem); line-height:.95; letter-spacing:-.06em; margin:16px 0 0; }
+.enterprise-intro h2 em { color:var(--orange); font-style:italic; }
+.enterprise-intro-copy { max-width:620px; justify-self:end; padding-top:0; }
+.enterprise-intro-copy > p { color:var(--muted); line-height:1.75; font-size:1.15rem; margin:0 0 24px; }
+   
+    .confidence-strip { display:flex; flex-wrap:wrap; gap:9px; }
+    .confidence-strip span { padding:14px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.58); font-size:.92rem; font-weight:800; }
+    .enterprise-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:18px; }
+    .confidence-main { min-height:590px; border-radius:34px; padding:38px; position:relative; overflow:hidden; color:white; background:var(--ink); display:flex; flex-direction:column; justify-content:space-between; }
+    .confidence-main::before { content:""; position:absolute; width:520px; height:520px; border-radius:50%; right:-210px; top:-220px; background:radial-gradient(circle,rgba(255,90,31,.65),transparent 67%); }
+    .confidence-main::after { content:""; position:absolute; inset:auto 38px 38px; height:250px; border-radius:26px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025)); }
+    .confidence-kicker { position:relative; z-index:2; display:inline-flex; align-self:flex-start; padding:9px 12px; border-radius:999px; background:rgba(255,255,255,.1); font-size:.72rem; font-weight:800; }
+    .confidence-main h3 { position:relative; z-index:2; font-family:Georgia,serif; font-size:clamp(2.6rem,4.5vw,4.8rem); line-height:.98; letter-spacing:-.05em; font-weight:500; margin:28px 0 14px; max-width:690px; }
+    .confidence-main > div > p { position:relative; z-index:2; color:#b5afa8; max-width:600px; line-height:1.7; }
+    .control-flow { position:relative; z-index:3; height:220px; margin:20px 8px 0; display:grid; place-items:center; }
+    .control-ring { width:190px; height:190px; border-radius:50%; border:1px dashed rgba(255,255,255,.25); display:grid; place-items:center; animation:spin 24s linear infinite; }
+    .control-core { width:112px; height:112px; border-radius:34px; background:var(--orange); display:grid; place-items:center; text-align:center; font-weight:900; box-shadow:0 18px 45px rgba(255,90,31,.25); animation:counter-spin 24s linear infinite; }
+    @keyframes counter-spin { to { transform:rotate(-360deg); } }
+    .control-chip { position:absolute; padding:10px 13px; border-radius:12px; background:#292724; border:1px solid rgba(255,255,255,.12); font-size:.69rem; font-weight:800; box-shadow:0 10px 28px rgba(0,0,0,.25); }
+    .control-chip.one { left:8%; top:18%; }.control-chip.two { right:6%; top:12%; }.control-chip.three { left:2%; bottom:12%; }.control-chip.four { right:4%; bottom:18%; }
+    .confidence-side { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .confidence-card { min-height:286px; border:1px solid var(--line); border-radius:30px; padding:28px; background:var(--paper); position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; }
+    .confidence-card:nth-child(2) { background:var(--orange-soft); }
+    .confidence-card:nth-child(3) { background:#dfe8e2; }
+    .confidence-card:nth-child(4) { background:white; }
+    .confidence-icon { width:52px; height:52px; border-radius:17px; display:grid; place-items:center; background:var(--ink); color:white; font-size:1.2rem; }
+    .confidence-card:nth-child(2) .confidence-icon { background:var(--orange); }
+    .confidence-card:nth-child(3) .confidence-icon { background:var(--green); }
+    .confidence-card h3 { font-size:1.35rem; margin:22px 0 9px; letter-spacing:-.035em; }
+    .confidence-card p { color:var(--muted); line-height:1.55; font-size:.85rem; margin:0; }
+    .confidence-card ul { list-style:none; margin:18px 0 0; padding:0; }
+    .confidence-card li { display:flex; gap:8px; align-items:center; padding:7px 0; border-bottom:1px solid rgba(23,22,20,.09); font-size:.72rem; font-weight:750; }
+    .confidence-card li::before { content:"✓"; color:var(--orange); font-weight:900; }
+    .visibility-mini { margin-top:20px; display:flex; align-items:end; gap:7px; height:70px; }
+    .visibility-mini i { flex:1; border-radius:6px 6px 2px 2px; background:var(--orange); opacity:.8; }
+    .visibility-mini i:nth-child(1){height:35%}.visibility-mini i:nth-child(2){height:62%}.visibility-mini i:nth-child(3){height:48%}.visibility-mini i:nth-child(4){height:82%}.visibility-mini i:nth-child(5){height:70%}
+
+    /* Proof */
+    .proof { background:var(--paper); }
+    .story-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:20px; }
+    .story-main { min-height:520px; border-radius:34px; background:var(--ink); color:white; padding:44px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; }
+    .story-main::after { content:""; position:absolute; width:420px; height:420px; border-radius:50%; right:-180px; top:-120px; background:radial-gradient(circle,rgba(255,90,31,.55),transparent 70%); }
+    .story-tag { display:inline-flex; align-self:flex-start; padding:9px 12px; border-radius:999px; background:rgba(255,255,255,.1); font-size:.73rem; font-weight:800; }
+    .story-main blockquote { font-family:Georgia,serif; font-size:clamp(2.2rem,4vw,4rem); line-height:1.05; letter-spacing:-.045em; margin:0; max-width:730px; position:relative; z-index:2; }
+    .story-foot { display:flex; justify-content:space-between; align-items:end; position:relative; z-index:2; }
+    .story-metric strong { display:block; font-size:2.5rem; color:var(--orange); }
+    .story-metric span { color:#aaa49d; font-size:.78rem; }
+    .story-side { display:grid; grid-template-rows:1fr 1fr; gap:20px; }
+    .story-card { border:1px solid var(--line); border-radius:30px; padding:30px; background:var(--cream); display:flex; flex-direction:column; justify-content:space-between; min-height:250px; }
+    .story-card:nth-child(2){ background:var(--orange-soft); transform:rotate(1deg); }
+    .story-card h3 { font-family:Georgia,serif; font-size:1.9rem; font-weight:500; margin:0; }
+    .story-card p { color:var(--muted); line-height:1.6; }
+    .story-card a { font-weight:850; font-size:.85rem; }
+
+    /* CTA */
+    .cta-wrap { padding:30px 0 42px; background:var(--paper); }
+    .cta { min-height:580px; border-radius:44px; background:var(--orange); color:white; padding:70px; display:grid; place-items:center; text-align:center; position:relative; overflow:hidden; }
+    .cta::before,.cta::after { content:""; position:absolute; border:1px solid rgba(255,255,255,.22); border-radius:50%; }
+    .cta::before { width:680px;height:680px; }.cta::after{width:430px;height:430px}
+    .cta-inner { position:relative; z-index:2; }
+    .cta h2 { font-family:Georgia,serif; font-size:clamp(3.4rem,7vw,7.3rem); line-height:.88; letter-spacing:-.065em; font-weight:500; margin:0 auto 25px; max-width:980px; }
+    .cta p { max-width:620px; margin:0 auto 32px; line-height:1.65; color:rgba(255,255,255,.78); font-size:1.06rem; }
+    .cta-actions { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+
+    footer { background:var(--paper); padding:48px 0 60px; border-top:1px solid var(--line); }
+    .footer-grid { display:grid; grid-template-columns:1.4fr repeat(3,.6fr); gap:45px; }
+    .footer-intro p { color:var(--muted); max-width:390px; line-height:1.6; font-size:.88rem; }
+    .footer-col strong { display:block; margin-bottom:15px; font-size:.8rem; }
+    .footer-col a { display:block; color:var(--muted); margin:10px 0; font-size:.8rem; }
+    .copyright { margin-top:50px; display:flex; justify-content:space-between; color:#958f88; font-size:.72rem; }
+
+    /* Modal */
+    .modal { position:fixed; inset:0; z-index:100; background:rgba(12,11,10,.83); backdrop-filter:blur(12px); display:none; place-items:center; padding:24px; }
+    .modal.open { display:grid; }
+    .modal-card { width:min(1100px,100%); background:#111; border-radius:28px; overflow:hidden; box-shadow:0 40px 120px rgba(0,0,0,.5); }
+    .modal-head { height:58px; color:white; display:flex; align-items:center; justify-content:space-between; padding:0 20px; }
+    .modal-head strong { font-size:.86rem; }
+    .modal-close { border:0; background:rgba(255,255,255,.1); color:white; width:34px;height:34px;border-radius:50%;cursor:pointer; }
+    .video-placeholder { aspect-ratio:16/9; display:grid; place-items:center; text-align:center; padding:40px; background:radial-gradient(circle at 50% 45%,#382016,#141210 55%); color:white; }
+    .video-placeholder .big-play { width:90px;height:90px;border-radius:50%;background:var(--orange);display:grid;place-items:center;margin:0 auto 22px;font-size:1.5rem; }
+    .video-placeholder h3 { font-family:Georgia,serif; font-size:2.2rem; font-weight:500; margin:0 0 12px; }
+    .video-placeholder p { color:#aaa49d; max-width:580px; line-height:1.6; margin:0 auto; }
+
+    /* Reveal */
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    @media (max-width: 1050px) {
+      .nav-links { display:none; }
+      .hero { min-height:auto; }
+      .hero-grid,.manifesto-grid,.use-grid,.story-grid { grid-template-columns:1fr; }
+      .hero-copy { text-align:center; }
+      .hero-copy p { margin-left:auto;margin-right:auto; }
+      .hero-actions,.micro-proof { justify-content:center; }
+      .demo-stage { margin-top:15px; }
+      .manifesto-sticky { position:relative; top:auto; }
+      .steps { grid-template-columns:repeat(2,1fr); }
+      .step:last-child { grid-column:span 2; }
+      .step-arrow { display:none; }
+      .enterprise-intro,.enterprise-grid { grid-template-columns:1fr; }
+      .enterprise-intro-copy { justify-self:start; }
+      .confidence-main { min-height:560px; }
+      .footer-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .site-shell { width:min(100% - 22px,1460px); }
+      .nav { width:calc(100% - 22px); padding-left:15px; }
+      .brand small,.nav-watch { display:none; }
+      .nav .btn { padding:11px 14px; font-size:.78rem; }
+      .hero { padding-top:125px; }
+      .hero-copy h1 { font-size:clamp(3.4rem,17vw,5.5rem); }
+      .demo-stage { min-height:480px; }
+      .orbit.one{width:430px;height:430px}.orbit.two{width:350px;height:350px}
+      .product-window { height:395px; transform:none; }
+      .window-body { grid-template-columns:105px 1fr; }
+      .sidebar { padding:15px 8px; }
+      .side-item { font-size:.58rem; padding:8px 6px; }
+      .workspace { padding:15px; }
+      .flow-canvas { inset:75px 10px 15px; transform:scale(.78); transform-origin:left top; width:125%; }
+      .float-pill { display:none; }
+      .demo-label { right:10px;bottom:10px; }
+      .section-pad { padding:90px 0; }
+      .section-head { display:block; margin-bottom:40px; }
+      .section-head p { margin-top:22px; }
+      .manifesto-line { grid-template-columns:40px 1fr; gap:12px; }
+      .outcome-ribbon,.steps { grid-template-columns:1fr; }
+      .outcome-card:nth-child(2),.outcome-card:nth-child(3){transform:none}
+      .step:last-child { grid-column:auto; }
+      .use-panel { min-height:650px; padding:28px; }
+      .integration-cloud { width:250px;height:250px; right:-35px; }
+      .confidence-side { grid-template-columns:1fr; }
+      .confidence-main { min-height:600px; padding:28px; }
+      .confidence-main::after { inset:auto 20px 20px; }
+      .enterprise-intro { gap:28px; }
+      .story-main { min-height:500px; padding:30px; }
+      .cta { padding:50px 22px; min-height:520px; }
+      .footer-grid { grid-template-columns:1fr 1fr; }
+      .footer-intro { grid-column:span 2; }
+      .copyright { flex-direction:column;gap:8px; }
+    }
+  </style>
 </head>
+<body>
+  <div class="nav-wrap">
+    <nav class="nav">
+      <a class="brand" href="#top"><span class="brand-mark">q</span>qubi <small>by qBotica</small></a>
+      <div class="nav-links">
+        <a href="#why">Why qubi</a>
+        <a href="#how">How it works</a>
+        <a href="#use-cases">Solutions</a>
+        <a href="#enterprise">Enterprise</a>
+        <a href="https://myqubi.com/customers" target="_blank" rel="noreferrer">Customers</a>
+        <a href="https://myqubi.com/pricing" target="_blank" rel="noreferrer">Pricing</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-watch" data-open-video>Watch demo</button>
+        <a class="btn btn-orange" href="https://meetings.hubspot.com/maheshv" target="_blank" rel="noreferrer">Book a demo ↗</a>
+      </div>
+    </nav>
+  </div>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <main id="top">
+    <!-- 1. HERO + DEMO -->
+    <header class="hero">
+      <div class="site-shell hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">Agentic automation platform</div>
+          <h1>Orchestrate AI agents, bots, systems &amp; <em>people.</em></h1>
+          <p>A unified platform for designing, deploying, and managing intelligent workflows powered by AI agents, automation, human input, and enterprise integrations—moving work from request to resolution without the usual handoffs and bottlenecks.</p>
+          <div class="hero-actions">
+            <button class="btn btn-orange" data-open-video>▶ Watch the 12-minute demo</button>
+            <a class="btn btn-light" href="https://meetings.hubspot.com/maheshv" target="_blank" rel="noreferrer">Book a demo ↗</a>
+          </div>
+          <div class="micro-proof"><div class="proof-dots"><span></span><span></span><span></span></div>Built for operations, finance, IT, and transformation teams.</div>
+        </div>
+
+        <div class="demo-stage reveal">
+          <div class="orbit one"></div><div class="orbit two"></div>
+          <div class="float-pill pill-1"><i></i>AI agents</div>
+          <div class="float-pill pill-2"><i></i>Enterprise systems</div>
+          <div class="float-pill pill-3"><i></i>Human approvals</div>
+          <div class="float-pill pill-4"><i></i>Automations</div>
+          <div class="product-window">
+            <div class="window-top"><div class="window-dots"><span></span><span></span><span></span></div><div class="window-title">qubi orchestration workspace</div><div style="width:44px"></div></div>
+            <div class="window-body">
+              <aside class="sidebar"><div class="side-logo">qubi</div><div class="side-item active">◉ Orchestrations</div><div class="side-item">⌁ Agents</div><div class="side-item">◇ Workflows</div><div class="side-item">↗ Integrations</div><div class="side-item">▦ Analytics</div><div class="side-item">♙ Governance</div></aside>
+              <div class="workspace">
+                <div class="workspace-head"><div><h3>Customer onboarding</h3><p>End-to-end intelligent workflow</p></div><div class="status">● Running</div></div>
+                <div class="flow-canvas">
+                  <div class="flow-line line-a"></div><div class="flow-line line-b"></div><div class="flow-line line-c"></div><div class="flow-line line-d"></div>
+                  <div class="flow-node node-1"><strong><b></b>Request received</strong><span>Capture context and intent</span></div>
+                  <div class="flow-node node-2"><strong><b></b>AI agent</strong><span>Reason across knowledge</span></div>
+                  <div class="flow-node node-3"><strong><b></b>System action</strong><span>Create records and tasks</span></div>
+                  <div class="flow-node node-4"><strong><b></b>Complete</strong><span>Notify and report outcome</span></div>
+                  <div class="flow-node node-5"><strong><b></b>Human review</strong><span>Approve high-impact step</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="play-overlay" data-open-video><div class="play-button">▶</div></div>
+          </div>
+          <div class="demo-label"><strong>Full product demo</strong><span>12 min · end-to-end walkthrough</span></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="ticker"><div class="ticker-track"><span>Agents</span><span>People</span><span>Systems</span><span>Automations</span><span>Governance</span><span>Outcomes</span><span>Agents</span><span>People</span><span>Systems</span><span>Automations</span><span>Governance</span><span>Outcomes</span></div></div>
+
+    <!-- 2. WHY QUBI EXISTS -->
+    <section class="why section-pad" id="why">
+      <div class="site-shell">
+        <div class="manifesto-grid">
+          <div class="manifesto-sticky reveal">
+            <div class="eyebrow">Why qubi exists</div>
+            <h2>Modern work runs on <em>too many systems.</em></h2>
+            <p>Enterprises rely on multiple applications, systems, and teams to complete critical processes. Managing these workflows manually leads to delays, errors, and rising operational costs. Qubi Flow Orchestrator provides a centralized platform to automate, monitor, and optimize business processes across departments and systems.</p>
+            <div class="outcome-ribbon">
+              <div class="outcome-card"><strong>Fewer errors</strong><span>Automate routine tasks to reduce human error and improve process consistency.</span></div>
+              <div class="outcome-card"><strong>Faster cycles</strong><span>Speed up approvals and resource utilization across departments.</span></div>
+              <div class="outcome-card"><strong>Full visibility</strong><span>Track workflow execution and performance in real time.</span></div>
+            </div>
+          </div>
+          <div class="manifesto-lines reveal">
+            <div class="manifesto-line"><div class="num">01</div><h3>Critical processes span many applications and teams.</h3></div>
+            <div class="manifesto-line"><div class="num">02</div><h3>Manual handoffs create delays, errors, and cost.</h3></div>
+            <div class="manifesto-line"><div class="num">03</div><h3>Approvals stall in inboxes, spreadsheets, and chat.</h3></div>
+            <div class="manifesto-line"><div class="num">04</div><h3>Leaders lack real-time visibility into performance.</h3></div>
+            <div class="manifesto-line"><div class="num">05</div><h3>Adding more point tools only deepens the fragmentation.</h3></div>
+            <div class="manifesto-line highlight"><div class="num">06</div><h3>Qubi Flow Orchestrator connects it all in one centralized, governed platform.</h3></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. HOW IT WORKS -->
+    <section class="how section-pad" id="how">
+      <div class="site-shell">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">How qubi works</div><h2>Design, deploy, and run workflows visually.</h2></div>
+          <p>A visual workflow environment lets business users create rules, define approvals, and integrate external systems—without deep technical expertise. qubi coordinates agents, automation, and people from intake to outcome.</p>
+        </div>
+        <div class="steps reveal">
+          <article class="step"><span class="step-no">01</span><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><h3>Design</h3><p>Build workflows visually—define rules, approval processes, and business logic without extensive coding.</p><span class="step-arrow">→</span></article>
+          <article class="step"><span class="step-no">02</span><div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7 7.5 10.5 16"/><path d="M17 7.5 13.5 16"/><path d="M7.5 6h9"/></svg></div><h3>Integrate</h3><p>Connect CRM, ERP, HR, support tools, databases, APIs, and cloud services into end-to-end processes.</p><span class="step-arrow">→</span></article>
+          <article class="step"><span class="step-no">03</span><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></div><h3>Automate</h3><p>Trigger AI agents, bots, notifications, and task assignments to move work forward automatically.</p><span class="step-arrow">→</span></article>
+          <article class="step"><span class="step-no">04</span><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"/><path d="m9 11.5 2 2 4-4"/></svg></div><h3>Govern</h3><p>Apply role-based access, approvals, and controls so processes execute securely and consistently.</p><span class="step-arrow">→</span></article>
+          <article class="step"><span class="step-no">05</span><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l3.5-4 3 3L21 7"/></svg></div><h3>Monitor</h3><p>Track execution through dashboards and analytics to spot bottlenecks and optimization opportunities.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. USE CASES + INTEGRATIONS -->
+    <section class="use-cases section-pad" id="use-cases">
+      <div class="site-shell">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">Solutions + integrations</div><h2>Built around the work your teams already do.</h2></div>
+          <p>From employee onboarding to invoice approvals, procurement, compliance, and IT service management—qubi works across the enterprise stack instead of asking teams to replace it.</p>
+        </div>
+        <div class="use-grid reveal">
+          <div class="use-tabs">
+            <button class="use-tab active" data-use="operations">Operations <span>↗</span></button>
+            <button class="use-tab" data-use="finance">Finance <span>↗</span></button>
+            <button class="use-tab" data-use="hr">Human resources <span>↗</span></button>
+            <button class="use-tab" data-use="service">Customer service <span>↗</span></button>
+            <button class="use-tab" data-use="it">IT service mgmt <span>↗</span></button>
+          </div>
+          <div class="use-panel">
+            <h3 id="use-title">Keep complex operations moving.</h3>
+            <p id="use-copy">Coordinate requests, documents, approvals, exceptions, and downstream actions across people and systems—without losing visibility between steps.</p>
+            <div class="scenario"><small>Example workflow</small><p id="use-scenario">A request arrives, qubi gathers context, assigns the right agents, updates systems, routes an exception for approval, and confirms completion.</p></div>
+            <div class="integration-cloud">
+              <div class="integration-core">qubi</div>
+              <span class="logo-chip chip-1">CRM</span><span class="logo-chip chip-2">ERP</span><span class="logo-chip chip-3">HR</span><span class="logo-chip chip-4">Support</span><span class="logo-chip chip-5">Cloud</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. BUILT FOR ENTERPRISE -->
+    <section class="enterprise section-pad" id="enterprise">
+      <div class="site-shell">
+        <div class="enterprise-intro reveal">
+          <div><div class="eyebrow">Built for enterprise</div><h2>Powerful enough to act.<br><em>Controlled enough to trust.</em></h2></div>
+          <div class="enterprise-intro-copy"><p>Qubi Flow Orchestrator is built for the reality of enterprise work: sensitive data, role-based permissions, regulated decisions, multiple teams, and workflows that must scale with the business while people stay accountable.</p><div class="confidence-strip"><span>Process automation</span><span>Role-based access control</span><span>Real-time monitoring</span><span>Workflow analytics</span><span>Scalable architecture</span></div></div>
+        </div>
+        <div class="enterprise-grid reveal">
+          <article class="confidence-main">
+            <div><span class="confidence-kicker">The control layer</span><h3>AI that knows when to act—and when to ask.</h3><p>Set the boundaries once. qubi automates routine work, pauses for approval at critical moments, enforces role-based permissions, and records every decision with a complete audit trail.</p></div>
+            <div class="control-flow">
+              <div class="control-ring"><div class="control-core">Human<br>control</div></div>
+              <span class="control-chip one">AI agent</span><span class="control-chip two">Policy check</span><span class="control-chip three">System action</span><span class="control-chip four">Approval gate</span>
+            </div>
+          </article>
+          <div class="confidence-side">
+            <article class="confidence-card"><div><div class="confidence-icon">◈</div><h3>Role-based access control</h3><p>Ensure secure workflow management and data protection across every team and environment.</p></div><ul><li>Granular permissions</li><li>Governed data access</li><li>Policy-aligned execution</li></ul></article>
+            <article class="confidence-card"><div><div class="confidence-icon">↗</div><h3>System integration</h3><p>Connect enterprise applications, databases, APIs, and third-party platforms into one flow.</p></div><ul><li>CRM, ERP &amp; HR systems</li><li>Support &amp; cloud services</li><li>Existing stack stays in place</li></ul></article>
+            <article class="confidence-card"><div><div class="confidence-icon">▦</div><h3>Real-time monitoring</h3><p>Track workflow execution and performance through dashboards and analytics.</p></div><div class="visibility-mini"><i></i><i></i><i></i><i></i><i></i></div></article>
+            <article class="confidence-card"><div><div class="confidence-icon">⤢</div><h3>Scalable architecture</h3><p>Support growing business needs with enterprise-grade scalability—start with one workflow and extend across departments.</p></div><ul><li>Enterprise-grade scale</li><li>Reusable workflow patterns</li><li>Cross-functional teams</li></ul></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CUSTOMER SUCCESS -->
+    <section class="proof section-pad" id="customers">
+      <div class="site-shell">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">Customer success</div><h2>Proof that orchestration changes the work.</h2></div>
+          <p>Use this section for validated customer stories and approved performance metrics. The cards below demonstrate the intended presentation.</p>
+        </div>
+        <div class="story-grid reveal">
+          <article class="story-main"><span class="story-tag">Featured customer story</span><blockquote>One intelligent flow replaced the gaps between people, systems, and automation.</blockquote><div class="story-foot"><div class="story-metric"><strong>End-to-end</strong><span>visibility from request through resolution</span></div><a class="btn btn-light" href="https://myqubi.com/customers" target="_blank" rel="noreferrer">Read the story →</a></div></article>
+          <div class="story-side"><article class="story-card"><div><span class="eyebrow">Finance</span><h3>Faster invoice approvals, fewer errors.</h3><p>See how qubi coordinates document processing, policy checks, approvals, and ERP actions.</p></div><a href="https://myqubi.com/customers" target="_blank" rel="noreferrer">View customer story →</a></article><article class="story-card"><div><span class="eyebrow">Human resources</span><h3>Onboarding without fragmented handoffs.</h3><p>Automated document collection, access provisioning, approvals, and communication in one flow.</p></div><a href="https://myqubi.com/customers" target="_blank" rel="noreferrer">View customer story →</a></article></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CTA -->
+    <section class="cta-wrap">
+      <div class="site-shell">
+        <div class="cta reveal">
+          <div class="cta-inner"><div class="eyebrow" style="color:white">See qubi in action</div><h2>Stop adding AI.<br>Start orchestrating it.</h2><p>Watch the complete product walkthrough or bring us a workflow your team wants to improve. We’ll show you how qubi can move it from intent to outcome.</p><div class="cta-actions"><button class="btn btn-dark" data-open-video>▶ Watch the demo</button><a class="btn btn-light" href="https://meetings.hubspot.com/maheshv" target="_blank" rel="noreferrer">Book a demo ↗</a></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="site-shell"><div class="footer-grid"><div class="footer-intro"><a class="brand" href="#top"><span class="brand-mark">q</span>qubi <small>by qBotica</small></a><p>The agentic orchestration platform connecting AI agents, automations, systems, and people.</p></div><div class="footer-col"><strong>Product</strong><a href="#why">Why qubi</a><a href="#how">How it works</a><a href="#enterprise">Built for enterprise</a><a href="https://myqubi.com/pricing" target="_blank" rel="noreferrer">Pricing</a></div><div class="footer-col"><strong>Solutions</strong><a href="#use-cases">Operations</a><a href="#use-cases">Finance</a><a href="#use-cases">Human resources</a><a href="#use-cases">IT service mgmt</a></div><div class="footer-col"><strong>Company</strong><a href="https://www.qbotica.com/" target="_blank" rel="noreferrer">qBotica ↗</a><a href="https://myqubi.com/customers" target="_blank" rel="noreferrer">Customers</a><a href="https://meetings.hubspot.com/maheshv" target="_blank" rel="noreferrer">Book a demo</a></div></div><div class="copyright"><span>© 2026 qubi by Qbotica. All rights reserved.</span><span>Privacy Policy · Terms of Service</span></div></div>
+  </footer>
+
+  <div class="modal" id="video-modal" role="dialog" aria-modal="true" aria-label="qubi product demo">
+    <div class="modal-card"><div class="modal-head"><strong>qubi platform — full demo</strong><button class="modal-close" aria-label="Close video">×</button></div><div class="video-placeholder"><div><div class="big-play">▶</div><h3>Insert the final demo video here</h3><p>Replace this placeholder with the approved YouTube, Vimeo, Wistia, or hosted MP4 embed. The modal and responsive 16:9 video container are already built.</p></div></div></div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('video-modal');
+    document.querySelectorAll('[data-open-video]').forEach(el => el.addEventListener('click', () => { modal.classList.add('open'); document.body.style.overflow='hidden'; }));
+    document.querySelector('.modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+    function closeModal(){ modal.classList.remove('open'); document.body.style.overflow=''; }
+
+    const useContent = {
+      operations: ['Keep complex operations moving.','Coordinate procurement, document processing, approvals, exceptions, and downstream actions across people and systems—without losing visibility between steps.','A procurement request arrives, qubi gathers context, validates against policy, routes approvals, updates the ERP, and confirms completion.'],
+      finance: ['Automate invoice approvals end to end.','Connect document processing, policy checks, approvals, ERP actions, and reporting in one governed workflow—reducing delays and improving financial controls.','An invoice is captured, validated against policy and purchase orders, routed for approval, posted, and monitored for exceptions.'],
+      hr: ['Streamline employee onboarding.','Orchestrate onboarding, access requests, policy questions, approvals, and employee data across HR and IT systems so new hires get what they need on day one.','A new-hire request triggers document collection, system access provisioning, task assignment, manager approvals, and employee communication.'],
+      service: ['Automate ticket routing and escalation.','Give service teams an agentic layer that understands context, routes tickets, and completes the downstream work required to resolve each request.','qubi interprets the request, checks account history, routes and escalates the ticket, performs permitted actions, and records the outcome.'],
+      it: ['Turn IT requests into governed execution.','Automate IT service management—connect intake with knowledge, ticketing, identity, automation, and human escalation.','qubi diagnoses the issue, retrieves trusted guidance, executes approved remediation, and hands off complex cases with full context.']
+    };
+    document.querySelectorAll('.use-tab').forEach(tab => tab.addEventListener('click', () => {
+      document.querySelectorAll('.use-tab').forEach(t=>t.classList.remove('active')); tab.classList.add('active');
+      const c=useContent[tab.dataset.use];
+      document.getElementById('use-title').textContent=c[0]; document.getElementById('use-copy').textContent=c[1]; document.getElementById('use-scenario').textContent=c[2];
+    }));
+
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); }), {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
 </html>
