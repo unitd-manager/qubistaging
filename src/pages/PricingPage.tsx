@@ -145,7 +145,7 @@ const PricingPage = () => {
   const plansEyebrow = plansSection?.attributes?.template ?? "Plans";
   const plansHeading = plansSection?.attributes?.section_title ?? "Execution programs for every scale";
   const plansSub = stripHtml(plansSection?.attributes?.description) || "All plans are custom-scoped. These are starting frameworks â€” contact us for a tailored proposal.";
-  const plansCtaUrl = plansSection?.attributes?.display_type ?? "https://meetings.hubspot.com/maheshv";
+  const plansCtaUrl = plansSection?.attributes?.display_type ?? "https://meetings.hubspot.com/enterprisedemo/qubi-consultation";
   const apiPlans = plansCats?.data ?? [];
   const plans = apiPlans.map(mapPlan);
 
@@ -174,7 +174,7 @@ const PricingPage = () => {
   const ctaHeading = ctaA?.section_title ?? "Get a custom proposal for your workflow";
   const ctaSub = stripHtml(ctaA?.description) || "Every engagement starts with a 30-minute discovery call. We'll scope your workflow, define success metrics, and provide a tailored proposal.";
   const ctaPrimaryLabel = ctaA?.display_type ?? "Book a Discovery Call";
-  const ctaUrl = ctaA?.external_link ?? "https://meetings.hubspot.com/maheshv";
+  const ctaUrl = ctaA?.external_link ?? "https://meetings.hubspot.com/enterprisedemo/qubi-consultation";
   const ctaSecondaryLabel = ctaA?.internal_link ?? "Talk to an Expert";
 
   if (seoLoading) {

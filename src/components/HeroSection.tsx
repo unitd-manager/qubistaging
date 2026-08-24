@@ -65,7 +65,7 @@ const HeroSection = () => {
   const subheading =
     liveSubheading ?? bootstrappedHero?.subheading;
   const ctaLabel = a?.display_type ?? bootstrappedHero?.ctaLabel ?? "Book a Demo";
-  const ctaUrl = a?.external_link ?? bootstrappedHero?.ctaUrl ?? "https://meetings.hubspot.com/maheshv";
+  const ctaUrl = a?.external_link ?? bootstrappedHero?.ctaUrl ?? "https://meetings.hubspot.com/enterprisedemo/qubi-consultation";
   const imageSrcSet = getHeroImageSrcSet(heroImage);
 
   return (

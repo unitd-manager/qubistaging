@@ -77,7 +77,7 @@ const BlogPage = () => {
     cta?.attributes.description ??
     "Monthly perspectives on enterprise AI execution, case studies, and operational best practices.";
   const ctaBtn = cta?.attributes.display_type ?? "Subscribe";
-  const ctaUrl = cta?.attributes?.external_link ?? "https://meetings.hubspot.com/maheshv";
+  const ctaUrl = cta?.attributes?.external_link ?? "https://meetings.hubspot.com/enterprisedemo/qubi-consultation";
 
   if (seoLoading) {
     return (

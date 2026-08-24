@@ -148,7 +148,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center justify-end flex-shrink-0">
           <Button asChild variant="hero" size="lg">
-            <a href="https://meetings.hubspot.com/maheshv" target="_blank" rel="noopener noreferrer">
+            <a href="https://meetings.hubspot.com/enterprisedemo/qubi-consultation" target="_blank" rel="noopener noreferrer">
               Book a Demo
             </a>
           </Button>
@@ -232,7 +232,7 @@ const Navbar = () => {
           })}
 
           <Button asChild variant="hero" size="lg" className="w-full mt-2">
-            <a href="https://meetings.hubspot.com/maheshv" target="_blank" rel="noopener noreferrer" className="block w-full">
+            <a href="https://meetings.hubspot.com/enterprisedemo/qubi-consultation" target="_blank" rel="noopener noreferrer" className="block w-full">
               Book a Demo
             </a>
           </Button>

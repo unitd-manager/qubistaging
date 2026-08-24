@@ -38,7 +38,7 @@ const DemoPage = () => {
   const heroBadge = hero?.attributes.display_type ?? "Product Demo";
   const heroSub = hero?.attributes.description ?? "Watch real AI execution not slides, not a prototype. qubi reading documents, making decisions, and posting to enterprise systems in minutes.";
   const heroCtaLabel = hero?.attributes.internal_link ?? "Book a Live Demo";
-  const heroCtaUrl = hero?.attributes.external_link ?? "https://meetings.hubspot.com/maheshv";
+  const heroCtaUrl = hero?.attributes.external_link ?? "https://meetings.hubspot.com/enterprisedemo/qubi-consultation";
   const capsBadge = capsSection?.attributes.display_type ?? "On-Demand Demos";
   const capsTitle = capsSection?.attributes.section_title ?? "Explore specific capabilities";
   const clips = (clipsData?.data ?? []).map((c) => ({ id: c.id, title: c.attributes.category_title, duration: c.attributes.description_short ?? "", description: c.attributes.description ?? "", highlights: (c.attributes.internal_link ?? "").split("|").filter(Boolean) }));

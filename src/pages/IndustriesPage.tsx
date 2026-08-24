@@ -135,7 +135,7 @@ const IndustriesPage = () => {
   const heroHeading = heroA?.section_title ?? "Industries and Workflows We Run";
   const heroSub = stripHtml(heroA?.description) || "From financial services to healthcare, we handle the complexity of real enterprise operations. End-to-end execution, as a managed service.";
   const heroCta = heroA?.display_type ?? "Talk to an Industry Expert";
-  const heroUrl = heroA?.external_link ?? "https://meetings.hubspot.com/maheshv";
+  const heroUrl = heroA?.external_link ?? "https://meetings.hubspot.com/enterprisedemo/qubi-consultation";
 
   const whatA = whatData?.section?.attributes;
   const whatHeading = whatA?.section_title ?? "What qBotica actually does";
@@ -165,7 +165,7 @@ const IndustriesPage = () => {
   const ctaHeading = ctaA?.section_title ?? "Don't see your industry? Let's talk.";
   const ctaSub = stripHtml(ctaA?.description) || "We work across any industry where documents, decisions, and system actions need to happen together. Tell us your workflow.";
   const ctaLabel = ctaA?.display_type ?? "Book a Demo";
-  const ctaUrl = ctaA?.external_link ?? "https://meetings.hubspot.com/maheshv";
+  const ctaUrl = ctaA?.external_link ?? "https://meetings.hubspot.com/enterprisedemo/qubi-consultation";
 
   if (seoLoading) {
     return (

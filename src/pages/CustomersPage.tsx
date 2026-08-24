@@ -160,7 +160,7 @@ const CustomersPage = () => {
   const ctaHeading = ctaA?.section_title ?? "Become our next success story";
   const ctaSub = stripHtml(ctaA?.description) || "Tell us your most critical workflow. In 30 minutes, we'll show you exactly how qubi executes it end-to-end.";
   const ctaLabel = ctaA?.display_type ?? "Book a Demo";
-  const ctaUrl = ctaA?.external_link ?? "https://meetings.hubspot.com/maheshv";
+  const ctaUrl = ctaA?.external_link ?? "https://meetings.hubspot.com/enterprisedemo/qubi-consultation";
 
   if (seoLoading) {
     return (
