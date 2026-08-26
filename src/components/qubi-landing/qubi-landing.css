@@ -1,265 +1,802 @@
 .qubi-landing {
-      --orange: #ff5a1f;
-      --orange-bright: #ff6a2a;
-      --orange-soft: #ffebe3;
-      --ink: #171614;
-      --muted: #69645f;
-      --cream: #f7f2ea;
-      --paper: #fffdf9;
-      --line: rgba(23, 22, 20, 0.13);
-      --dark: #12110f;
-      --green: #4f7c68;
-      --radius-lg: 34px;
-      --radius-md: 22px;
-      --shadow: 0 24px 80px rgba(31, 24, 18, 0.12);
-    }
+  --orange: #ff5a1f;
+  --orange-bright: #ff6a2a;
+  --orange-soft: #ffebe3;
+  --ink: #171614;
+  --muted: #69645f;
+  --cream: #f7f2ea;
+  --paper: #fffdf9;
+  --line: rgba(23, 22, 20, 0.13);
+  --dark: #12110f;
+  --green: #4f7c68;
+  --radius-lg: 34px;
+  --radius-md: 22px;
+  --shadow: 0 24px 80px rgba(31, 24, 18, 0.12);
+}
 
-.qubi-landing * { box-sizing: border-box; }
-.qubi-landing { scroll-behavior: smooth; }
+.qubi-landing *,
+.qubi-landing *::before,
+.qubi-landing *::after {
+  box-sizing: border-box;
+}
+
 .qubi-landing {
-      margin: 0;
-      color: var(--ink);
-      background: var(--cream);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-.qubi-landing a { color: inherit; text-decoration: none; }
-.qubi-landing button { font: inherit; }
+  scroll-behavior: smooth;
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 
-.qubi-landing .site-shell { width: min(1200px, calc(100% - 32px)); margin: 0 auto; }
+.qubi-landing a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.qubi-landing button {
+  font: inherit;
+}
+
+/* =====================================================
+   COMMON
+===================================================== */
+
+.qubi-landing .site-shell {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
 .qubi-landing .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: .77rem;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.77rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .qubi-landing .eyebrow::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--orange);
-      box-shadow: 0 0 0 6px rgba(255,90,31,.13);
-    }
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 0 6px rgba(255, 90, 31, 0.13);
+}
 
-/* Navigation */
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
 .qubi-landing .nav-wrap {
-      position: fixed;
-      inset: 18px 0 auto;
-      z-index: 50;
-      pointer-events: none;
-    }
-.qubi-landing .nav {
-      pointer-events: auto;
-      width: min(1180px, calc(100% - 36px));
-      margin: 0 auto;
-      padding: 10px 12px 10px 20px;
-      border: 1px solid rgba(255,255,255,.72);
-      border-radius: 999px;
-      background: rgba(255,253,249,.82);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 12px 44px rgba(25,19,14,.11);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: transform .25s ease, background .25s ease;
-    }
-.qubi-landing .brand { display:flex; align-items:center; gap:4px; font-weight:900; letter-spacing:-.04em; font-size:1.35rem; }
-.qubi-landing .brand-mark {
-      height: 38px; width: auto; object-fit: contain; display: block;
-    }
-.qubi-landing .brand small { color: var(--muted); font-weight:700; font-size:.85rem; letter-spacing:.04em; margin-left:2px; margin-right:6px; white-space: nowrap; }
-.qubi-landing .brand-mark-secondary { height: 20px; width: auto; object-fit: contain; display: block; }
-.qubi-landing .nav-links { display:flex; gap: 28px; align-items:center; font-size:.88rem; font-weight:700; }
-.qubi-landing .nav-links a { color:#3c3935; }
-.qubi-landing .nav-actions { display:flex; align-items:center; gap:10px; }
-.qubi-landing .nav-watch { border:0; background:transparent; font-weight:800; cursor:pointer; padding:11px 14px; }
-.qubi-landing .btn {
-      border: 0;
-      border-radius: 999px;
-      padding: 14px 20px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      font-weight:850;
-      cursor:pointer;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-.qubi-landing .btn:hover { transform: translateY(-2px); }
-.qubi-landing .btn-orange { background:var(--orange); color:white; box-shadow:0 10px 28px rgba(255,90,31,.27); }
-.qubi-landing .btn-dark { background:var(--ink); color:white; }
-.qubi-landing .btn-light { background:rgba(255,255,255,.9); color:var(--ink); border:1px solid var(--line); }
+  position: fixed;
+  inset: 18px 0 auto;
+  z-index: 50;
+  pointer-events: none;
+}
 
-/* Hero */
+.qubi-landing .nav {
+  pointer-events: auto;
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 10px 12px 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.82);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 12px 44px rgba(25, 19, 14, 0.11);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.qubi-landing .brand {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  font-size: 1.35rem;
+}
+
+.qubi-landing .brand-mark {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.qubi-landing .brand small {
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  margin-left: 2px;
+  margin-right: 6px;
+  white-space: nowrap;
+}
+
+.qubi-landing .brand-mark-secondary {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.qubi-landing .nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.qubi-landing .nav-links a {
+  color: #3c3935;
+}
+
+.qubi-landing .nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qubi-landing .nav-watch {
+  border: 0;
+  background: transparent;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 11px 14px;
+}
+
+.qubi-landing .btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 850;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.qubi-landing .btn:hover {
+  transform: translateY(-2px);
+}
+
+.qubi-landing .btn-orange {
+  background: var(--orange);
+  color: white;
+  box-shadow: 0 10px 28px rgba(255, 90, 31, 0.27);
+}
+
+.qubi-landing .btn-dark {
+  background: var(--ink);
+  color: white;
+}
+
+.qubi-landing .btn-light {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
 .qubi-landing .hero {
-      position: relative;
-      min-height: 930px;
-      padding: 148px 0 78px;
-      overflow: hidden;
-    }
+  position: relative;
+  min-height: 930px;
+  padding: 148px 0 78px;
+  overflow: hidden;
+}
+
 .qubi-landing .hero::before {
-      content:"";
-      position:absolute;
-      width:760px; height:760px;
-      right:-240px; top:-180px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(255,90,31,.22), rgba(255,90,31,0) 67%);
-      filter:blur(3px);
-    }
+  content: "";
+  position: absolute;
+  width: 760px;
+  height: 760px;
+  right: -240px;
+  top: -180px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 90, 31, 0.22),
+    rgba(255, 90, 31, 0) 67%
+  );
+  filter: blur(3px);
+}
+
 .qubi-landing .hero::after {
-      content:"";
-      position:absolute;
-      width:440px; height:440px;
-      left:-250px; bottom:10px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(117,143,128,.18), transparent 70%);
-    }
+  content: "";
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  left: -250px;
+  bottom: 10px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(117, 143, 128, 0.18),
+    transparent 70%
+  );
+}
+
 .qubi-landing .hero-grid {
-      position:relative; z-index:2;
-      display:grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: clamp(34px, 6vw, 90px);
-      align-items:center;
-    }
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(34px, 6vw, 90px);
+  align-items: center;
+}
+
 .qubi-landing .hero-copy h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.15rem, 5.35vw, 5.3rem);
-      line-height:.86;
-      letter-spacing:-.075em;
-      margin: 28px 0;
-      max-width: 780px;
-      font-weight: 500;
-    }
-.qubi-landing .hero-copy h1 em { color:var(--orange); font-style:italic; }
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.15rem, 5.35vw, 5.3rem);
+  line-height: 0.86;
+  letter-spacing: -0.075em;
+  margin: 28px 0;
+  max-width: 780px;
+  font-weight: 500;
+}
+
+.qubi-landing .hero-copy h1 em {
+  color: var(--orange);
+  font-style: italic;
+}
+
 .qubi-landing .hero-copy p {
-      max-width: 590px;
-      font-size: clamp(1.05rem, 1.45vw, 1.28rem);
-      line-height:1.65;
-      color:#514d48;
-      margin:0 0 34px;
-    }
-.qubi-landing .hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
-.qubi-landing .micro-proof { margin-top:31px; display:flex; gap:20px; align-items:center; color:var(--muted); font-size:.83rem; font-weight:700; }
-.qubi-landing .proof-dots { display:flex; }
-.qubi-landing .proof-dots span { width:28px; height:28px; border-radius:50%; border:2px solid var(--cream); margin-left:-8px; background:#d8d0c5; }
-.qubi-landing .proof-dots span:first-child { margin-left:0; background:#ffb497; }
-.qubi-landing .proof-dots span:nth-child(2){ background:#9fb7aa; }
-.qubi-landing .proof-dots span:nth-child(3){ background:#c8b9df; }
+  max-width: 590px;
+  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  line-height: 1.65;
+  color: #514d48;
+  margin: 0 0 34px;
+}
+
+.qubi-landing .hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.qubi-landing .micro-proof {
+  margin-top: 31px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.qubi-landing .proof-dots {
+  display: flex;
+}
+
+.qubi-landing .proof-dots span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--cream);
+  margin-left: -8px;
+  background: #d8d0c5;
+}
+
+.qubi-landing .proof-dots span:first-child {
+  margin-left: 0;
+  background: #ffb497;
+}
+
+.qubi-landing .proof-dots span:nth-child(2) {
+  background: #9fb7aa;
+}
+
+.qubi-landing .proof-dots span:nth-child(3) {
+  background: #c8b9df;
+}
 
 .qubi-landing .demo-stage {
-      position:relative;
-      min-height:610px;
-      display:grid;
-      place-items:center;
-    }
+  position: relative;
+  min-height: 610px;
+  display: grid;
+  place-items: center;
+}
+
 .qubi-landing .orbit {
-      position:absolute;
-      border:1px dashed rgba(23,22,20,.16);
-      border-radius:50%;
-      animation: qubi-spin 30s linear infinite;
-    }
-.qubi-landing .orbit.one { width:590px; height:590px; }
-.qubi-landing .orbit.two { width:470px; height:470px; animation-direction:reverse; animation-duration:23s; }
-@keyframes qubi-spin { to { transform:rotate(360deg); } }
+  position: absolute;
+  border: 1px dashed rgba(23, 22, 20, 0.16);
+  border-radius: 50%;
+  animation: qubi-spin 30s linear infinite;
+}
+
+.qubi-landing .orbit.one {
+  width: 590px;
+  height: 590px;
+}
+
+.qubi-landing .orbit.two {
+  width: 470px;
+  height: 470px;
+  animation-direction: reverse;
+  animation-duration: 23s;
+}
+
+@keyframes qubi-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =====================================================
+   HERO FLOAT PILLS
+===================================================== */
+
 .qubi-landing .float-pill {
-      position:absolute;
-      z-index:3;
-      padding:11px 15px;
-      border-radius:999px;
-      background:var(--paper);
-      border:1px solid var(--line);
-      box-shadow:0 12px 32px rgba(30,24,19,.12);
-      font-weight:800;
-      font-size:.76rem;
-      display:flex; align-items:center; gap:8px;
-    }
-.qubi-landing .float-pill i { width:9px; height:9px; border-radius:50%; background:var(--orange); }
-.qubi-landing .pill-1 { top:2%; left:-5%; transform:rotate(-5deg); }
-.qubi-landing .pill-2 { top:1%; right:-4%; transform:rotate(6deg); }
-.qubi-landing .pill-3 { bottom:3%; left:-8%; transform:rotate(4deg); }
-.qubi-landing .pill-4 { bottom:1%; right:-2%; transform:rotate(-6deg); }
+  position: absolute;
+  z-index: 3;
+  padding: 11px 15px;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 32px rgba(30, 24, 19, 0.12);
+  font-weight: 800;
+  font-size: 0.76rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qubi-landing .float-pill i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.qubi-landing .pill-1 {
+  top: 2%;
+  left: -5%;
+  transform: rotate(-5deg);
+}
+
+.qubi-landing .pill-2 {
+  top: 1%;
+  right: -4%;
+  transform: rotate(6deg);
+}
+
+.qubi-landing .pill-3 {
+  bottom: 3%;
+  left: -8%;
+  transform: rotate(4deg);
+}
+
+.qubi-landing .pill-4 {
+  bottom: 1%;
+  right: -2%;
+  transform: rotate(-6deg);
+}
+
+/* =====================================================
+   HERO PRODUCT WINDOW
+===================================================== */
 
 .qubi-landing .product-window {
-      position:relative;
-      z-index:4;
-      width:min(100%, 680px);
-      height:485px;
-      border-radius:30px;
-      border:1px solid rgba(255,255,255,.55);
-      background:#1b1a18;
-      box-shadow: 0 42px 100px rgba(29,22,16,.26);
-      overflow:hidden;
-      transform:rotate(1.2deg);
-    }
-.qubi-landing .window-top { height:46px; display:flex; align-items:center; justify-content:space-between; padding:0 18px; border-bottom:1px solid rgba(255,255,255,.09); color:white; }
-.qubi-landing .window-dots { display:flex; gap:7px; }
-.qubi-landing .window-dots span { width:9px; height:9px; border-radius:50%; background:#4d4a46; }
-.qubi-landing .window-title { font-size:.75rem; color:#aaa59f; font-weight:700; }
-.qubi-landing .window-body { display:grid; grid-template-columns:165px 1fr; height:calc(100% - 52px); }
-.qubi-landing .sidebar { padding:22px 14px; border-right:1px solid rgba(255,255,255,.08); color:#d7d3cf; }
-.qubi-landing .side-logo { font-weight:900; color:white; margin:0 8px 25px; }
-.qubi-landing .side-item { padding:10px 11px; border-radius:10px; font-size:.73rem; margin-bottom:5px; color:#a7a29c; }
-.qubi-landing .side-item.active { background:rgba(255,90,31,.14); color:#ff8a60; }
-.qubi-landing .workspace { position:relative; padding:24px; background:linear-gradient(150deg,#22211f,#151412); }
-.qubi-landing .workspace-head { display:flex; justify-content:space-between; align-items:start; color:white; }
-.qubi-landing .workspace-head h3 { margin:0; font-size:1.05rem; }
-.qubi-landing .workspace-head p { margin:6px 0 0; color:#8f8a84; font-size:.7rem; }
-.qubi-landing .status { color:#8fd3ad; font-size:.65rem; font-weight:800; background:rgba(83,155,112,.12); padding:7px 10px; border-radius:999px; }
-.qubi-landing .flow-canvas { position:absolute; inset:92px 22px 25px; border-radius:18px; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size:18px 18px; border:1px solid rgba(255,255,255,.06); overflow:hidden; }
-.qubi-landing .flow-line { position:absolute; height:2px; background:linear-gradient(90deg,var(--orange),#7d7a74); transform-origin:left; opacity:.85; }
-.qubi-landing .line-a { width:116px; left:75px; top:90px; transform:rotate(13deg); }
-.qubi-landing .line-b { width:122px; left:224px; top:117px; transform:rotate(-11deg); }
-.qubi-landing .line-c { width:116px; left:352px; top:95px; transform:rotate(20deg); }
-.qubi-landing .line-d { width:160px; left:220px; top:203px; transform:rotate(4deg); }
-.qubi-landing .flow-node { position:absolute; width:112px; min-height:69px; padding:12px; background:#2b2926; border:1px solid rgba(255,255,255,.11); border-radius:15px; color:white; box-shadow:0 10px 30px rgba(0,0,0,.22); }
-.qubi-landing .flow-node strong { display:block; font-size:.7rem; margin-bottom:5px; }
-.qubi-landing .flow-node span { font-size:.58rem; color:#9c9791; line-height:1.35; display:block; }
-.qubi-landing .flow-node b { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--orange); margin-right:5px; }
-.qubi-landing .node-1 { left:20px; top:54px; }
-.qubi-landing .node-2 { left:180px; top:90px; }
-.qubi-landing .node-3 { left:330px; top:48px; }
-.qubi-landing .node-4 { left:390px; top:190px; }
-.qubi-landing .node-5 { left:165px; top:190px; }
-.qubi-landing .play-overlay { position:absolute; inset:0; display:grid; place-items:center; background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.16)); cursor:pointer; z-index:10; }
-.qubi-landing .play-button { width:88px; height:88px; border-radius:50%; border:1px solid rgba(255,255,255,.34); background:rgba(255,255,255,.94); color:var(--orange); display:grid; place-items:center; font-size:1.5rem; box-shadow:0 18px 42px rgba(0,0,0,.28); transition:.25s; }
-.qubi-landing .play-overlay:hover .play-button { transform:scale(1.08); background:var(--orange); color:white; }
-.qubi-landing .demo-label { position:absolute; z-index:6; bottom:42px; right:35px; background:var(--orange); color:white; padding:15px 18px; border-radius:18px; transform:rotate(-4deg); box-shadow:0 18px 34px rgba(255,90,31,.28); }
-.qubi-landing .demo-label strong { display:block; font-size:.85rem; }
-.qubi-landing .demo-label span { font-size:.68rem; opacity:.82; }
+  position: relative;
+  z-index: 4;
+  width: min(100%, 680px);
+  height: 485px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: #1b1a18;
+  box-shadow: 0 42px 100px rgba(29, 22, 16, 0.26);
+  overflow: hidden;
+  transform: rotate(1.2deg);
+}
 
-/* Ticker */
-.qubi-landing .ticker { background:var(--orange); color:white; overflow:hidden; transform:rotate(-1.1deg) scale(1.02); position:relative; z-index:5; }
-.qubi-landing .ticker-track { display:flex; gap:52px; width:max-content; padding:16px 0; animation: qubi-marquee 25s linear infinite; font-weight:900; text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; }
-.qubi-landing .ticker-track span::after { content:"✦"; margin-left:52px; }
-@keyframes qubi-marquee { to { transform:translateX(-50%); } }
+.qubi-landing .window-top {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  color: white;
+}
 
-/* Shared sections */
-.qubi-landing section { position:relative; }
-.qubi-landing .section-pad { padding: 130px 0; }
-.qubi-landing .section-head { display:flex; justify-content:space-between; gap:42px; align-items:start; margin-bottom:60px; }
-.qubi-landing .section-head h2 { font-family:Georgia,serif; font-weight:500; letter-spacing:-.06em; line-height:.95; font-size:clamp(3rem,5.4vw,6rem); margin:18px 0 0; width:100%; max-width:none; text-align: left;}
-.qubi-landing .section-head p { max-width:500px; line-height:1.7; color:var(--muted); margin:0; padding-top:0; font-size:1.18rem; }
+.qubi-landing .window-dots {
+  display: flex;
+  gap: 7px;
+}
 
-/* Why */
-.qubi-landing .why { background:var(--paper); border-radius:52px 52px 0 0; margin-top:32px; overflow:hidden; }
-.qubi-landing .manifesto-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:stretch; }
-.qubi-landing .manifesto-sticky { position: relative; top: auto; height: 100%;
+.qubi-landing .window-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #4d4a46;
+}
+
+.qubi-landing .window-title {
+  font-size: 0.75rem;
+  color: #aaa59f;
+  font-weight: 700;
+}
+
+.qubi-landing .window-body {
+  display: grid;
+  grid-template-columns: 165px 1fr;
+  height: calc(100% - 52px);
+}
+
+.qubi-landing .sidebar {
+  padding: 22px 14px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d7d3cf;
+}
+
+.qubi-landing .side-logo {
+  font-weight: 900;
+  color: white;
+  margin: 0 8px 25px;
+}
+
+.qubi-landing .side-item {
+  padding: 10px 11px;
+  border-radius: 10px;
+  font-size: 0.73rem;
+  margin-bottom: 5px;
+  color: #a7a29c;
+}
+
+.qubi-landing .side-item.active {
+  background: rgba(255, 90, 31, 0.14);
+  color: #ff8a60;
+}
+
+.qubi-landing .workspace {
+  position: relative;
+  padding: 24px;
+  background: linear-gradient(150deg, #22211f, #151412);
+}
+
+.qubi-landing .workspace-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
+}
+
+.qubi-landing .workspace-head h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.qubi-landing .workspace-head p {
+  margin: 6px 0 0;
+  color: #8f8a84;
+  font-size: 0.7rem;
+}
+
+.qubi-landing .status {
+  color: #8fd3ad;
+  font-size: 0.65rem;
+  font-weight: 800;
+  background: rgba(83, 155, 112, 0.12);
+  padding: 7px 10px;
+  border-radius: 999px;
+}
+
+.qubi-landing .flow-canvas {
+  position: absolute;
+  inset: 92px 22px 25px;
+  border-radius: 18px;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.qubi-landing .flow-line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, var(--orange), #7d7a74);
+  transform-origin: left;
+  opacity: 0.85;
+}
+
+.qubi-landing .line-a {
+  width: 116px;
+  left: 75px;
+  top: 90px;
+  transform: rotate(13deg);
+}
+
+.qubi-landing .line-b {
+  width: 122px;
+  left: 224px;
+  top: 117px;
+  transform: rotate(-11deg);
+}
+
+.qubi-landing .line-c {
+  width: 116px;
+  left: 352px;
+  top: 95px;
+  transform: rotate(20deg);
+}
+
+.qubi-landing .line-d {
+  width: 160px;
+  left: 220px;
+  top: 203px;
+  transform: rotate(4deg);
+}
+
+.qubi-landing .flow-node {
+  position: absolute;
+  width: 112px;
+  min-height: 69px;
+  padding: 12px;
+  background: #2b2926;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.qubi-landing .flow-node strong {
+  display: block;
+  font-size: 0.7rem;
+  margin-bottom: 5px;
+}
+
+.qubi-landing .flow-node span {
+  font-size: 0.58rem;
+  color: #9c9791;
+  line-height: 1.35;
+  display: block;
+}
+
+.qubi-landing .flow-node b {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  margin-right: 5px;
+}
+
+.qubi-landing .node-1 {
+  left: 20px;
+  top: 54px;
+}
+
+.qubi-landing .node-2 {
+  left: 180px;
+  top: 90px;
+}
+
+.qubi-landing .node-3 {
+  left: 330px;
+  top: 48px;
+}
+
+.qubi-landing .node-4 {
+  left: 390px;
+  top: 190px;
+}
+
+.qubi-landing .node-5 {
+  left: 165px;
+  top: 190px;
+}
+
+.qubi-landing .play-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    180deg,
+    transparent 30%,
+    rgba(0, 0, 0, 0.16)
+  );
+  cursor: pointer;
+  z-index: 10;
+}
+
+.qubi-landing .play-button {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--orange);
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+  transition: 0.25s;
+}
+
+.qubi-landing .play-overlay:hover .play-button {
+  transform: scale(1.08);
+  background: var(--orange);
+  color: white;
+}
+
+/* =====================================================
+   TICKER
+===================================================== */
+
+.qubi-landing .ticker {
+  background: var(--orange);
+  color: white;
+  overflow: hidden;
+  transform: rotate(-1.1deg) scale(1.02);
+  position: relative;
+  z-index: 5;
+}
+
+.qubi-landing .ticker-track {
+  display: flex;
+  gap: 52px;
+  width: max-content;
+  padding: 16px 0;
+  animation: qubi-marquee 25s linear infinite;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.qubi-landing .ticker-track span::after {
+  content: "✦";
+  margin-left: 52px;
+}
+
+@keyframes qubi-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =====================================================
+   SHARED SECTIONS
+===================================================== */
+
+.qubi-landing section {
+  position: relative;
+}
+
+.qubi-landing .section-pad {
+  padding: 130px 0;
+}
+
+.qubi-landing .section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 42px;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.qubi-landing .section-head h2 {
+  font-family: Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  font-size: clamp(3rem, 5.4vw, 6rem);
+  margin: 18px 0 0;
+  width: 100%;
+  max-width: none;
+  text-align: left;
+}
+
+.qubi-landing .section-head p {
+  max-width: 500px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+  padding-top: 0;
+  font-size: 1.18rem;
+}
+
+/* =====================================================
+   WHY
+===================================================== */
+
+.qubi-landing .why {
+  background: var(--paper);
+  border-radius: 52px 52px 0 0;
+  margin-top: 32px;
+  overflow: hidden;
+}
+
+.qubi-landing .manifesto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.qubi-landing .manifesto-sticky {
+  position: relative;
+  top: auto;
+  height: 100%;
   min-height: 100%;
   display: flex;
-  flex-direction: column;}
-.qubi-landing .manifesto-sticky h2 { font-family:Georgia,serif; font-weight:500; font-size:clamp(3rem,4.6vw,5rem); line-height:.94; letter-spacing:-.06em; margin:18px 0 22px; }
-.qubi-landing .manifesto-sticky h2 em { color:var(--orange); font-style:italic; }
-.qubi-landing .manifesto-sticky p { color: #171614; line-height:1.55; max-width: 100%; font-size:1.2rem; margin: 0;}
-.qubi-landing .manifesto-lines { border-top:1px solid var(--line);  width: 100%;}
-.qubi-landing .manifesto-line { min-height: 92px; border-bottom:1px solid var(--line); display:grid; grid-template-columns:38px 1fr; gap: 12px; align-items:center; padding: 14px 0; }
-.qubi-landing .manifesto-line .num { font-family:Georgia,serif; color:var(--orange); font-size: .78rem; line-height: 1;}
-.qubi-landing .manifesto-line h3 { margin:0; font-size:clamp(1rem, 1.35vw,1.35rem); letter-spacing: -.025em; line-height:1.18; font-weight: 600; }
-.qubi-landing .manifesto-line.highlight {  min-height: 105px;
+  flex-direction: column;
+}
+
+.qubi-landing .manifesto-sticky h2 {
+  font-family: Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(3rem, 4.6vw, 5rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+  margin: 18px 0 22px;
+}
+
+.qubi-landing .manifesto-sticky h2 em {
+  color: var(--orange);
+  font-style: italic;
+}
+
+.qubi-landing .manifesto-sticky p {
+  color: #171614;
+  line-height: 1.55;
+  max-width: 100%;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.qubi-landing .manifesto-lines {
+  border-top: 1px solid var(--line);
+  width: 100%;
+}
+
+.qubi-landing .manifesto-line {
+  min-height: 92px;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.qubi-landing .manifesto-line .num {
+  font-family: Georgia, serif;
+  color: var(--orange);
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.qubi-landing .manifesto-line h3 {
+  margin: 0;
+  font-size: clamp(1rem, 1.35vw, 1.35rem);
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  font-weight: 600;
+}
+
+.qubi-landing .manifesto-line.highlight {
+  min-height: 105px;
   margin: 0;
   padding: 18px 20px;
   border-radius: 18px;
@@ -268,59 +805,182 @@
   display: grid;
   grid-template-columns: 38px 1fr;
   gap: 12px;
-  align-items: center; }
-.qubi-landing .manifesto-line.highlight h3 { font-family:Georgia,serif; font-size:clamp(1.25rem, 1.8vw, 1.65rem); font-weight:500; }
-.qubi-landing .outcome-ribbon {  margin-top: 70px;
+  align-items: center;
+}
+
+.qubi-landing .manifesto-line.highlight h3 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-weight: 500;
+}
+
+.qubi-landing .outcome-ribbon {
+  margin-top: 70px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px; }
-.qubi-landing .outcome-card {  min-height:185px;
-  border-radius:var(--radius-md);
-  border:1px solid var(--line);
-  padding:26px;
-  background:var(--cream);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;}
-.qubi-landing .outcome-card:nth-child(2) { background:var(--ink); color:white; transform:translateY(18px) rotate(1deg); }
-.qubi-landing .outcome-card:nth-child(3) { background:var(--orange); color:white; transform:rotate(-1deg); }
-.qubi-landing .outcome-card strong { font-family: Georgia, serif;
+  gap: 15px;
+}
+
+.qubi-landing .outcome-card {
+  min-height: 185px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  padding: 26px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.qubi-landing .outcome-card:nth-child(2) {
+  background: var(--ink);
+  color: white;
+  transform: translateY(18px) rotate(1deg);
+}
+
+.qubi-landing .outcome-card:nth-child(3) {
+  background: var(--orange);
+  color: white;
+  transform: rotate(-1deg);
+}
+
+.qubi-landing .outcome-card strong {
+  font-family: Georgia, serif;
   font-weight: 500;
   font-size: 2rem;
-  line-height: 1; }
-.qubi-landing .outcome-card span { font-size: .8rem;
+  line-height: 1;
+}
+
+.qubi-landing .outcome-card span {
+  font-size: 0.8rem;
   line-height: 1.5;
-  opacity: .75;}
+  opacity: 0.75;
+}
 
-/* How */
-.qubi-landing .how { background:var(--dark); color:white; }
-.qubi-landing .how .section-head p { color:#aaa49d; }
-.qubi-landing .steps { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
-.qubi-landing .step { position:relative; min-height:340px; border-radius:26px; padding:24px; border:1px solid rgba(255,255,255,.11); background:#1b1a18; overflow:hidden; transition:.3s; }
-.qubi-landing .step:hover { transform:translateY(-10px); border-color:rgba(255,90,31,.6); }
-.qubi-landing .step::after { content:""; position:absolute; width:150px; height:150px; border-radius:50%; right:-70px; bottom:-70px; background:radial-gradient(circle,rgba(255,90,31,.25),transparent 70%); }
-.qubi-landing .step-no { color:var(--orange); font-family:Georgia,serif; font-size:1rem; }
-.qubi-landing .step-icon { margin:38px 0 26px; width:56px; height:56px; border-radius:18px; background:rgba(255,90,31,.13); display:grid; place-items:center; font-size:1.4rem; }
-.qubi-landing .step-icon svg { width:26px; height:26px; stroke:var(--orange); stroke-width:1.9; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-.qubi-landing .step h3 { font-size:1.25rem; margin:0 0 12px; }
-.qubi-landing .step p { color:#9f9992; line-height:1.6; font-size:.86rem; margin:0; }
-.qubi-landing .step-arrow { position:absolute; right:-12px; top:50%; width:24px; height:24px; border-radius:50%; background:var(--orange); z-index:3; display:grid; place-items:center; font-size:.7rem; }
+/* =====================================================
+   HOW
+===================================================== */
 
-/* Use cases */
+.qubi-landing .how {
+  background: var(--dark);
+  color: white;
+}
+
+.qubi-landing .how .section-head p {
+  color: #aaa49d;
+}
+
+.qubi-landing .steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.qubi-landing .step {
+  position: relative;
+  min-height: 340px;
+  border-radius: 26px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: #1b1a18;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.qubi-landing .step:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 90, 31, 0.6);
+}
+
+.qubi-landing .step::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  right: -70px;
+  bottom: -70px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 90, 31, 0.25),
+    transparent 70%
+  );
+}
+
+.qubi-landing .step-no {
+  color: var(--orange);
+  font-family: Georgia, serif;
+  font-size: 1rem;
+}
+
+.qubi-landing .step-icon {
+  margin: 38px 0 26px;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: rgba(255, 90, 31, 0.13);
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+}
+
+.qubi-landing .step-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--orange);
+  stroke-width: 1.9;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.qubi-landing .step h3 {
+  font-size: 1.25rem;
+  margin: 0 0 12px;
+}
+
+.qubi-landing .step p {
+  color: #9f9992;
+  line-height: 1.6;
+  font-size: 0.86rem;
+  margin: 0;
+}
+
+.qubi-landing .step-arrow {
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--orange);
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  font-size: 0.7rem;
+}
+
+/* =====================================================
+   USE CASES
+===================================================== */
+
 .qubi-landing .use-cases {
   background: var(--paper);
 }
+
 .qubi-landing .use-grid {
   display: grid;
-  grid-template-columns: .8fr 1.2fr;
+  grid-template-columns: 0.8fr 1.2fr;
   gap: 28px;
   align-items: start;
 }
+
 .qubi-landing .use-tabs {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
+
 .qubi-landing .use-tab {
   position: relative;
   text-align: left;
@@ -334,9 +994,10 @@
   color: #928b84;
   display: block;
   transition:
-    color .3s ease,
-    padding-left .3s ease;
+    color 0.3s ease,
+    padding-left 0.3s ease;
 }
+
 .qubi-landing .use-tab span {
   display: block !important;
   visibility: visible !important;
@@ -344,9 +1005,7 @@
   position: absolute;
   right: 5px;
   top: 50%;
-  transform:
-    translateX(-25px)
-    translateY(-50%);
+  transform: translateX(-25px) translateY(-50%);
   width: auto !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -355,31 +1014,32 @@
   font-weight: 400;
   color: var(--ink);
   transition:
-    opacity .3s ease,
-    transform .45s cubic-bezier(.22, 1, .36, 1);
+    opacity 0.3s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 .qubi-landing .use-tab.active {
   color: var(--ink);
   padding-left: 16px;
 }
+
 .qubi-landing .use-tab.active span {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  transform:
-    translateX(0)
-    translateY(-50%);
+  transform: translateX(0) translateY(-50%);
 }
+
 .qubi-landing .use-tab:hover {
   color: var(--ink);
   padding-left: 16px;
 }
+
 .qubi-landing .use-tab:hover span {
-  opacity: .7 !important;
-  transform:
-    translateX(0)
-    translateY(-50%);
+  opacity: 0.7 !important;
+  transform: translateX(0) translateY(-50%);
 }
+
 .qubi-landing .use-panel {
   min-height: 560px;
   border-radius: 34px;
@@ -388,50 +1048,56 @@
   position: relative;
   overflow: hidden;
 }
+
 .qubi-landing .use-panel h3 {
   font-family: Georgia, serif;
   font-weight: 500;
   font-size: clamp(2.4rem, 4.5vw, 4.4rem);
   line-height: 1;
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
   margin: 0 0 20px;
   max-width: 650px;
 }
+
 .qubi-landing .use-panel > p {
   color: #5f5851;
   max-width: 620px;
   line-height: 1.7;
 }
+
 .qubi-landing .scenario {
   margin-top: 38px;
   width: 100%;
-  max-width: 420px;
+  max-width: 400px;
   min-height: 180px;
-
   box-sizing: border-box;
   padding: 24px;
-
-  background: rgba(255,255,255,.72);
-  border: 1px solid rgba(255,255,255,.8);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 18px;
-
-  box-shadow: 0 20px 50px rgba(86,52,37,.09);
-
+  box-shadow: 0 20px 50px rgba(86, 52, 37, 0.09);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .qubi-landing .scenario small {
   text-transform: uppercase;
-  letter-spacing: .12em;
+  letter-spacing: 0.12em;
   font-weight: 800;
   color: var(--orange);
 }
+
 .qubi-landing .scenario p {
   font-size: 1.02rem;
   line-height: 1.6;
   margin: 12px 0 0;
 }
+
+/* =====================================================
+   USE CASES - QUBI LOGO CLOUD
+===================================================== */
+
 .qubi-landing .integration-cloud {
   position: absolute;
   right: -30px;
@@ -440,37 +1106,52 @@
   height: 310px;
   border-radius: 50%;
   background: var(--paper);
-  box-shadow:
-    0 10px 50px rgba(80,50,35,.09);
+  box-shadow: 0 10px 50px rgba(80, 50, 35, 0.09);
   display: grid;
   place-items: center;
 }
+
 .qubi-landing .integration-cloud::before,
 .qubi-landing .integration-cloud::after {
   content: "";
   position: absolute;
-  border: 1px dashed rgba(23,22,20,.15);
+  border: 1px dashed rgba(23, 22, 20, 0.15);
   border-radius: 50%;
 }
+
 .qubi-landing .integration-cloud::before {
   width: 220px;
   height: 220px;
 }
+
 .qubi-landing .integration-cloud::after {
   width: 145px;
   height: 145px;
 }
+
 .qubi-landing .integration-core {
   width: 74px;
   height: 74px;
   border-radius: 22px;
-  background: var(--orange);
-  color: white;
+  background: rgba(255, 90, 31, 0.1);
+  border: 1.5px solid var(--orange);
+  color: var(--orange);
   display: grid;
   place-items: center;
   font-weight: 900;
   z-index: 2;
+  box-shadow: 0 10px 25px rgba(86, 52, 37, 0.09);
 }
+
+.qubi-landing .integration-core img {
+  width: 42px !important;
+  height: auto !important;
+  max-width: 70%;
+  display: block;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
 .qubi-landing .qubi-use-text {
   position: absolute;
   z-index: 4;
@@ -482,10 +1163,8 @@
   font-weight: 600;
   color: var(--ink);
   white-space: nowrap;
-  transition:
-    opacity .3s ease,
-    transform .35s ease;
 }
+
 .qubi-landing .logo-chip {
   position: absolute;
   z-index: 3;
@@ -493,484 +1172,1162 @@
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 7px 10px;
-  font-size: .6rem;
+  font-size: 0.6rem;
   font-weight: 850;
   white-space: nowrap;
-  box-shadow:
-    0 8px 20px rgba(0,0,0,.08);
-  transition:
-    transform .45s ease,
-    box-shadow .3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
+
 .qubi-landing .chip-1 {
   top: 30px;
   left: 100px;
 }
+
 .qubi-landing .chip-2 {
   top: 95px;
   right: 18px;
 }
+
 .qubi-landing .chip-3 {
   bottom: 70px;
   right: 28px;
 }
+
 .qubi-landing .chip-4 {
   bottom: 45px;
   left: 65px;
 }
+
 .qubi-landing .chip-5 {
   top: 100px;
   left: 5px;
 }
+
 .qubi-landing .integration-cloud .chip-1,
 .qubi-landing .integration-cloud .chip-2,
 .qubi-landing .integration-cloud .chip-3,
 .qubi-landing .integration-cloud .chip-4,
-.qubi-landing .integration-cloud .chip-5 { transform: translate(0, 0) scale(1); }
+.qubi-landing .integration-cloud .chip-5 {
+  transform: translate(0, 0) scale(1);
+}
+
+/* =====================================================
+   BUILT FOR ENTERPRISE
+===================================================== */
+
+.qubi-landing .enterprise {
+  background: var(--cream);
+}
+
+.qubi-landing .enterprise-intro {
+  display: block;
+  width: 100%;
+}
+
+.qubi-landing .enterprise-intro h2 {
+  width: 100%;
+  max-width: none;
+  font-family: Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(3rem, 5.8vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  margin: 16px 0 0;
+  text-align: justify;
+}
+
+.qubi-landing .enterprise-intro h2 em {
+  display: block;
+  width: 100%;
+  text-align: justify;
+  color: var(--orange);
+  font-style: italic;
+}
+
+.qubi-landing .confidence-strip {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 38px;
+  margin-bottom: 55px;
+}
+
+.qubi-landing .confidence-strip span {
+  flex: 1 1 0;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.qubi-landing .enterprise-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 18px;
+}
+
+/* =====================================================
+   ENTERPRISE MAIN WINDOW
+===================================================== */
+
+.qubi-landing .confidence-main {
+  min-height: 590px;
+  border-radius: 34px;
+  padding: 38px;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.qubi-landing .confidence-main::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  right: -210px;
+  top: -220px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 90, 31, 0.65),
+    transparent 67%
+  );
+}
+
+.qubi-landing .confidence-main h3 {
+  position: relative;
+  z-index: 2;
+  font-family: Georgia, serif;
+  font-size: clamp(2.6rem, 4.5vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  margin: 28px 0 14px;
+  max-width: 690px;
+}
+
+.qubi-landing .confidence-main > div > p {
+  position: relative;
+  z-index: 2;
+  color: #b5afa8;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.qubi-landing .confidence-kicker {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+/* =====================================================
+   ENTERPRISE GIF WINDOW
+===================================================== */
+
+.qubi-landing .enterprise-gif-box {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  margin-top: 32px;
+  padding: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #171614;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+/* Window top bar */
+.qubi-landing .enterprise-gif-box::before {
+  content: "";
+  display: block;
+  height: 42px;
+  background: #211f1c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* Window dots */
+.qubi-landing .enterprise-gif-box::after {
+  content: "●  ●  ●";
+  position: absolute;
+  top: 0;
+  left: 16px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  color: #716b64;
+  font-size: 8px;
+  letter-spacing: 4px;
+  z-index: 5;
+}
+
+/* GIF screen */
+.qubi-landing .enterprise-gif-grid {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: #111;
+}
+
+/* Individual GIF */
+.qubi-landing .enterprise-gif {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* GIF image */
+.qubi-landing .enterprise-gif img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Screen overlay */
+.qubi-landing .enterprise-gif-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.02),
+    rgba(0, 0, 0, 0.12)
+  );
+  z-index: 2;
+}
+
+/* =====================================================
+   5 GIF LOOP
+   Each GIF = 5 seconds
+   Total = 25 seconds, no gap
+===================================================== */
+
+.qubi-landing .enterprise-gif-1 {
+  animation: enterpriseGif1 25s infinite;
+}
+
+.qubi-landing .enterprise-gif-2 {
+  animation: enterpriseGif2 25s infinite;
+}
+
+.qubi-landing .enterprise-gif-3 {
+  animation: enterpriseGif3 25s infinite;
+}
+
+.qubi-landing .enterprise-gif-4 {
+  animation: enterpriseGif4 25s infinite;
+}
+
+.qubi-landing .enterprise-gif-5 {
+  animation: enterpriseGif5 25s infinite;
+}
+
+
+@keyframes enterpriseGif1 {
+  0%,
+  19% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  20%,
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes enterpriseGif2 {
+  0%,
+  19% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  20%,
+  39% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  40%,
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes enterpriseGif3 {
+  0%,
+  39% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  40%,
+  59% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  60%,
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes enterpriseGif4 {
+  0%,
+  59% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  60%,
+  79% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  80%,
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes enterpriseGif5 {
+  0%,
+  79% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  80%,
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+
+/* =====================================================
+   WATCH DEMO BUTTON
+===================================================== */
+
+.qubi-landing .enterprise-demo-action {
+  position: relative;
+  z-index: 5;
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.qubi-landing .enterprise-demo-action .btn-orange {
+  padding: 14px 24px;
+}
+
+/* =====================================================
+   ENTERPRISE RIGHT CARDS
+===================================================== */
+
+.qubi-landing .confidence-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.qubi-landing .confidence-card {
+  min-height: 286px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 28px;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.qubi-landing .confidence-card:nth-child(2) {
+  background: var(--orange-soft);
+}
+
+.qubi-landing .confidence-card:nth-child(3) {
+  background: #dfe8e2;
+}
+
+.qubi-landing .confidence-card:nth-child(4) {
+  background: white;
+}
+
+.qubi-landing .confidence-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 17px;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: white;
+  font-size: 1.2rem;
+}
+
+.qubi-landing .confidence-card:nth-child(2) .confidence-icon {
+  background: var(--orange);
+}
+
+.qubi-landing .confidence-card:nth-child(3) .confidence-icon {
+  background: var(--green);
+}
+
+.qubi-landing .confidence-card h3 {
+  font-size: 1.35rem;
+  margin: 22px 0 9px;
+  letter-spacing: -0.035em;
+}
+
+.qubi-landing .confidence-card p {
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.qubi-landing .confidence-card ul {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.qubi-landing .confidence-card li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(23, 22, 20, 0.09);
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+.qubi-landing .confidence-card li::before {
+  content: "✓";
+  color: var(--orange);
+  font-weight: 900;
+}
+
+.qubi-landing .visibility-mini {
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+  height: 70px;
+}
+
+.qubi-landing .visibility-mini i {
+  flex: 1;
+  border-radius: 6px 6px 2px 2px;
+  background: var(--orange);
+  opacity: 0.8;
+}
+
+.qubi-landing .visibility-mini i:nth-child(1) {
+  height: 35%;
+}
+
+.qubi-landing .visibility-mini i:nth-child(2) {
+  height: 62%;
+}
+
+.qubi-landing .visibility-mini i:nth-child(3) {
+  height: 48%;
+}
+
+.qubi-landing .visibility-mini i:nth-child(4) {
+  height: 82%;
+}
+
+.qubi-landing .visibility-mini i:nth-child(5) {
+  height: 70%;
+}
+
+/* =====================================================
+   CUSTOMER SUCCESS / PROOF
+===================================================== */
+
+.qubi-landing .proof {
+  background: var(--paper);
+}
+
+.qubi-landing .story-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+}
+
+.qubi-landing .story-main {
+  min-height: 520px;
+  border-radius: 34px;
+  background: var(--ink);
+  color: white;
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.qubi-landing .story-main::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  right: -180px;
+  top: -120px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 90, 31, 0.55),
+    transparent 70%
+  );
+}
+
+.qubi-landing .story-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.73rem;
+  font-weight: 800;
+}
+
+.qubi-landing .story-main blockquote {
+  font-family: Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  margin: 0;
+  max-width: 730px;
+  position: relative;
+  z-index: 2;
+}
+
+.qubi-landing .story-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+}
+
+.qubi-landing .story-metric strong {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--orange);
+}
+
+.qubi-landing .story-metric span {
+  color: #aaa49d;
+  font-size: 0.78rem;
+}
+
+.qubi-landing .story-side {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+
+.qubi-landing .story-card {
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 30px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+}
+
+.qubi-landing .story-card:nth-child(2) {
+  background: var(--orange-soft);
+  transform: rotate(1deg);
+}
+
+.qubi-landing .story-card h3 {
+  font-family: Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.qubi-landing .story-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.qubi-landing .story-card a {
+  font-weight: 850;
+  font-size: 0.85rem;
+}
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.qubi-landing .cta-wrap {
+  padding: 30px 0 42px;
+  background: var(--paper);
+}
+
+.qubi-landing .cta {
+  min-height: 580px;
+  border-radius: 44px;
+  background: var(--orange);
+  color: white;
+  padding: 70px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.qubi-landing .cta::before,
+.qubi-landing .cta::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+}
+
+.qubi-landing .cta::before {
+  width: 680px;
+  height: 680px;
+}
+
+.qubi-landing .cta::after {
+  width: 430px;
+  height: 430px;
+}
+
+.qubi-landing .cta-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.qubi-landing .cta h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(3.4rem, 7vw, 7.3rem);
+  line-height: 0.88;
+  letter-spacing: -0.065em;
+  font-weight: 500;
+  margin: 0 auto 25px;
+  max-width: 980px;
+}
+
+.qubi-landing .cta p {
+  max-width: 620px;
+  margin: 0 auto 32px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.06rem;
+}
+
+.qubi-landing .cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.qubi-landing footer {
+  background: var(--paper);
+  padding: 48px 0 60px;
+  border-top: 1px solid var(--line);
+}
+
+.qubi-landing .footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 0.6fr);
+  gap: 45px;
+}
+
+.qubi-landing .footer-intro p {
+  color: var(--muted);
+  max-width: 390px;
+  line-height: 1.6;
+  font-size: 0.88rem;
+}
+
+.qubi-landing .footer-col strong {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 0.8rem;
+}
+
+.qubi-landing .footer-col a {
+  display: block;
+  color: var(--muted);
+  margin: 10px 0;
+  font-size: 0.8rem;
+}
+
+.qubi-landing .copyright {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  color: #958f88;
+  font-size: 0.72rem;
+}
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.qubi-landing .modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(12, 11, 10, 0.83);
+  backdrop-filter: blur(12px);
+  display: none;
+  place-items: center;
+  padding: 24px;
+}
+
+.qubi-landing .modal.open {
+  display: grid;
+}
+
+.qubi-landing .modal-card {
+  width: min(1100px, 100%);
+  background: #111;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5);
+}
+
+.qubi-landing .modal-head {
+  height: 58px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.qubi-landing .modal-head strong {
+  font-size: 0.86rem;
+}
+
+.qubi-landing .modal-close {
+  border: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.qubi-landing .video-placeholder {
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 40px;
+  background: radial-gradient(circle at 50% 45%, #382016, #141210 55%);
+  color: white;
+}
+
+.qubi-landing .video-placeholder .big-play {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--orange);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  font-size: 1.5rem;
+}
+
+.qubi-landing .video-placeholder h3 {
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.qubi-landing .video-placeholder p {
+  color: #aaa49d;
+  max-width: 580px;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+.qubi-landing .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.qubi-landing .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =====================================================
+   ENTERPRISE RESPONSIVE
+===================================================== */
+
+@media (max-width: 1050px) {
+  .qubi-landing .nav-links {
+    display: none;
+  }
+
+  .qubi-landing .hero {
+    min-height: auto;
+  }
+
+  .qubi-landing .hero-grid,
+  .qubi-landing .manifesto-grid,
+  .qubi-landing .use-grid,
+  .qubi-landing .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qubi-landing .hero-copy {
+    text-align: center;
+  }
+
+  .qubi-landing .hero-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .qubi-landing .hero-actions,
+  .qubi-landing .micro-proof {
+    justify-content: center;
+  }
+
+  .qubi-landing .demo-stage {
+    margin-top: 15px;
+  }
+
+  .qubi-landing .manifesto-sticky {
+    position: relative;
+    top: auto;
+  }
+
+  .qubi-landing .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .qubi-landing .step:last-child {
+    grid-column: span 2;
+  }
+
+  .qubi-landing .step-arrow {
+    display: none;
+  }
+
+  .qubi-landing .enterprise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qubi-landing .enterprise-intro-copy {
+    justify-self: start;
+  }
+
+  .qubi-landing .confidence-main {
+    min-height: 560px;
+  }
+
+  .qubi-landing .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
 
 @media (max-width: 800px) {
   .qubi-landing .use-grid {
     grid-template-columns: 1fr;
   }
+
   .qubi-landing .use-panel {
     min-height: 620px;
     padding: 30px;
   }
+
   .qubi-landing .integration-cloud {
     right: -80px;
     bottom: -80px;
-    transform: scale(.8);
+    transform: scale(0.8);
     transform-origin: bottom right;
   }
+
   .qubi-landing .qubi-use-text {
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
-}
 
-/* Built for enterprise */
-.qubi-landing .enterprise-intro h2,
-.qubi-landing .use-cases .section-title,
-.qubi-landing .customer-success .section-title,
-.qubi-landing .how-works .section-title {
-  width:100%;
-  max-width:none;
-  text-align:justify;
-}
-.qubi-landing .enterprise-intro h2 em {
-  display:block;
-  width:100%;
-  text-align:justify;
-}
-.qubi-landing .enterprise {
-  background:var(--cream);
-}
-.qubi-landing .enterprise-intro {
-  display:block;
-  width:100%;
-}
-.qubi-landing .enterprise-intro-full {
-  width:100%;
-  max-width:none;
-  display:block;
-}
-.qubi-landing .enterprise-intro h2 {
-  width:100%;
-  max-width:none;
-  font-family:Georgia,serif;
-  font-weight:500;
-  font-size:clamp(3rem,5.8vw,6rem);
-  line-height:.95;
-  letter-spacing:-.06em;
-  margin:16px 0 0;
-  text-align:justify;
-}
-.qubi-landing .enterprise-intro h2 em {
-  display:block;
-  width:100%;
-  text-align:justify;
-  color:var(--orange);
-  font-style:italic;
-}
-.qubi-landing .confidence-strip {
-  width:100%;
-  display:flex;
-  flex-wrap:nowrap;
-  justify-content:space-between;
-  align-items:stretch;
-  gap:12px;
-  margin-top:38px;
-  margin-bottom:55px;
-}
-.qubi-landing .confidence-strip span {
-  flex:1 1 0;
-  width:100%;
-  padding:14px 16px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:rgba(255,255,255,.58);
-  font-size:.92rem;
-  font-weight:800;
-  text-align:center;
-  white-space:nowrap;
-}
-.qubi-landing .enterprise-grid {
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:18px;
-}
-.qubi-landing .confidence-main {
-  min-height:590px;
-  border-radius:34px;
-  padding:38px;
-  position:relative;
-  overflow:hidden;
-  color:white;
-  background:var(--ink);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-.qubi-landing .confidence-main::before {
-  content:"";
-  position:absolute;
-  width:520px;
-  height:520px;
-  border-radius:50%;
-  right:-210px;
-  top:-220px;
-  background:radial-gradient(
-    circle,
-    rgba(255,90,31,.65),
-    transparent 67%
-  );
-}
-.qubi-landing .confidence-main::after {
-  content:"";
-  position:absolute;
-  inset:auto 38px 38px;
-  height:250px;
-  border-radius:26px;
-  border:1px solid rgba(255,255,255,.1);
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.08),
-    rgba(255,255,255,.025)
-  );
-}
-.qubi-landing .confidence-kicker {
-  position:relative;
-  z-index:2;
-  display:inline-flex;
-  align-self:flex-start;
-  padding:9px 12px;
-  border-radius:999px;
-  background:rgba(255,255,255,.1);
-  font-size:.72rem;
-  font-weight:800;
-}
-.qubi-landing .confidence-main h3 {
-  position:relative;
-  z-index:2;
-  font-family:Georgia,serif;
-  font-size:clamp(2.6rem,4.5vw,4.8rem);
-  line-height:.98;
-  letter-spacing:-.05em;
-  font-weight:500;
-  margin:28px 0 14px;
-  max-width:690px;
-}
-.qubi-landing .confidence-main > div > p {
-  position:relative;
-  z-index:2;
-  color:#b5afa8;
-  max-width:600px;
-  line-height:1.7;
-}
-.qubi-landing .control-flow {
-  position:relative;
-  z-index:3;
-  height:220px;
-  margin:20px 8px 0;
-  display:grid;
-  place-items:center;
-}
-.qubi-landing .control-ring {
-  width:190px;
-  height:190px;
-  border-radius:50%;
-  border:1px dashed rgba(255,255,255,.25);
-  display:grid;
-  place-items:center;
-  animation: qubi-spin 24s linear infinite;
-}
-.qubi-landing .control-core {
-  width:112px;
-  height:112px;
-  border-radius:34px;
-  background:var(--orange);
-  display:grid;
-  place-items:center;
-  text-align:center;
-  font-weight:900;
-  box-shadow:0 18px 45px rgba(255,90,31,.25);
-  animation: qubi-counter-spin 24s linear infinite;
-}
-@keyframes qubi-counter-spin {
-  to {
-    transform:rotate(-360deg);
+  .qubi-landing .confidence-side {
+    grid-template-columns: 1fr 1fr;
   }
-}
-.qubi-landing .control-chip {
-  position:absolute;
-  padding:10px 13px;
-  border-radius:12px;
-  background:#292724;
-  border:1px solid rgba(255,255,255,.12);
-  font-size:.69rem;
-  font-weight:800;
-  box-shadow:0 10px 28px rgba(0,0,0,.25);
-}
-.qubi-landing .control-chip.one {
-  left:8%;
-  top:18%;
-}
-.qubi-landing .control-chip.two {
-  right:6%;
-  top:12%;
-}
-.qubi-landing .control-chip.three {
-  left:2%;
-  bottom:12%;
-}
-.qubi-landing .control-chip.four {
-  right:4%;
-  bottom:18%;
-}
-.qubi-landing .confidence-side {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-.qubi-landing .confidence-card {
-  min-height:286px;
-  border:1px solid var(--line);
-  border-radius:30px;
-  padding:28px;
-  background:var(--paper);
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-.qubi-landing .confidence-card:nth-child(2) {
-  background:var(--orange-soft);
-}
-.qubi-landing .confidence-card:nth-child(3) {
-  background:#dfe8e2;
-}
-.qubi-landing .confidence-card:nth-child(4) {
-  background:white;
-}
-.qubi-landing .confidence-icon {
-  width:52px;
-  height:52px;
-  border-radius:17px;
-  display:grid;
-  place-items:center;
-  background:var(--ink);
-  color:white;
-  font-size:1.2rem;
-}
-.qubi-landing .confidence-card:nth-child(2) .confidence-icon {
-  background:var(--orange);
-}
-.qubi-landing .confidence-card:nth-child(3) .confidence-icon {
-  background:var(--green);
-}
-.qubi-landing .confidence-card h3 {
-  font-size:1.35rem;
-  margin:22px 0 9px;
-  letter-spacing:-.035em;
-}
-.qubi-landing .confidence-card p {
-  color:var(--muted);
-  line-height:1.55;
-  font-size:.85rem;
-  margin:0;
-}
-.qubi-landing .confidence-card ul {
-  list-style:none;
-  margin:18px 0 0;
-  padding:0;
-}
-.qubi-landing .confidence-card li {
-  display:flex;
-  gap:8px;
-  align-items:center;
-  padding:7px 0;
-  border-bottom:1px solid rgba(23,22,20,.09);
-  font-size:.72rem;
-  font-weight:750;
-}
-.qubi-landing .confidence-card li::before {
-  content:"✓";
-  color:var(--orange);
-  font-weight:900;
-}
-.qubi-landing .visibility-mini {
-  margin-top:20px;
-  display:flex;
-  align-items:end;
-  gap:7px;
-  height:70px;
-}
-.qubi-landing .visibility-mini i {
-  flex:1;
-  border-radius:6px 6px 2px 2px;
-  background:var(--orange);
-  opacity:.8;
-}
-.qubi-landing .visibility-mini i:nth-child(1) {
-  height:35%;
-}
-.qubi-landing .visibility-mini i:nth-child(2) {
-  height:62%;
-}
-.qubi-landing .visibility-mini i:nth-child(3) {
-  height:48%;
-}
-.qubi-landing .visibility-mini i:nth-child(4) {
-  height:82%;
-}
-.qubi-landing .visibility-mini i:nth-child(5) {
-  height:70%;
-}
-
-/* Proof */
-.qubi-landing .proof { background:var(--paper); }
-.qubi-landing .story-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:20px; }
-.qubi-landing .story-main { min-height:520px; border-radius:34px; background:var(--ink); color:white; padding:44px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; }
-.qubi-landing .story-main::after { content:""; position:absolute; width:420px; height:420px; border-radius:50%; right:-180px; top:-120px; background:radial-gradient(circle,rgba(255,90,31,.55),transparent 70%); }
-.qubi-landing .story-tag { display:inline-flex; align-self:flex-start; padding:9px 12px; border-radius:999px; background:rgba(255,255,255,.1); font-size:.73rem; font-weight:800; }
-.qubi-landing .story-main blockquote { font-family:Georgia,serif; font-size:clamp(2.2rem,4vw,4rem); line-height:1.05; letter-spacing:-.045em; margin:0; max-width:730px; position:relative; z-index:2; }
-.qubi-landing .story-foot { display:flex; justify-content:space-between; align-items:end; position:relative; z-index:2; }
-.qubi-landing .story-metric strong { display:block; font-size:2.5rem; color:var(--orange); }
-.qubi-landing .story-metric span { color:#aaa49d; font-size:.78rem; }
-.qubi-landing .story-side { display:grid; grid-template-rows:1fr 1fr; gap:20px; }
-.qubi-landing .story-card { border:1px solid var(--line); border-radius:30px; padding:30px; background:var(--cream); display:flex; flex-direction:column; justify-content:space-between; min-height:250px; }
-.qubi-landing .story-card:nth-child(2){ background:var(--orange-soft); transform:rotate(1deg); }
-.qubi-landing .story-card h3 { font-family:Georgia,serif; font-size:1.9rem; font-weight:500; margin:0; }
-.qubi-landing .story-card p { color:var(--muted); line-height:1.6; }
-.qubi-landing .story-card a { font-weight:850; font-size:.85rem; }
-
-/* CTA */
-.qubi-landing .cta-wrap { padding:30px 0 42px; background:var(--paper); }
-.qubi-landing .cta { min-height:580px; border-radius:44px; background:var(--orange); color:white; padding:70px; display:grid; place-items:center; text-align:center; position:relative; overflow:hidden; }
-.qubi-landing .cta::before,.qubi-landing .cta::after { content:""; position:absolute; border:1px solid rgba(255,255,255,.22); border-radius:50%; }
-.qubi-landing .cta::before { width:680px;height:680px; }
-.qubi-landing .cta::after{width:430px;height:430px}
-.qubi-landing .cta-inner { position:relative; z-index:2; }
-.qubi-landing .cta h2 { font-family:Georgia,serif; font-size:clamp(3.4rem,7vw,7.3rem); line-height:.88; letter-spacing:-.065em; font-weight:500; margin:0 auto 25px; max-width:980px; }
-.qubi-landing .cta p { max-width:620px; margin:0 auto 32px; line-height:1.65; color:rgba(255,255,255,.78); font-size:1.06rem; }
-.qubi-landing .cta-actions { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
-
-.qubi-landing footer { background:var(--paper); padding:48px 0 60px; border-top:1px solid var(--line); }
-.qubi-landing .footer-grid { display:grid; grid-template-columns:1.4fr repeat(3,.6fr); gap:45px; }
-.qubi-landing .footer-intro p { color:var(--muted); max-width:390px; line-height:1.6; font-size:.88rem; }
-.qubi-landing .footer-col strong { display:block; margin-bottom:15px; font-size:.8rem; }
-.qubi-landing .footer-col a { display:block; color:var(--muted); margin:10px 0; font-size:.8rem; }
-.qubi-landing .copyright { margin-top:50px; display:flex; justify-content:space-between; color:#958f88; font-size:.72rem; }
-
-/* Modal */
-.qubi-landing .modal { position:fixed; inset:0; z-index:100; background:rgba(12,11,10,.83); backdrop-filter:blur(12px); display:none; place-items:center; padding:24px; }
-.qubi-landing .modal.open { display:grid; }
-.qubi-landing .modal-card { width:min(1100px,100%); background:#111; border-radius:28px; overflow:hidden; box-shadow:0 40px 120px rgba(0,0,0,.5); }
-.qubi-landing .modal-head { height:58px; color:white; display:flex; align-items:center; justify-content:space-between; padding:0 20px; }
-.qubi-landing .modal-head strong { font-size:.86rem; }
-.qubi-landing .modal-close { border:0; background:rgba(255,255,255,.1); color:white; width:34px;height:34px;border-radius:50%;cursor:pointer; }
-.qubi-landing .video-placeholder { aspect-ratio:16/9; display:grid; place-items:center; text-align:center; padding:40px; background:radial-gradient(circle at 50% 45%,#382016,#141210 55%); color:white; }
-.qubi-landing .video-placeholder .big-play { width:90px;height:90px;border-radius:50%;background:var(--orange);display:grid;place-items:center;margin:0 auto 22px;font-size:1.5rem; }
-.qubi-landing .video-placeholder h3 { font-family:Georgia,serif; font-size:2.2rem; font-weight:500; margin:0 0 12px; }
-.qubi-landing .video-placeholder p { color:#aaa49d; max-width:580px; line-height:1.6; margin:0 auto; }
-
-/* Reveal */
-.qubi-landing .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
-.qubi-landing .reveal.visible { opacity:1; transform:none; }
-
-@media (max-width: 1050px) {
-  .qubi-landing .nav-links { display:none; }
-  .qubi-landing .hero { min-height:auto; }
-  .qubi-landing .hero-grid,.qubi-landing .manifesto-grid,.qubi-landing .use-grid,.qubi-landing .story-grid { grid-template-columns:1fr; }
-  .qubi-landing .hero-copy { text-align:center; }
-  .qubi-landing .hero-copy p { margin-left:auto;margin-right:auto; }
-  .qubi-landing .hero-actions,.qubi-landing .micro-proof { justify-content:center; }
-  .qubi-landing .demo-stage { margin-top:15px; }
-  .qubi-landing .manifesto-sticky { position:relative; top:auto; }
-  .qubi-landing .steps { grid-template-columns:repeat(2,1fr); }
-  .qubi-landing .step:last-child { grid-column:span 2; }
-  .qubi-landing .step-arrow { display:none; }
-  .qubi-landing .enterprise-intro,.qubi-landing .enterprise-grid { grid-template-columns:1fr; }
-  .qubi-landing .enterprise-intro-copy { justify-self:start; }
-  .qubi-landing .confidence-main { min-height:560px; }
-  .qubi-landing .footer-grid { grid-template-columns:1fr 1fr; }
-}
-@media (max-width: 700px) {
-  .qubi-landing .site-shell { width:min(100% - 22px,1460px); }
-  .qubi-landing .nav { width:calc(100% - 22px); padding-left:15px; }
-  .qubi-landing .brand small,.qubi-landing .nav-watch { display:none; }
-  .qubi-landing .nav .btn { padding:11px 14px; font-size:.78rem; }
-  .qubi-landing .hero { padding-top:125px; }
-  .qubi-landing .hero-copy h1 { font-size:clamp(3.4rem,17vw,5.5rem); }
-  .qubi-landing .demo-stage { min-height:480px; }
-  .qubi-landing .orbit.one{width:430px;height:430px}
-  .qubi-landing .orbit.two{width:350px;height:350px}
-  .qubi-landing .product-window { height:395px; transform:none; }
-  .qubi-landing .window-body { grid-template-columns:105px 1fr; }
-  .qubi-landing .sidebar { padding:15px 8px; }
-  .qubi-landing .side-item { font-size:.58rem; padding:8px 6px; }
-  .qubi-landing .workspace { padding:15px; }
-  .qubi-landing .flow-canvas { inset:75px 10px 15px; transform:scale(.78); transform-origin:left top; width:125%; }
-  .qubi-landing .float-pill { display:none; }
-  .qubi-landing .demo-label { right:10px;bottom:10px; }
-  .qubi-landing .section-pad { padding:90px 0; }
-  .qubi-landing .section-head { display:block; margin-bottom:40px; }
-  .qubi-landing .section-head p { margin-top:22px; }
-  .qubi-landing .manifesto-line { grid-template-columns:40px 1fr; gap:12px; }
-  .qubi-landing .outcome-ribbon,.qubi-landing .steps { grid-template-columns:1fr; }
-  .qubi-landing .outcome-card:nth-child(2),.qubi-landing .outcome-card:nth-child(3){transform:none}
-  .qubi-landing .step:last-child { grid-column:auto; }
-  .qubi-landing .use-panel { min-height:650px; padding:28px; }
-  .qubi-landing .integration-cloud { width:250px;height:250px; right:-35px; }
-  .qubi-landing .confidence-side { grid-template-columns:1fr; }
-  .qubi-landing .confidence-main { min-height:600px; padding:28px; }
-  .qubi-landing .confidence-main::after { inset:auto 20px 20px; }
-  .qubi-landing .enterprise-intro { gap:28px; }
-  .qubi-landing .story-main { min-height:500px; padding:30px; }
-  .qubi-landing .cta { padding:50px 22px; min-height:520px; }
-  .qubi-landing .footer-grid { grid-template-columns:1fr 1fr; }
-  .qubi-landing .footer-intro { grid-column:span 2; }
-  .qubi-landing .copyright { flex-direction:column;gap:8px; }
 }
 
 /* =====================================================
-   ENTERPRISE DEMO VIDEO
+   MOBILE
 ===================================================== */
 
-.enterprise-video-card {
-  position: relative;
-  overflow: hidden;
-  padding: 0 !important;
-  min-height: 420px;
-  border-radius: 28px;
-  background: #171614;
+@media (max-width: 700px) {
+  .qubi-landing .site-shell {
+    width: min(100% - 22px, 1460px);
+  }
+
+  .qubi-landing .nav {
+    width: calc(100% - 22px);
+    padding-left: 15px;
+  }
+
+  .qubi-landing .brand small,
+  .qubi-landing .nav-watch {
+    display: none;
+  }
+
+  .qubi-landing .nav .btn {
+    padding: 11px 14px;
+    font-size: 0.78rem;
+  }
+
+  .qubi-landing .hero {
+    padding-top: 125px;
+  }
+
+  .qubi-landing .hero-copy h1 {
+    font-size: clamp(3.4rem, 17vw, 5.5rem);
+  }
+
+  .qubi-landing .demo-stage {
+    min-height: 480px;
+  }
+
+  .qubi-landing .orbit.one {
+    width: 430px;
+    height: 430px;
+  }
+
+  .qubi-landing .orbit.two {
+    width: 350px;
+    height: 350px;
+  }
+
+  .qubi-landing .product-window {
+    height: 395px;
+    transform: none;
+  }
+
+  .qubi-landing .window-body {
+    grid-template-columns: 105px 1fr;
+  }
+
+  .qubi-landing .sidebar {
+    padding: 15px 8px;
+  }
+
+  .qubi-landing .side-item {
+    font-size: 0.58rem;
+    padding: 8px 6px;
+  }
+
+  .qubi-landing .workspace {
+    padding: 15px;
+  }
+
+  .qubi-landing .flow-canvas {
+    inset: 75px 10px 15px;
+    transform: scale(0.78);
+    transform-origin: left top;
+    width: 125%;
+  }
+
+  .qubi-landing .float-pill {
+    display: none;
+  }
+
+  .qubi-landing .section-pad {
+    padding: 90px 0;
+  }
+
+  .qubi-landing .section-head {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .qubi-landing .section-head p {
+    margin-top: 22px;
+  }
+
+  .qubi-landing .manifesto-line {
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+  }
+
+  .qubi-landing .outcome-ribbon,
+  .qubi-landing .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .qubi-landing .outcome-card:nth-child(2),
+  .qubi-landing .outcome-card:nth-child(3) {
+    transform: none;
+  }
+
+  .qubi-landing .step:last-child {
+    grid-column: auto;
+  }
+
+  .qubi-landing .use-panel {
+    min-height: 650px;
+    padding: 28px;
+  }
+
+  .qubi-landing .integration-cloud {
+    width: 250px;
+    height: 250px;
+    right: -35px;
+  }
+
+  .qubi-landing .confidence-side {
+    grid-template-columns: 1fr;
+  }
+
+  .qubi-landing .confidence-main {
+    min-height: auto;
+    padding: 28px;
+  }
+
+  .qubi-landing .confidence-strip {
+    flex-direction: column;
+  }
+
+  .qubi-landing .confidence-strip span {
+    white-space: normal;
+  }
+
+  /* Mobile GIF window */
+  .qubi-landing .enterprise-gif-box {
+    margin-top: 24px;
+    border-radius: 20px;
+  }
+
+  .qubi-landing .enterprise-gif-box::before {
+    height: 36px;
+  }
+
+  .qubi-landing .enterprise-gif-box::after {
+    height: 36px;
+    left: 13px;
+    font-size: 7px;
+  }
+
+  .qubi-landing .enterprise-gif-grid {
+    height: 220px;
+  }
+
+  .qubi-landing .enterprise-demo-action {
+    justify-content: center;
+  }
+
+  .qubi-landing .enterprise-demo-action .btn {
+    width: 100%;
+  }
+
+  .qubi-landing .story-main {
+    min-height: 500px;
+    padding: 30px;
+  }
+
+  .qubi-landing .cta {
+    padding: 50px 22px;
+    min-height: 520px;
+  }
+
+  .qubi-landing .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .qubi-landing .footer-intro {
+    grid-column: span 2;
+  }
+
+  .qubi-landing .copyright {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
 
-.enterprise-demo-video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-  object-fit: cover;
-  border-radius: 28px;
+/* =====================================================
+   REMOVE 3 DOTS ABOVE ENTERPRISE GIF
+===================================================== */
+
+.qubi-landing .enterprise-gif-box .window-dots,
+.qubi-landing .enterprise-gif-box .window-top,
+.qubi-landing .enterprise-gif-box .window-dots span {
+  display: none !important;
+}
+
+/* Make GIF window start directly with the GIF */
+.qubi-landing .enterprise-gif-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.qubi-landing .enterprise-gif-box::before,
+.qubi-landing .enterprise-gif-box::after {
+  content: none !important;
+  display: none !important;
 }

@@ -32,7 +32,7 @@ const QubiLandingPage = () => {
         <Why />
         <How />
         <UseCases />
-        <Enterprise />
+        <Enterprise onOpenVideo= {openVideo} />
         <Proof />
         <Cta onOpenVideo={openVideo} />
       </main>

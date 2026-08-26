@@ -1,13 +1,25 @@
-import demoVideo from "@/assets/demo.mp4";
+interface EnterpriseProps {
+  onOpenVideo: () => void;
+}
 
-const Enterprise = () => {
+const Enterprise = ({ onOpenVideo }: EnterpriseProps) => {
+  const clips = [
+    "/clip_1.gif",
+    "/clip_2.gif",
+    "/clip_3.gif",
+    "/clip_4.gif",
+    "/clip_5.gif",
+  ];
+
   return (
     <section className="enterprise section-pad" id="enterprise">
       <div className="site-shell">
 
+        {/* ENTERPRISE INTRO */}
         <div className="enterprise-intro reveal">
           <div>
             <div className="eyebrow">Built for enterprise</div>
+
             <h2>
               Powerful enough to act.<br />
               <em>Controlled enough to trust.</em>
@@ -25,48 +37,74 @@ const Enterprise = () => {
           </div>
         </div>
 
+        {/* ENTERPRISE CONTENT */}
         <div className="enterprise-grid reveal">
 
-          {/* DEMO VIDEO - LEFT SIDE */}
-         <article className="confidence-main">
-  <div>
-    <span className="confidence-kicker">The control layer</span>
+          {/* LEFT SIDE */}
+          <article className="confidence-main">
 
-    <h3>
-      AI that knows when to act and when to ask.
-    </h3>
+            <div>
+              <span className="confidence-kicker">
+                The control layer
+              </span>
 
-    <p>
-      Set the boundaries once. qubi automates routine work, pauses for approval
-      at critical moments, enforces role-based permissions, and records every
-      decision with a complete audit trail.
-    </p>
-  </div>
+              <h3>
+                AI that knows when to act and when to ask.
+              </h3>
 
-  {/* ONLY THIS PART IS REPLACED */}
-  <div className="enterprise-video-box">
-    <video
-      src={demoVideo}
-      autoPlay
-      muted
-      loop
-      playsInline
-      controls
-    />
-  </div>
-</article>
+              <p>
+                Set the boundaries once. qubi automates routine work, pauses
+                for approval at critical moments, enforces role-based
+                permissions, and records every decision with a complete
+                audit trail.
+              </p>
+            </div>
 
-         
-          {/* RIGHT SIDE - EXISTING CARDS */}
+            {/* GIF CLIPS */}
+            <div className="enterprise-gif-box">
+              <div className="enterprise-gif-grid">
+
+                {clips.map((clip, index) => (
+                  <div
+                    className={`enterprise-gif enterprise-gif-${index + 1}`}
+                    key={clip}
+                  >
+                    <img
+                      src={clip}
+                      alt={`qubi enterprise workflow ${index + 1}`}
+                    />
+                  </div>
+                ))}
+
+              </div>
+            </div>
+
+            {/* WATCH DEMO BUTTON - opens the same shared demo modal as Hero */}
+            <div className="enterprise-demo-action">
+              <button
+                type="button"
+                className="btn btn-orange"
+                onClick={onOpenVideo}
+              >
+                ▶ Watch the Demo
+              </button>
+            </div>
+
+          </article>
+
+          {/* RIGHT SIDE */}
           <div className="confidence-side">
 
+            {/* CARD 1 */}
             <article className="confidence-card">
               <div>
                 <div className="confidence-icon">◈</div>
+
                 <h3>Role-based access control</h3>
+
                 <p>
-                  Ensure secure workflow management and data protection across
-                  every team and environment.
+                  Ensure secure workflow management and data protection
+                  across every team and environment.
                 </p>
               </div>
 
@@ -77,10 +115,13 @@ const Enterprise = () => {
               </ul>
             </article>
 
+            {/* CARD 2 */}
             <article className="confidence-card">
               <div>
                 <div className="confidence-icon">↗</div>
+
                 <h3>System integration</h3>
+
                 <p>
                   Connect enterprise applications, databases, APIs, and
                   third-party platforms into one flow.
@@ -94,13 +135,16 @@ const Enterprise = () => {
               </ul>
             </article>
 
+            {/* CARD 3 */}
             <article className="confidence-card">
               <div>
                 <div className="confidence-icon">▦</div>
+
                 <h3>Real-time monitoring</h3>
+
                 <p>
-                  Track workflow execution and performance through dashboards
-                  and analytics.
+                  Track workflow execution and performance through
+                  dashboards and analytics.
                 </p>
               </div>
 
@@ -113,10 +157,13 @@ const Enterprise = () => {
               </div>
             </article>
 
+            {/* CARD 4 */}
             <article className="confidence-card">
               <div>
                 <div className="confidence-icon">⤢</div>
+
                 <h3>Scalable architecture</h3>
+
                 <p>
                   Support growing business needs with enterprise-grade
                   scalability, start with one workflow and extend across
