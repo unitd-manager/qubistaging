@@ -1549,11 +1549,17 @@
   z-index: 5;
   margin-top: 24px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .qubi-landing .enterprise-demo-action .btn-orange {
-  padding: 14px 24px;
+  padding: 17px 36px;
+   font-size: 1rem;
+   
+  min-height: 48px;
+  border-radius: 999px;
+  font-weight: 850;
+ 
 }
 
 /* =====================================================

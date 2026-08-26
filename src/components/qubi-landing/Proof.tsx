@@ -7,7 +7,6 @@ const Proof = () => {
             <div className="eyebrow">Customer success</div>
             <h2>Proof that orchestration changes the work.</h2>
           </div>
-          <p>Use this section for validated customer stories and approved performance metrics. The cards below demonstrate the intended presentation.</p>
         </div>
         <div className="story-grid reveal">
           <article className="story-main">
