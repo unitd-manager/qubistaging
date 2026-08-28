@@ -6,9 +6,9 @@ type TabKey = "operations" | "finance" | "hr" | "service" | "it";
 const tabs: { key: TabKey; label: string }[] = [
   { key: "operations", label: "Operations" },
   { key: "finance", label: "Finance" },
-  { key: "hr", label: "Human resources" },
-  { key: "service", label: "Customer service" },
-  { key: "it", label: "IT service mgmt" },
+  { key: "hr", label: "Human Resources" },
+  { key: "service", label: "Customer Service" },
+  { key: "it", label: "IT Service Management" },
 ];
 
 const chipLabels: Record<

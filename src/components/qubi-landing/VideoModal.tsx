@@ -12,14 +12,21 @@ const VideoModal = ({ open, onClose }: VideoModalProps) => {
   useEffect(() => {
     if (!open) return;
     document.body.style.overflow = "hidden";
-    videoRef.current?.play();
+    const video = videoRef.current;
+    if (video) {
+      video.currentTime = 0; // always start fresh, ignore any cached/resumed position
+      video.play();
+    }
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     document.addEventListener("keydown", handleKey);
     return () => {
       document.body.style.overflow = "";
-      videoRef.current?.pause();
+      if (video) {
+        video.pause();
+        video.currentTime = 0; // reset on close too, so it's ready at 0:00 next time
+      }
       document.removeEventListener("keydown", handleKey);
     };
   }, [open, onClose]);
