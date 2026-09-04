@@ -10,11 +10,13 @@ import { useRedirects } from '@/hooks/useRedirects';
 interface RedirectHandlerProps {
   enabled?: boolean;
   onRedirect?: (from: string, to: string) => void;
+  excludedPaths?: string[];
 }
 
 export const RedirectHandler = ({
   enabled = true,
   onRedirect,
+  excludedPaths = [],
 }: RedirectHandlerProps) => {
   const location = useLocation();
   const { checkAndApplyRedirect } = useRedirects({
@@ -23,8 +25,9 @@ export const RedirectHandler = ({
   });
 
   useEffect(() => {
+    if (excludedPaths.includes(location.pathname)) return;
     checkAndApplyRedirect(location.pathname);
-  }, [location.pathname, checkAndApplyRedirect]);
+  }, [location.pathname, checkAndApplyRedirect, excludedPaths]);
 
   return null; // This is a non-visual component
 };

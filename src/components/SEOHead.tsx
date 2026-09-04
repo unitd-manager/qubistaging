@@ -1,6 +1,8 @@
 /**
  * SEO Head Component
  * Injects meta tags and JSON-LD into document head
+ * Also enforces the qubi favicon on every page, regardless of any
+ * per-page/CMS-driven metadata, so the browser tab always shows the qubi logo.
  */
 
 import { useEffect } from 'react';
@@ -13,7 +15,37 @@ interface SEOHeadProps {
   additionalMeta?: Record<string, string>;
 }
 
+// Fixed, site-wide favicon — never sourced from Strapi/CMS metadata.
+// Update this single path if the logo file ever changes.
+const QUBI_FAVICON_PATH = '/qubi-logo.png?v=3';
+
 export const SEOHead = ({ metadata, jsonLD, additionalMeta = {} }: SEOHeadProps) => {
+  // Favicon must be enforced on every render, even if metadata is null
+  // (e.g. while SEO data is still loading), so it can't ever be missing or wrong.
+  useEffect(() => {
+    const ensureFavicon = (rel: string) => {
+      let link = document.querySelector<HTMLLinkElement>(`link[rel="${rel}"][data-qubi-favicon="true"]`);
+      if (!link) {
+        link = document.createElement('link');
+        link.setAttribute('rel', rel);
+        link.setAttribute('data-qubi-favicon', 'true');
+        document.head.appendChild(link);
+      }
+      link.setAttribute('href', QUBI_FAVICON_PATH);
+      link.setAttribute('type', 'image/png');
+    };
+
+    // Remove any other icon links that aren't ours (covers any stray/legacy tags)
+    document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]').forEach((node) => {
+      if (node.getAttribute('data-qubi-favicon') !== 'true') {
+        node.remove();
+      }
+    });
+
+    ensureFavicon('icon');
+    ensureFavicon('shortcut icon');
+  }, []);
+
   if (!metadata) {
     return null;
   }

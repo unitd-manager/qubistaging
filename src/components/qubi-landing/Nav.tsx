@@ -11,7 +11,7 @@ const Nav = ({ onOpenVideo }: NavProps) => {
       <nav className="nav">
         <a className="brand" href="#top">
           <img src={qubiLogo} alt="qubi" className="brand-mark" />
-          <small>by qBotica</small>
+          <small>Powered by <br/> qBotica</small>
 
         </a>
         <div className="nav-links">
@@ -19,7 +19,7 @@ const Nav = ({ onOpenVideo }: NavProps) => {
           <a href="#how">How it works</a>
           <a href="#use-cases">Solutions</a>
           <a href="#enterprise">Enterprise</a>
-          <a href="https://myqubi.com/customers" target="_blank" rel="noreferrer">Customers</a>
+          <a href="/customers">Customers</a>
           <a href="https://myqubi.com/pricing" target="_blank" rel="noreferrer">Pricing</a>
         </div>
         <div className="nav-actions">

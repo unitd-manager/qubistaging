@@ -50,7 +50,7 @@ const App = () => {
           </Suspense>
         ) : null}
         <ScrollToTop />
-        <RedirectHandler enabled={true} />
+        <RedirectHandler enabled={true} excludedPaths={["/customers"]} />
         <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/home" element={<Index />} />

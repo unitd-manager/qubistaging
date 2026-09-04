@@ -1,0 +1,3 @@
+import qubiLogo from "@/assets/qubi-logo1.png";
+
+export default function QboticaBridge() { return <section id="about-qbotica" className="cs-bridge"><div className="cs-shell"><div className="cs-bridge-box"><div className="cs-bridge-copy"><img src={qubiLogo} alt="qubi" className="cs-bridge-logo" /><div><h3>Powered by qBotica</h3><p>Want to know more about the company behind qubi and our enterprise automation work?</p></div></div><a className="cs-btn cs-btn-dark" href="#">Learn more about qBotica ↗</a></div></div></section>; }

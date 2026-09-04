@@ -17,7 +17,7 @@ const Proof = () => {
                 <strong>End-to-end</strong>
                 <span>visibility from request through resolution</span>
               </div>
-              <a className="btn btn-light" href="https://myqubi.com/customers" target="_blank" rel="noreferrer">Read the Stories →</a>
+              <a className="btn btn-light" href="/customers">Read the Stories →</a>
             </div>
           </article>
           <div className="story-side">

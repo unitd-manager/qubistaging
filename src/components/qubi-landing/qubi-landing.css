@@ -111,13 +111,16 @@
 }
 
 .qubi-landing .brand small {
+  position: relative;
+  top: 10px;
   color: var(--muted);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   letter-spacing: 0.04em;
   margin-left: 2px;
   margin-right: 6px;
-  white-space: nowrap;
+  white-space: normal;
+   text-align: center;
 }
 
 .qubi-landing .brand-mark-secondary {
@@ -1894,6 +1897,7 @@
 }
 
 .qubi-landing .footer-intro p {
+  padding-top: 30px;
   color: var(--muted);
   max-width: 390px;
   line-height: 1.6;
