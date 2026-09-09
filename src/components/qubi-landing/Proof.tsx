@@ -15,7 +15,7 @@ const Proof = () => {
             <div className="story-foot">
               <div className="story-metric">
                 <strong>End-to-end</strong>
-                <span>visibility from request through resolution</span>
+          
               </div>
               <a className="btn btn-light" href="/customers">Read the Stories →</a>
             </div>

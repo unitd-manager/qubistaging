@@ -97,31 +97,41 @@
 .qubi-landing .brand {
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  font-size: 1.35rem;
+  text-decoration: none;
+}
+
+.qubi-landing .brand-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: max-content;
 }
 
 .qubi-landing .brand-mark {
-  height: 38px;
-  width: auto;
-  object-fit: contain;
+  width: 76px;
+  height: auto;
   display: block;
+  object-fit: contain;
 }
 
-.qubi-landing .brand small {
-  position: relative;
-  top: 10px;
-  color: var(--muted);
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  margin-left: 2px;
-  margin-right: 6px;
-  white-space: normal;
-   text-align: center;
+.qubi-landing .brand-line {
+  width: 100%;
+  height: 2px;
+  background: #ff5a1f;
+  margin-top: 3px;
 }
+
+.qubi-landing .powered-by {
+  margin-top: 4px;
+  font-size: 0.88rem;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: normal;
+  color: #3c3935;
+  white-space: nowrap;
+  text-align: left;
+}
+
 
 .qubi-landing .brand-mark-secondary {
   height: 20px;
@@ -2143,7 +2153,7 @@
     padding-left: 15px;
   }
 
-  .qubi-landing .brand small,
+  .qubi-landing .powered-by,
   .qubi-landing .nav-watch {
     display: none;
   }
