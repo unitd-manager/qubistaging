@@ -37,7 +37,7 @@ const QubiFooter = () => {
           </div>
         </div>
         <div className="copyright">
-          <span>© 2026 qubi by Qbotica.</span>
+  
           <span>Privacy Policy · Terms of Service</span>
         </div>
       </div>

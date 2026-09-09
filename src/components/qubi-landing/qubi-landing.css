@@ -1930,9 +1930,10 @@
 .qubi-landing .copyright {
   margin-top: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   color: #958f88;
   font-size: 0.72rem;
+  text-align: right;
 }
 
 /* =====================================================
