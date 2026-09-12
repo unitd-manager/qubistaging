@@ -102,8 +102,8 @@
 
 .qubi-landing .brand-logo-wrap {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 10px;
   width: max-content;
 }
 
@@ -114,22 +114,61 @@
   object-fit: contain;
 }
 
-.qubi-landing .brand-line {
+.qubi-landing .brand-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--orange);
+}
+
+.qubi-landing .footer-intro .brand-logo-wrap {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.qubi-landing .footer-intro .brand-divider {
   width: 100%;
   height: 2px;
-  background: #ff5a1f;
   margin-top: 3px;
 }
 
-.qubi-landing .powered-by {
+.qubi-landing .footer-intro .powered-by {
   margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qubi-landing .powered-by {
+  margin-top: 0;
   font-size: 0.88rem;
   line-height: 1.1;
   font-weight: 700;
   letter-spacing: normal;
-  color: #3c3935;
+  color: #777;
   white-space: nowrap;
   text-align: left;
+}
+
+.qubi-landing .powered-by span {
+  color: #777;
+}
+
+.qubi-landing .powered-by strong {
+  color: #050505;
+}
+
+.qubi-landing .qbotica-wordmark {
+  display: block;
+  width: 86px;
+  height: auto;
+  background: transparent;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.qubi-landing .qbotica-nav-wordmark {
+  mix-blend-mode: darken;
 }
 
 
@@ -210,7 +249,7 @@
 .qubi-landing .hero {
   position: relative;
   min-height: 930px;
-  padding: 148px 0 78px;
+  padding: 60px 0 78px;
   overflow: hidden;
 }
 
@@ -697,7 +736,7 @@
 }
 
 .qubi-landing .section-pad {
-  padding: 130px 0;
+  padding: 90px 0;
 }
 
 .qubi-landing .section-head {
@@ -737,6 +776,7 @@
   background: var(--paper);
   border-radius: 52px 52px 0 0;
   margin-top: 32px;
+  padding: 55px 0 90px;
   overflow: hidden;
 }
 
@@ -2164,8 +2204,13 @@
     font-size: 0.78rem;
   }
 
+  .qubi-landing .nav-links {
+    border-left: 0;
+    padding-left: 0;
+  }
+
   .qubi-landing .hero {
-    padding-top: 125px;
+    padding-top: 55px;
   }
 
   .qubi-landing .hero-copy h1 {
@@ -2220,7 +2265,11 @@
   }
 
   .qubi-landing .section-pad {
-    padding: 90px 0;
+    padding: 60px 0;
+  }
+
+  .qubi-landing .why {
+    padding: 55px 0 90px;
   }
 
   .qubi-landing .section-head {

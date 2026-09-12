@@ -1,4 +1,5 @@
-import qubiLogo from "@/assets/qubi-logo-right.svg";
+import qubiLogo from "@/assets/qubi-logo1.png";
+import qboticaLogo from "@/assets/logo-front.webp";
 
 const QubiFooter = () => {
   return (
@@ -9,8 +10,11 @@ const QubiFooter = () => {
             <a className="brand" href="#top">
               <div className="brand-logo-wrap">
                 <img src={qubiLogo} alt="qubi" className="brand-mark" />
-                <div className="brand-line"></div>
-                <div className="powered-by">POWERED BY QBOTICA</div>
+                <div className="brand-divider"></div>
+                <div className="powered-by" aria-label="Powered by qBotica">
+                  <span>POWERED BY</span>
+                  <img src={qboticaLogo} alt="qBotica" className="qbotica-wordmark" />
+                </div>
               </div>
             </a>
             <p>The agentic orchestration platform connecting AI agents, automations, systems, and people.</p>
@@ -27,7 +31,7 @@ const QubiFooter = () => {
             <a href="#use-cases">Operations</a>
             <a href="#use-cases">Finance</a>
             <a href="#use-cases">Human resources</a>
-            <a href="#use-cases">IT service mgmt</a>
+            <a href="#use-cases">IT service management</a>
           </div>
           <div className="footer-col">
             <strong>Company</strong>
