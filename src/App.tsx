@@ -16,7 +16,7 @@ const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 const UseCasesPage = lazy(() => import("./pages/UseCasesPage.tsx"));
 const IndustriesPage = lazy(() => import("./pages/IndustriesPage.tsx"));
 const CustomersPage = lazy(() => import("./pages/CustomersPage.tsx"));
-const PricingPage = lazy(() => import("./pages/PricingPage.tsx"));
+const PricingPage = lazy(() => import("@/components/Pricing/Pricingpage.tsx"));
 const BlogPage = lazy(() => import("./pages/BlogPage.tsx"));
 const BlogDetailPage = lazy(() => import("./pages/BlogDetailPage.tsx"));
 const DemoPage = lazy(() => import("./pages/DemoPage.tsx"));

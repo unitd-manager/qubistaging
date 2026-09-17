@@ -11,7 +11,7 @@ const Nav = ({ onOpenVideo }: NavProps) => {
       <nav className="nav">
 
         {/* Logo */}
-        <a className="brand" href="#top">
+        <a className="brand" href="/#top">
           <div className="brand-logo-wrap">
 
             {/* QUBI Logo */}
@@ -57,19 +57,19 @@ const Nav = ({ onOpenVideo }: NavProps) => {
         {/* Navigation Links */}
         <div className="nav-links">
 
-          <a href="#why">
+          <a href="/#why">
             Why qubi
           </a>
 
-          <a href="#how">
+          <a href="/#how">
             How it works
           </a>
 
-          <a href="#use-cases">
+          <a href="/#use-cases">
             Solutions
           </a>
 
-          <a href="#enterprise">
+          <a href="/#enterprise">
             Enterprise
           </a>
 
@@ -78,10 +78,7 @@ const Nav = ({ onOpenVideo }: NavProps) => {
           </a>
 
           <a
-            href="https://myqubi.com/pricing"
-            target="_blank"
-            rel="noreferrer"
-          >
+            href="/pricing">     
             Pricing
           </a>
 

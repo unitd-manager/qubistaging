@@ -7,7 +7,7 @@ const QubiFooter = () => {
       <div className="site-shell">
         <div className="footer-grid">
           <div className="footer-intro">
-            <a className="brand" href="#top">
+            <a className="brand" href="/#top">
               <div className="brand-logo-wrap">
                 <img src={qubiLogo} alt="qubi" className="brand-mark" />
                 <div className="brand-divider"></div>
@@ -21,17 +21,17 @@ const QubiFooter = () => {
           </div>
           <div className="footer-col">
             <strong>Product</strong>
-            <a href="#why">Why qubi</a>
-            <a href="#how">How it works</a>
-            <a href="#enterprise">Built for enterprise</a>
-            <a href="https://myqubi.com/pricing" target="_blank" rel="noreferrer">Pricing</a>
+            <a href="/#why">Why qubi</a>
+            <a href="/#how">How it works</a>
+            <a href="/#enterprise">Built for enterprise</a>
+            <a href="/pricing">Pricing</a>
           </div>
           <div className="footer-col">
             <strong>Solutions</strong>
-            <a href="#use-cases">Operations</a>
-            <a href="#use-cases">Finance</a>
-            <a href="#use-cases">Human resources</a>
-            <a href="#use-cases">IT service management</a>
+            <a href="/#use-cases">Operations</a>
+            <a href="/#use-cases">Finance</a>
+            <a href="/#use-cases">Human resources</a>
+            <a href="/#use-cases">IT service management</a>
           </div>
           <div className="footer-col">
             <strong>Company</strong>
@@ -41,8 +41,9 @@ const QubiFooter = () => {
           </div>
         </div>
         <div className="copyright">
-  
-          <span>Privacy Policy · Terms of Service</span>
+          <span>
+            Privacy Policy · Terms of Service
+          </span>
         </div>
       </div>
     </footer>
