@@ -138,6 +138,9 @@
 .qubi-landing .nav-links a:hover {
   color: #ff5a1f;
 }
+.qubi-landing .nav-links a:hover::after {
+  width: 100%;
+}
 
 .qubi-landing .nav-links a.active-orange {
   color: #ff5a1f !important;
@@ -203,6 +206,15 @@
   position: relative;
   width: fit-content;
   padding-bottom: 6px;
+}
+
+
+.qubi-landing .mobile-menu a:hover {
+  color: #ff5a1f;
+}
+
+.qubi-landing .mobile-menu a:hover::after {
+  width: 100%;
 }
 
 .qubi-landing .mobile-menu a::after {
