@@ -263,58 +263,96 @@
 }
 
 /* =====================================================
-   MOBILE
+   MOBILE - Watch Demo Removed
 ===================================================== */
 
 @media (max-width: 700px) {
 
-  /* Powered by QBotica */
-  .qubi-landing .nav .powered-by {
+  .qubi-landing .nav-wrap {
+    inset: 10px 0 auto !important;
+    padding: 0 10px !important;
+    pointer-events: none !important;
+  }
+
+  .qubi-landing .nav {
+    pointer-events: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 6px 6px 6px 12px !important;
     display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 2px !important;
-    line-height: 1 !important;
-    white-space: normal !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    overflow: visible !important;
   }
 
-  .qubi-landing .nav .powered-by .powered-label {
-    font-size: 0.62rem !important;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #918b83;
-    line-height: 1;
+  .qubi-landing .brand {
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
   }
 
-  .qubi-landing .nav .qbotica-wordmark {
-    width: 64px !important;
-    display: block;
+  .qubi-landing .brand-logo-wrap {
+    gap: 6px !important;
   }
 
-  .qubi-landing .brand-divider {
-    height: 32px !important;
+  .qubi-landing .brand-mark {
+    width: 58px !important;
   }
 
-  /* =================================================
-     BOOK A DEMO - KEEP TEXT + ARROW ON ONE LINE
-  ================================================= */
+  .qubi-landing .nav-links {
+    display: none !important;
+  }
 
   .qubi-landing .nav-actions {
     display: flex !important;
     align-items: center !important;
-    flex-wrap: nowrap !important;
     gap: 6px !important;
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
   }
 
-  .qubi-landing .nav-watch {
-    display: inline-flex !important;
+  .qubi-landing .nav-hamburger {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    flex-shrink: 0 !important;
     align-items: center !important;
     justify-content: center !important;
-    white-space: nowrap !important;
-    flex-wrap: nowrap !important;
-    gap: 4px !important;
-    flex-shrink: 0 !important;
-    padding: 11px 10px !important;
+    border: 1px solid rgba(0,0,0,0.12) !important;
+    background: #ffffff !important;
+    border-radius: 50% !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    z-index: 10 !important;
   }
 
+  .qubi-landing .nav .powered-by {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1px !important;
+    line-height: 1 !important;
+  }
+
+  .qubi-landing .nav .powered-by .powered-label {
+    font-size: 0.58rem !important;
+  }
+
+  .qubi-landing .nav .qbotica-wordmark {
+    width: 58px !important;
+  }
+
+  .qubi-landing .brand-divider {
+    height: 28px !important;
+  }
+
+  /* Watch Demo - Mobile Only Hide */
+  .qubi-landing .nav-watch {
+    display: none !important;
+  }
 }
