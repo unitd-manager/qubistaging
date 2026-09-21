@@ -1,0 +1,276 @@
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.qubi-landing .nav-wrap {
+  position: fixed;
+  inset: 18px 0 auto;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.qubi-landing .nav {
+  pointer-events: auto;
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 10px 12px 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.82);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 12px 44px rgba(25, 19, 14, 0.11);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.qubi-landing .brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.qubi-landing .brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+}
+
+.qubi-landing .brand-mark {
+  width: 76px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.qubi-landing .brand-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--orange);
+}
+
+.qubi-landing .footer-intro .brand-logo-wrap {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.qubi-landing .footer-intro .brand-divider {
+  width: 100%;
+  height: 2px;
+  margin-top: 3px;
+}
+
+.qubi-landing .footer-intro .powered-by {
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qubi-landing .powered-by {
+  margin-top: 0;
+  font-size: 0.88rem;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: normal;
+  color: #777;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.qubi-landing .powered-by span {
+  color: #777;
+}
+
+.qubi-landing .powered-by strong {
+  color: #050505;
+}
+
+.qubi-landing .qbotica-wordmark {
+  display: block;
+  width: 86px;
+  height: auto;
+  background: transparent;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.qubi-landing .qbotica-nav-wordmark {
+  mix-blend-mode: darken;
+}
+
+.qubi-landing .brand-mark-secondary {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.qubi-landing .nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.qubi-landing .nav-links a {
+  color: #3c3935;
+  position: relative;
+  padding-bottom: 6px;
+  transition: color 0.2s ease;
+}
+
+.qubi-landing .nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff5a1f;
+  transition: width 0.25s ease;
+}
+
+.qubi-landing .nav-links a:hover {
+  color: #ff5a1f;
+}
+
+.qubi-landing .nav-links a.active-orange {
+  color: #ff5a1f !important;
+  font-weight: 800;
+}
+
+.qubi-landing .nav-links a.active-orange::after {
+  width: 100%;
+}
+
+.qubi-landing .nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qubi-landing .nav-watch {
+  border: 0;
+  background: transparent;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 11px 14px;
+}
+
+/* --- Mobile hamburger + drawer --- */
+
+.qubi-landing .nav-hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: white;
+  cursor: pointer;
+  place-items: center;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.qubi-landing .mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(247, 242, 234, 0.98);
+  backdrop-filter: blur(20px);
+  padding: 100px 24px 40px;
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+}
+
+.qubi-landing .mobile-menu.open {
+  display: flex;
+}
+
+.qubi-landing .mobile-menu a {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 18px;
+  position: relative;
+  width: fit-content;
+  padding-bottom: 6px;
+}
+
+.qubi-landing .mobile-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff5a1f;
+  transition: width 0.25s ease;
+}
+
+.qubi-landing .mobile-menu a.active-orange {
+  color: #ff5a1f !important;
+  font-weight: 800;
+}
+
+.qubi-landing .mobile-menu a.active-orange::after {
+  width: 100%;
+}
+
+.qubi-landing .mobile-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: white;
+  font-size: 1.2rem;
+  font-weight: 900;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.qubi-landing .mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+@media (max-width: 700px) {
+  .qubi-landing .nav .powered-by {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2px !important;
+    line-height: 1 !important;
+    white-space: normal !important;
+  }
+
+  .qubi-landing .nav .powered-by .powered-label {
+    font-size: 0.62rem !important;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #918b83;
+    line-height: 1;
+  }
+
+  .qubi-landing .nav .qbotica-wordmark {
+    width: 64px !important;
+    display: block;
+  }
+
+  .qubi-landing .brand-divider {
+    height: 32px !important;
+  }
+}

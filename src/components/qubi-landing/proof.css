@@ -1,0 +1,189 @@
+/* =====================================================
+   CUSTOMER SUCCESS / PROOF
+===================================================== */
+
+.qubi-landing .proof {
+  background: var(--paper);
+}
+
+.qubi-landing .story-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+}
+
+.qubi-landing .story-main {
+  min-height: 520px;
+  border-radius: 34px;
+  background: var(--ink);
+  color: white;
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.qubi-landing .story-main::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  right: -180px;
+  top: -120px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 90, 31, 0.55),
+    transparent 70%
+  );
+}
+
+.qubi-landing .story-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.73rem;
+  font-weight: 800;
+}
+
+.qubi-landing .story-main blockquote {
+  font-family: Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  margin: 0;
+  max-width: 730px;
+  position: relative;
+  z-index: 2;
+}
+
+.qubi-landing .story-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+}
+
+.qubi-landing .story-metric strong {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--orange);
+}
+
+.qubi-landing .story-metric span {
+  color: #aaa49d;
+  font-size: 0.78rem;
+}
+
+.qubi-landing .story-side {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+
+.qubi-landing .story-card {
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 30px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+}
+
+.qubi-landing .story-card:nth-child(2) {
+  background: var(--orange-soft);
+  transform: rotate(1deg);
+}
+
+.qubi-landing .story-card h3 {
+  font-family: Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.qubi-landing .story-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.qubi-landing .story-card a {
+  font-weight: 850;
+  font-size: 0.85rem;
+}
+
+.qubi-landing .cs-bridge {
+  background: #efe6da;
+  padding: 38px 0;
+}
+.qubi-landing .cs-shell {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+}
+.qubi-landing .cs-bridge-box {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+  border: 1px solid rgba(23,22,20,.13);
+  background: rgba(255,253,249,.78);
+  border-radius: 26px;
+  padding: 28px 32px;
+}
+.qubi-landing .cs-bridge-copy {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.qubi-landing .cs-bridge-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+.qubi-landing .cs-bridge-box h3 {
+  font-family: Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 0 0 5px;
+}
+.qubi-landing .cs-bridge-box p {
+  margin: 0;
+  color: #69645f;
+  font-size: .9rem;
+}
+.qubi-landing .cs-bridge-qbotica-text {
+  font-weight: 800;
+  color: #050505;
+}
+.qubi-landing .cs-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-weight: 850;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.qubi-landing .cs-btn-dark {
+  background: #171614;
+  color: #fff !important;
+}
+@media (max-width: 760px) {
+  .qubi-landing .cs-bridge-box {
+    grid-template-columns: 1fr;
+  }
+  .qubi-landing .cs-bridge-copy {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

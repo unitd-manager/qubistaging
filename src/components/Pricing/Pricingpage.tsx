@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Pricingpage.css";
 import "../qubi-landing/qubi-landing.css";
 import Nav from "../qubi-landing/Nav";
@@ -6,8 +6,7 @@ import QubiFooter from "../qubi-landing/QubiFooter";
 import VideoModal from "../qubi-landing/VideoModal";
 import { useSEO } from "@/hooks/useSEO";
 import { SEOHead } from "@/components/SEOHead";
-import { X } from "lucide-react";
-import qubiCube from "@/assets/qbcomp.webp";
+
 type Plan = {
   id: string;
   kicker: string;
@@ -82,6 +81,8 @@ const plans: Plan[] = [
   },
 ];
 
+const comparisonHeads = ["", "Starter Execution", "Enterprise Execution", "Custom Program"];
+
 const comparisonRows = [
   ["Program fit", "Single critical workflow", "Multi-workflow, enterprise-scale operations", "Transformational initiatives"],
   ["Workflow execution", "1 end-to-end workflow execution", "Unlimited workflow executions", "Everything in Enterprise Execution"],
@@ -95,7 +96,7 @@ const comparisonRows = [
 ];
 
 const faqs = [
-  ["How is qBotica priced?", "qBotica operates on an outcome-based model. You pay for work completed, not licenses consumed. Pricing is scoped per workflow based on volume, complexity, and the number of systems involved. We provide a detailed SOW after a discovery session."],
+  ["How is qubi priced?", "qubi operates on an outcome-based model. You pay for work completed, not licenses consumed. Pricing is scoped per workflow based on volume, complexity, and the number of systems involved. We provide a detailed SOW after a discovery session."],
   ["Is there a free trial or POC?", "We do not offer free trials or open-ended POCs. We do offer a paid pilot on a single workflow with defined success metrics, so you can validate ROI before committing to full deployment."],
   ["How long does implementation take?", "Most workflows go live within 6-10 weeks. Complex multi-system orchestrations may take 12-16 weeks. We provide a detailed timeline during scoping."],
   ["What systems does qubi integrate with?", "qubi has 500+ pre-built connectors covering SAP, Oracle, Salesforce, ServiceNow, Workday, and most major enterprise platforms. We also build custom integrations as part of the managed service."],
@@ -117,7 +118,36 @@ const Pricingpage = () => {
   const [openFaq, setOpenFaq] = useState(0);
 
   const selectedPlan =
-    plans.find((plan) => plan.id === activePlan)?? plans[1];
+    plans.find((plan) => plan.id === activePlan) ?? plans[1];
+
+  useEffect(() => {
+    if (!compareOpen) return;
+
+    const scrollY = window.scrollY;
+    const html = document.documentElement;
+    const body = document.body;
+
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyOverflow = body.style.overflow;
+    const prevBodyPosition = body.style.position;
+    const prevBodyTop = body.style.top;
+    const prevBodyWidth = body.style.width;
+
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+
+    return () => {
+      html.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBodyOverflow;
+      body.style.position = prevBodyPosition;
+      body.style.top = prevBodyTop;
+      body.style.width = prevBodyWidth;
+      window.scrollTo(0, scrollY);
+    };
+  }, [compareOpen]);
 
   if (seoLoading) {
     return <div className="pricing-page-loading">Loading...</div>;
@@ -137,7 +167,7 @@ const Pricingpage = () => {
             not licenses consumed
           </h1>
           <p>
-            qBotica is a managed service, not a software subscription. We run
+            qubi is a managed service, not a software subscription. We run
             your operations end-to-end and charge based on outcomes delivered.
           </p>
         </div>
@@ -154,7 +184,6 @@ const Pricingpage = () => {
                 for every scale
               </h2>
             </div>
-            
           </div>
 
           <div className="plan-explorer">
@@ -164,20 +193,20 @@ const Pricingpage = () => {
                 <button
                   key={plan.id}
                   type="button"
-                  className={`plan-tab ${plan.id === activePlan? "active" : ""}`}
+                  className={`plan-tab ${plan.id === activePlan ? "active" : ""}`}
                   onClick={() => setActivePlan(plan.id)}
                 >
                   <small>{plan.kicker}</small>
                   <strong>{plan.title}</strong>
                   <span>
-                    {plan.id === "starter"? "Single workflow" : plan.id === "enterprise"? "Multi-workflow" : "Transformational initiative"}
+                    {plan.id === "starter" ? "Single workflow" : plan.id === "enterprise" ? "Multi-workflow" : "Transformational initiative"}
                   </span>
                   {plan.popular && <em className="popular">Most Popular</em>}
                 </button>
               ))}
             </aside>
 
-            <article className="plan-content">
+            <article className="plan-content" aria-live="polite">
               <div className="plan-copy">
                 <span className="plan-kicker">{selectedPlan.kicker}</span>
                 <h3>{selectedPlan.title}</h3>
@@ -196,15 +225,22 @@ const Pricingpage = () => {
                   </button>
                 </div>
               </div>
-              <aside className="plan-side">
-                <p className="plan-side-mini">Choose the execution model that matches the scale and complexity of your operation.</p>
-                <div className="plan-callout">
+            </article>
+
+            <aside className="plan-side" aria-label="Program fit">
+              <div className="side-center">
+                <div className="callout">
                   <small>Best fit</small>
                   <strong>{selectedPlan.fit}</strong>
                   <p>{selectedPlan.fitCopy}</p>
                 </div>
-              </aside>
-            </article>
+              </div>
+              <div className="side-profile">
+                <span>Program profile</span>
+                <div><b>Delivery</b><em>Managed execution</em></div>
+                <div><b>Pricing</b><em>Outcome-based</em></div>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -249,7 +285,7 @@ const Pricingpage = () => {
             </div>
             <div className="execution-note">
               <div>
-                <strong>qBotica does not sell intelligence. <span>We sell execution.</span></strong>
+                <strong>qubi does not sell intelligence. <span>We sell execution.</span></strong>
                 <small>Stop managing AI projects. Start getting work done.</small>
               </div>
               <div className="manifesto-tag">Outcome first</div>
@@ -263,7 +299,7 @@ const Pricingpage = () => {
           <div className="pricing-section-head compare-head">
             <div>
               <span className="pricing-eyebrow">Comparison</span>
-              <h2>Why qBotica, not workflow tools?</h2>
+              <h2>Why qubi, not workflow tools?</h2>
             </div>
           </div>
           <div className="compare-box">
@@ -286,54 +322,34 @@ const Pricingpage = () => {
         </div>
       </section>
 
-<section id="faq" className="pricing-section pricing-faq">
-  <div className="pricing-shell faq-wrap">
-    <div className="faq-copy">
-      <span className="pricing-eyebrow">FAQ</span>
-      <h2>Common questions</h2>
-    </div>
-
-    <div className="accordion">
-      {faqs.map(([question, answer], index) => {
-        const open = openFaq === index;
-        return (
-          <div className={`faq-item ${open ? "open" : ""}`} key={question}>
-            <button
-              className="faq-question"
-              type="button"
-              onClick={() => setOpenFaq(open ? -1 : index)}
-            >
-              <span>{question}</span>
-              <span>{open ? "×" : "+"}</span>
-            </button>
-            {open && <div className="faq-answer">{answer}</div>}
+      <section id="faq" className="pricing-section pricing-faq">
+        <div className="pricing-shell faq-wrap">
+          <div className="faq-copy">
+            <span className="pricing-eyebrow">FAQ</span>
+            <h2>Common questions</h2>
           </div>
-        );
-      })}
-    </div>
-  </div>
 
-  {/* Learn more cross-link — matches the customers-page qBotica bridge */}
-  <div className="pricing-shell">
-    <section className="pricing-bridge">
-      <div className="bridge-box">
-        <div className="bridge-copy">
-          <img src={qubiCube} alt="qubi" className="bridge-logo" />
-          <div>
-            <h3>
-              Powered by <span className="bridge-qbotica-text">qBotica</span>
-            </h3>
-            <p>Want to know more about the company behind qubi and our enterprise automation work?</p>
+          <div className="accordion">
+            {faqs.map(([question, answer], index) => {
+              const open = openFaq === index;
+              return (
+                <div className={`faq-item ${open ? "open" : ""}`} key={question}>
+                  <button
+                    className="faq-question"
+                    type="button"
+                    onClick={() => setOpenFaq(open ? -1 : index)}
+                  >
+                    <span>{question}</span>
+                    <span>{open ? "×" : "+"}</span>
+                  </button>
+                  {open && <div className="faq-answer">{answer}</div>}
+                </div>
+              );
+            })}
           </div>
         </div>
-        <a className="pricing-btn pricing-btn-dark" href="https://www.qbotica.com/" target="_blank" rel="noreferrer">
-          Learn more about qBotica ↗
-        </a>
-      </div>
-    </section>
-  </div>
-  </section>
 
+      </section>
 
       <section id="contact" className="pricing-cta">
         <div className="pricing-shell">
@@ -343,7 +359,6 @@ const Pricingpage = () => {
               <p>Every engagement starts with a 30-minute discovery call. We will scope your workflow, define success metrics, and provide a tailored proposal.</p>
             </div>
             <div className="cta-actions">
-              <a className="pricing-btn pricing-btn-light" href="https://meetings.hubspot.com/enterprisedemo/qubi-consultation" target="_blank" rel="noreferrer">Book a Discovery Call ↗</a>
               <a className="pricing-btn pricing-btn-dark" href="https://meetings.hubspot.com/enterprisedemo/qubi-consultation" target="_blank" rel="noreferrer">Talk to an Expert</a>
             </div>
           </div>
@@ -357,14 +372,38 @@ const Pricingpage = () => {
         <div className="modal-backdrop" role="presentation" onClick={(event) => { if (event.target === event.currentTarget) setCompareOpen(false); }}>
           <div className="plan-modal" role="dialog" aria-modal="true">
             <div className="modal-head">
-              <div><span className="pricing-eyebrow">Plan comparison</span><h3>Compare execution programs</h3></div>
-              <button className="modal-close" type="button" aria-label="Close comparison" onClick={() => setCompareOpen(false)}><X size={20} /></button>
-            </div>
+              <div><h3>Compare execution programs</h3></div>
+              <button className="modal-close" type="button" aria-label="Close comparison" onClick={() => setCompareOpen(false)}>×</button>
+              
+              </div>
             <div className="modal-body">
               <div className="plan-compare-grid">
-                {[["Aspect", "Starter Execution", "Enterprise Execution", "Custom Program"],...comparisonRows].map((row, rowIndex) =>
-                  row.map((cell, cellIndex) => (
-                    <div key={`${rowIndex}-${cellIndex}`} className={`pcell ${rowIndex === 0? cellIndex === 0? "head" : "plan-head" : cellIndex === 0? "head" : cell === "—"? "muted" : "yes"}`}>{cell}</div>
+               {comparisonHeads.map((h, i) => (
+  <div
+    key={`head-${i}`}
+    className={`pcell ${i === 0 ? "head" : "plan-head"} ${i === 2 ? "enterprise-col enterprise-top" : ""}`}
+  >
+    {i === 2 ? (
+      <span className="enterprise-head-inline">
+        <span>{h}</span>
+        <span className="enterprise-badge">MOST POPULAR</span>
+      </span>
+    ) : (
+      h || "Aspect"
+    )}
+  </div>
+))}
+
+ {comparisonRows.map((row, r) =>
+                  row.map((cell, i) => (
+                    <div
+                      key={`${r}-${i}`}
+                      className={`pcell ${i === 0 ? "head" : cell === "—" ? "muted" : "yes"} ${i === 2 ? "enterprise-col" : ""} ${
+                        i === 2 && r === comparisonRows.length - 1 ? "enterprise-bottom" : ""
+                      }`}
+                    >
+                      {cell}
+                    </div>
                   ))
                 )}
               </div>

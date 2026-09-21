@@ -1,0 +1,102 @@
+/* =====================================================
+   HOW
+===================================================== */
+
+.qubi-landing .how {
+  background: var(--dark);
+  color: white;
+}
+
+.qubi-landing .how .section-head p {
+  color: #aaa49d;
+}
+
+.qubi-landing .steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.qubi-landing .step {
+  position: relative;
+  min-height: 340px;
+  border-radius: 26px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: #1b1a18;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.qubi-landing .step:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 90, 31, 0.6);
+}
+
+.qubi-landing .step::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  right: -70px;
+  bottom: -70px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 90, 31, 0.25),
+    transparent 70%
+  );
+}
+
+.qubi-landing .step-no {
+  color: var(--orange);
+  font-family: Georgia, serif;
+  font-size: 1rem;
+}
+
+.qubi-landing .step-icon {
+  margin: 38px 0 26px;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: rgba(255, 90, 31, 0.13);
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+}
+
+.qubi-landing .step-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--orange);
+  stroke-width: 1.9;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.qubi-landing .step h3 {
+  font-size: 1.25rem;
+  margin: 0 0 12px;
+}
+
+.qubi-landing .step p {
+  color: #9f9992;
+  line-height: 1.6;
+  font-size: 0.86rem;
+  margin: 0;
+}
+
+.qubi-landing .step-arrow {
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--orange);
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  font-size: 0.7rem;
+}

@@ -1,5 +1,32 @@
 import qubiCube from "@/assets/qbcomp.webp";
 
-export default function QboticaBridge() { return <section id="about-qbotica" className="cs-bridge">
-    <div className="cs-shell"><div className="cs-bridge-box"><div className="cs-bridge-copy"><img src={qubiCube} alt="qubi" className="cs-bridge-logo" /><div><h3>Powered by <span className="cs-bridge-qbotica-text">qBotica</span></h3><p>Want to know more about the company behind qubi and our enterprise automation work?</p>
-</div></div><a className="cs-btn cs-btn-dark" href="https://www.qbotica.com/" target="_blank" rel="noreferrer">Learn more about qBotica ↗</a></div></div></section>; }
+export default function QboticaBridge() {
+  return (
+    <section id="about-qbotica" className="cs-bridge">
+      <div className="cs-shell">
+        <div className="cs-bridge-box">
+          <div className="cs-bridge-copy">
+            <img src={qubiCube} alt="qubi" className="cs-bridge-logo" />
+            <div>
+              <h3>
+                Powered by <span className="cs-bridge-qbotica-text">qBotica</span>
+              </h3>
+              <p>
+                Want to know more about the company behind qubi and our
+                enterprise automation work?
+              </p>
+            </div>
+          </div>
+          <a
+            className="cs-btn cs-btn-dark"
+            href="https://www.qbotica.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Learn more about qBotica ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

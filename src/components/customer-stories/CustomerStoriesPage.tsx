@@ -7,7 +7,7 @@ import VideoModal from "../qubi-landing/VideoModal";
 import Hero from "./Hero";
 import StoryExplorer from "./StoryExplorer";
 import WhyQubi from "./WhyQubi";
-import QboticaBridge from "./QboticaBridge";
+//import QboticaBridge from "./QboticaBridge";
 import Cta from "./Cta";
 
 export default function CustomerStoriesPage() {
@@ -20,7 +20,7 @@ export default function CustomerStoriesPage() {
 				<Hero />
 				<StoryExplorer />
 				<WhyQubi />
-				<QboticaBridge />
+				
 				<Cta />
 			</main>
 			<QubiFooter />

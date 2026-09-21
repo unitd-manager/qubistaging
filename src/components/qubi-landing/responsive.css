@@ -1,0 +1,370 @@
+/* =====================================================
+   TABLET / DESKTOP-DOWN (nav collapses to hamburger)
+===================================================== */
+
+@media (max-width: 1050px) {
+  .qubi-landing .nav-links {
+    display: none;
+  }
+
+  .qubi-landing .nav-hamburger {
+    display: grid;
+  }
+
+  .qubi-landing .nav {
+    padding: 8px 10px 8px 14px;
+  }
+
+  .qubi-landing .hero {
+    min-height: auto;
+  }
+
+  .qubi-landing .hero-grid,
+  .qubi-landing .manifesto-grid,
+  .qubi-landing .use-grid,
+  .qubi-landing .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qubi-landing .hero-copy {
+    text-align: center;
+  }
+
+  .qubi-landing .hero-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .qubi-landing .hero-actions,
+  .qubi-landing .micro-proof {
+    justify-content: center;
+  }
+
+  .qubi-landing .demo-stage {
+    margin-top: 15px;
+  }
+
+  .qubi-landing .manifesto-sticky {
+    position: relative;
+    top: auto;
+  }
+
+  .qubi-landing .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .qubi-landing .step:last-child {
+    grid-column: span 2;
+  }
+
+  .qubi-landing .step-arrow {
+    display: none;
+  }
+
+  .qubi-landing .enterprise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qubi-landing .enterprise-intro-copy {
+    justify-self: start;
+  }
+
+  .qubi-landing .confidence-main {
+    min-height: 560px;
+  }
+
+  .qubi-landing .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 800px) {
+  .qubi-landing .use-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qubi-landing .use-panel {
+    min-height: 620px;
+    padding: 30px;
+  }
+
+  .qubi-landing .integration-cloud {
+    right: 6px;
+    bottom: 6px;
+    transform: scale(0.78);
+    transform-origin: bottom right;
+  }
+
+  .qubi-landing .qubi-use-text {
+    font-size: 0.9rem;
+  }
+
+  .qubi-landing .confidence-side {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+  .qubi-landing .site-shell {
+    width: min(100% - 22px, 1460px);
+  }
+
+  .qubi-landing .nav {
+    width: calc(100% - 22px);
+    padding-left: 15px;
+  }
+
+  .qubi-landing .nav-watch {
+    display: none;
+  }
+
+  /* --- Powered by qBotica: keep visible, stack into 2 lines --- */
+
+  .qubi-landing .powered-by {
+    display: flex !important;
+    font-size: 0.68rem;
+    white-space: normal;
+  }
+
+  .qubi-landing .qbotica-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .qubi-landing .qbotica-cube {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .qubi-landing .qbotica-cube span {
+    position: absolute;
+    inset: 0;
+    border: 1.5px solid var(--orange);
+    border-radius: 2px;
+  }
+
+  .qubi-landing .qbotica-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    line-height: 1;
+  }
+
+  .qubi-landing .powered-label {
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #918b83;
+    white-space: nowrap;
+  }
+
+  .qubi-landing .brand-mark {
+    width: 58px;
+  }
+
+  .qubi-landing .qbotica-wordmark {
+    width: 62px;
+  }
+
+  .qubi-landing .brand-divider {
+    height: 22px;
+  }
+
+  .qubi-landing .brand-logo-wrap {
+    gap: 6px;
+  }
+
+  .qubi-landing .nav .btn {
+    padding: 10px 16px;
+    font-size: 0.82rem;
+  }
+
+  .qubi-landing .nav-links {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .qubi-landing .hero {
+    padding-top: 55px;
+  }
+
+  .qubi-landing .hero-copy h1 {
+    font-size: clamp(3.4rem, 17vw, 5.5rem);
+  }
+
+  .qubi-landing .demo-stage {
+    min-height: 480px;
+  }
+
+  .qubi-landing .orbit.one {
+    width: 430px;
+    height: 430px;
+  }
+
+  .qubi-landing .orbit.two {
+    width: 350px;
+    height: 350px;
+  }
+
+  .qubi-landing .product-window {
+    height: 395px;
+    transform: none;
+  }
+
+  .qubi-landing .window-body {
+    grid-template-columns: 105px 1fr;
+  }
+
+  .qubi-landing .sidebar {
+    padding: 15px 8px;
+  }
+
+  .qubi-landing .side-item {
+    font-size: 0.58rem;
+    padding: 8px 6px;
+  }
+
+  .qubi-landing .workspace {
+    padding: 15px;
+  }
+
+  .qubi-landing .flow-canvas {
+    inset: 75px 10px 15px;
+    transform: scale(0.78);
+    transform-origin: left top;
+    width: 125%;
+  }
+
+  .qubi-landing .float-pill {
+    display: none;
+  }
+
+  .qubi-landing .section-pad {
+    padding: 60px 0;
+  }
+
+  .qubi-landing .why {
+    padding: 55px 0 90px;
+  }
+
+  .qubi-landing .section-head {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .qubi-landing .section-head p {
+    margin-top: 22px;
+  }
+
+  .qubi-landing .manifesto-line {
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+  }
+
+  .qubi-landing .outcome-ribbon,
+  .qubi-landing .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .qubi-landing .outcome-card:nth-child(2),
+  .qubi-landing .outcome-card:nth-child(3) {
+    transform: none;
+  }
+
+  .qubi-landing .step:last-child {
+    grid-column: auto;
+  }
+
+  .qubi-landing .use-panel {
+    min-height: 650px;
+    padding: 28px;
+  }
+
+  /* --- Qubi logo cloud: keep circle inside panel, fix chip overlap --- */
+
+  .qubi-landing .integration-cloud {
+    width: 210px;
+    height: 210px;
+    right: 8px;
+    bottom: 8px;
+    transform: none;
+  }
+
+  .qubi-landing .logo-chip {
+    transform: scale(0.82);
+  }
+
+  .qubi-landing .chip-1 { top: 14px; left: 60px; }
+  .qubi-landing .chip-2 { top: 55px; right: 8px; }
+  .qubi-landing .chip-3 { bottom: 40px; right: 14px; }
+  .qubi-landing .chip-4 { bottom: 22px; left: 32px; }
+  .qubi-landing .chip-5 { display: none; }
+
+  .qubi-landing .confidence-side {
+    grid-template-columns: 1fr;
+  }
+
+  .qubi-landing .confidence-main {
+    min-height: auto;
+    padding: 28px;
+  }
+
+  .qubi-landing .confidence-strip {
+    flex-direction: column;
+  }
+
+  .qubi-landing .confidence-strip span {
+    white-space: normal;
+  }
+
+  .qubi-landing .enterprise-gif-box {
+    margin-top: 24px;
+    border-radius: 20px;
+  }
+
+  .qubi-landing .enterprise-gif-grid {
+    height: 220px;
+  }
+
+  .qubi-landing .enterprise-demo-action {
+    justify-content: center;
+  }
+
+  .qubi-landing .enterprise-demo-action .btn {
+    width: 100%;
+  }
+
+  .qubi-landing .story-main {
+    min-height: 500px;
+    padding: 30px;
+  }
+
+  .qubi-landing .cta {
+    padding: 50px 22px;
+    min-height: 520px;
+  }
+
+  .qubi-landing .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .qubi-landing .footer-intro {
+    grid-column: span 2;
+  }
+
+  .qubi-landing .copyright {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,141 @@
+/* =====================================================
+   WHY
+===================================================== */
+
+.qubi-landing .why {
+  background: var(--paper);
+  border-radius: 52px 52px 0 0;
+  margin-top: 32px;
+  padding: 55px 0 90px;
+  overflow: hidden;
+}
+
+.qubi-landing .manifesto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.qubi-landing .manifesto-sticky {
+  position: relative;
+  top: auto;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.qubi-landing .manifesto-sticky h2 {
+  font-family: Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(3rem, 4.6vw, 5rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+  margin: 18px 0 22px;
+}
+
+.qubi-landing .manifesto-sticky h2 em {
+  color: var(--orange);
+  font-style: italic;
+}
+
+.qubi-landing .manifesto-sticky p {
+  color: #171614;
+  line-height: 1.55;
+  max-width: 100%;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.qubi-landing .manifesto-lines {
+  border-top: 1px solid var(--line);
+  width: 100%;
+}
+
+.qubi-landing .manifesto-line {
+  min-height: 92px;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.qubi-landing .manifesto-line .num {
+  font-family: Georgia, serif;
+  color: var(--orange);
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.qubi-landing .manifesto-line h3 {
+  margin: 0;
+  font-size: clamp(1rem, 1.35vw, 1.35rem);
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  font-weight: 600;
+}
+
+.qubi-landing .manifesto-line.highlight {
+  min-height: 105px;
+  margin: 0;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border-bottom: 0;
+  background: var(--orange-soft);
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.qubi-landing .manifesto-line.highlight h3 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-weight: 500;
+}
+
+.qubi-landing .outcome-ribbon {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.qubi-landing .outcome-card {
+  min-height: 185px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  padding: 26px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.qubi-landing .outcome-card:nth-child(2) {
+  background: var(--ink);
+  color: white;
+  transform: translateY(18px) rotate(1deg);
+}
+
+.qubi-landing .outcome-card:nth-child(3) {
+  background: var(--orange);
+  color: white;
+  transform: rotate(-1deg);
+}
+
+.qubi-landing .outcome-card strong {
+  font-family: Georgia, serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.qubi-landing .outcome-card span {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  opacity: 0.75;
+}

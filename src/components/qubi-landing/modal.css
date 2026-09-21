@@ -1,0 +1,84 @@
+/* =====================================================
+   VIDEO MODAL
+===================================================== */
+
+.qubi-landing .modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(12, 11, 10, 0.83);
+  backdrop-filter: blur(12px);
+  display: none;
+  place-items: center;
+  padding: 24px;
+}
+
+.qubi-landing .modal.open {
+  display: grid;
+}
+
+.qubi-landing .modal-card {
+  width: min(1100px, 100%);
+  background: #111;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5);
+}
+
+.qubi-landing .modal-head {
+  height: 58px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.qubi-landing .modal-head strong {
+  font-size: 0.86rem;
+}
+
+.qubi-landing .modal-close {
+  border: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.qubi-landing .video-placeholder {
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 40px;
+  background: radial-gradient(circle at 50% 45%, #382016, #141210 55%);
+  color: white;
+}
+
+.qubi-landing .video-placeholder .big-play {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--orange);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  font-size: 1.5rem;
+}
+
+.qubi-landing .video-placeholder h3 {
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.qubi-landing .video-placeholder p {
+  color: #aaa49d;
+  max-width: 580px;
+  line-height: 1.6;
+  margin: 0 auto;
+}
