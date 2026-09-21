@@ -19,17 +19,25 @@ const Nav = ({ onOpenVideo }: NavProps) => {
     { label: "FAQs", href: "/pricing#faq" },
   ];
 
-  // Page load la current URL ku active set pannum
   useEffect(() => {
     const path = window.location.pathname;
     const hash = window.location.hash;
     const fullPath = path + hash;
-
     const matched = links.find(l => l.href === fullPath || l.href === path);
     if (matched) {
       setActiveLink(matched.label);
-    } else if (path === "/" &&!hash) {
+    } else if (path === "/" && !hash) {
       setActiveLink("Home");
+    }
+
+    if (hash) {
+      const id = hash.replace("#", "");
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 600);
     }
   }, []);
 
@@ -39,16 +47,23 @@ const Nav = ({ onOpenVideo }: NavProps) => {
     label: string
   ) => {
     setActiveLink(label);
+    setIsMobileOpen(false);
 
     if (href.includes("#")) {
-      const id = href.split("#")[1];
-      const el = document.getElementById(id);
-      if (el) {
-        e.preventDefault();
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const [pathPart, hash] = href.split("#");
+      const currentPath = window.location.pathname;
+      const normalizedPath = pathPart === "" ? "/" : pathPart;
+
+      if (currentPath === normalizedPath) {
+        const el = document.getElementById(hash);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          window.history.pushState(null, "", href);
+        }
       }
+      // Vera page na browser default ah hash oda navigation pannum, useEffect smooth scroll pannum
     }
-    setIsMobileOpen(false);
   };
 
   const handleLogoClick = () => {
@@ -66,83 +81,32 @@ const Nav = ({ onOpenVideo }: NavProps) => {
               <div className="brand-divider"></div>
               <div className="powered-by">
                 <span className="powered-label">POWERED BY</span>
-                <img
-                  src={qboticaLogo}
-                  alt="qBotica"
-                  className="qbotica-wordmark qbotica-nav-wordmark"
-                />
+                <img src={qboticaLogo} alt="qBotica" className="qbotica-wordmark qbotica-nav-wordmark" />
               </div>
             </div>
           </a>
-
           <div className="nav-links">
             {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href, link.label)}
-                className={activeLink === link.label? "active-orange" : ""}
-              >
-                {link.label}
-              </a>
+              <a key={link.label} href={link.href} onClick={(e) => handleNavClick(e, link.href, link.label)} className={activeLink === link.label ? "active-orange" : ""}>{link.label}</a>
             ))}
           </div>
-
           <div className="nav-actions">
-            <button className="nav-watch" onClick={onOpenVideo}>
-              Watch demo
-            </button>
-            <a
-              className="btn btn-orange"
-              href="https://meetings.hubspot.com/enterprisedemo/qubi-consultation"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Book a demo ↗
-            </a>
-            <button
-              className="nav-hamburger"
-              onClick={() => setIsMobileOpen(!isMobileOpen)}
-              aria-label="Menu"
-            >
-              {isMobileOpen? "✕" : "☰"}
-            </button>
+            <button className="nav-watch" onClick={onOpenVideo}>Watch demo</button>
+            <a className="btn btn-orange" href="https://meetings.hubspot.com/enterprisedemo/qubi-consultation" target="_blank" rel="noreferrer">Book a demo ↗</a>
+            <button className="nav-hamburger" onClick={() => setIsMobileOpen(!isMobileOpen)} aria-label="Menu">{isMobileOpen ? "✕" : "☰"}</button>
           </div>
         </nav>
       </div>
-
-      <div className={`mobile-menu ${isMobileOpen? "open" : ""}`}>
-        <button
-          className="mobile-close"
-          onClick={() => setIsMobileOpen(false)}
-          aria-label="Close menu"
-        >
-          ✕
-        </button>
+      <div className={`mobile-menu ${isMobileOpen ? "open" : ""}`}>
+        <button className="mobile-close" onClick={() => setIsMobileOpen(false)} aria-label="Close menu">✕</button>
         <div className="mobile-links">
           {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href, link.label)}
-              className={activeLink === link.label? "active-orange" : ""}
-            >
-              {link.label}
-            </a>
+            <a key={link.label} href={link.href} onClick={(e) => handleNavClick(e, link.href, link.label)} className={activeLink === link.label ? "active-orange" : ""}>{link.label}</a>
           ))}
         </div>
         <div className="mobile-actions">
-          <button className="btn btn-light" onClick={onOpenVideo}>
-            Watch demo
-          </button>
-          <a
-            className="btn btn-orange"
-            href="https://meetings.hubspot.com/enterprisedemo/qubi-consultation"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Book a demo ↗
-          </a>
+          <button className="btn btn-light" onClick={onOpenVideo}>Watch demo</button>
+          <a className="btn btn-orange" href="https://meetings.hubspot.com/enterprisedemo/qubi-consultation" target="_blank" rel="noreferrer">Book a demo ↗</a>
         </div>
       </div>
     </>

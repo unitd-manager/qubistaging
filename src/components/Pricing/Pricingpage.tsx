@@ -359,7 +359,7 @@ const Pricingpage = () => {
               <p>Every engagement starts with a 30-minute discovery call. We will scope your workflow, define success metrics, and provide a tailored proposal.</p>
             </div>
             <div className="cta-actions">
-              <a className="pricing-btn pricing-btn-dark" href="https://meetings.hubspot.com/enterprisedemo/qubi-consultation" target="_blank" rel="noreferrer">Talk to an Expert</a>
+              <a className="pricing-btn pricing-btn-dark" href="https://meetings.hubspot.com/enterprisedemo/qubi-consultation" target="_blank" rel="noreferrer">Talk to an Expert →</a>
             </div>
           </div>
         </div>
