@@ -27,7 +27,7 @@ const plans: Plan[] = [
     desc: "Ideal for organizations that want to start with one critical workflow and prove ROI before scaling.",
     features: [
       "1 end-to-end workflow execution",
-      "DocumentAI for up to 3 document types",
+      "DoqumentAI for up to 3 document types",
       "AI agent decision-making",
       "Up to 5 enterprise system integrations",
       "Standard SLA (business hours)",
@@ -46,7 +46,7 @@ const plans: Plan[] = [
     desc: "Full-scale AI execution across multiple workflows, with our team running everything as a managed service.",
     features: [
       "Unlimited workflow executions",
-      "Full DocumentAI any document type",
+      "Full DoqumentAI any document type",
       "Advanced AI agent orchestration",
       "Unlimited enterprise integrations",
       "24/7 managed service SLA",
@@ -86,7 +86,7 @@ const comparisonHeads = ["", "Starter Execution", "Enterprise Execution", "Custo
 const comparisonRows = [
   ["Program fit", "Single critical workflow", "Multi-workflow, enterprise-scale operations", "Transformational initiatives"],
   ["Workflow execution", "1 end-to-end workflow execution", "Unlimited workflow executions", "Everything in Enterprise Execution"],
-  ["DocumentAI", "Up to 3 document types", "Full DocumentAI any document type", "Everything in Enterprise Execution"],
+  ["DoqumentAI", "Up to 3 document types", "Full DoqumentAI any document type", "Everything in Enterprise Execution"],
   ["AI orchestration", "AI agent decision-making", "Advanced AI agent orchestration", "Custom execution roadmap"],
   ["Enterprise integrations", "Up to 5 enterprise system integrations", "Unlimited enterprise integrations", "Everything in Enterprise Execution"],
   ["Service level", "Standard SLA (business hours)", "24/7 managed service SLA", "Custom outcome metrics and SLAs"],
@@ -97,7 +97,19 @@ const comparisonRows = [
 
 const faqs = [
   ["How is qubi priced?", "qubi operates on an outcome-based model. You pay for work completed, not licenses consumed. Pricing is scoped per workflow based on volume, complexity, and the number of systems involved. We provide a detailed SOW after a discovery session."],
-  ["Is there a free trial or POC?", "We do not offer free trials or open-ended POCs. We do offer a paid pilot on a single workflow with defined success metrics, so you can validate ROI before committing to full deployment."],
+  ["How can I validate qubi before making a long-term commitment?", 
+  <> 
+  qBotica participates in the Clutch Guarantee program, giving eligible new engagements a 14-day, no-questions-asked refund period. This gives you the opportunity to begin working with qubi and evaluate the engagement with greater confidence. If it isn't the right fit within the first 14 days, you can cancel in writing and receive a refund of eligible fees under the terms of the Clutch Guarantee. <br />
+      <a
+        className="faq-link"
+        href="https://clutch.co/profile/qbotica"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Learn more about our Clutch Guarantee →
+      </a>
+    </>,
+    ],
   ["How long does implementation take?", "Most workflows go live within 6-10 weeks. Complex multi-system orchestrations may take 12-16 weeks. We provide a detailed timeline during scoping."],
   ["What systems does qubi integrate with?", "qubi has 500+ pre-built connectors covering SAP, Oracle, Salesforce, ServiceNow, Workday, and most major enterprise platforms. We also build custom integrations as part of the managed service."],
   ["What happens when there is an exception?", "qubi handles most exceptions autonomously using AI-powered escalation logic. Cases requiring human judgment are routed to the right person with full context - no manual triage needed."],
@@ -162,7 +174,8 @@ const Pricingpage = () => {
         <div className="pricing-shell pricing-hero-copy">
           <span className="pricing-eyebrow">Outcome-Based Pricing</span>
           <h1>
-            You pay for <em>work completed,</em>
+            You pay for the <br />
+            <em>work completed,</em>
             <br />
             not licenses consumed
           </h1>
@@ -255,7 +268,7 @@ const Pricingpage = () => {
             </div>
             <div className="component-grid">
               {[
-                ["▣", "DocumentAI", "Intelligent document processing that reads, extracts, and validates at scale."],
+                ["▣", "DoqumentAI", "Intelligent document processing that reads, extracts, and validates at scale."],
                 ["✦", "AI Agents", "Autonomous agents that make decisions and take action within your workflows."],
                 ["⚙", "Workflow Automation", "End-to-end process orchestration that connects every step."],
                 ["↔", "Orchestration", "Enterprise-grade coordination across systems, teams, and exceptions."],
@@ -269,29 +282,42 @@ const Pricingpage = () => {
             </div>
           </div>
           <div className="execution-panel">
-            <h3>AI is not the problem. <em>Execution is.</em></h3>
-            <p>Most enterprise AI promises intelligence. But intelligence without action is just another dashboard.</p>
-            <div className="execution-cards">
-              {[
-                ["Analyzes but does not act", "Insight-only tools generate dashboards while your team still executes manually. AI that never acts is not reducing your workload."],
-                ["Assists but does not complete", "Copilots and assistants help, but they do not finish the job. Someone still has to validate, correct, and push through every system."],
-                ["Sits outside operations", "Disconnected from your systems. Disconnected from your workflows. Disconnected from where the actual work happens."],
-              ].map(([title, description]) => (
-                <article className="execution-card" key={title}>
-                  <h4>{title}</h4>
-                  <p>{description}</p>
-                </article>
-              ))}
-            </div>
-            <div className="execution-note">
-              <div>
-                <strong>qubi does not sell intelligence. <span>We sell execution.</span></strong>
-                <small>Stop managing AI projects. Start getting work done.</small>
+  <h3>AI is not the problem. <em>Execution is.</em></h3>
+  <p>Most enterprise AI promises intelligence. But intelligence without action is just another dashboard.</p>
+  <div className="execution-cards">
+    {[
+      ["Analyzes but does not act", ["Insight-only tools generate dashboards while your team still executes manually.", "AI that never acts is not reducing your workload."]],
+      ["Assists but does not complete", ["Copilots and assistants help, but they do not finish the job.", "Someone still has to validate, correct, and push through every system."]],
+      ["Sits outside operations", ["Disconnected from your systems.", "Disconnected from your workflows.", "Disconnected from where the actual work happens."]],
+    ].map(([title, points]) => (
+      <article className="execution-card" key={title as string}>
+        <h4>{title}</h4>
+        <ul className="execution-points">
+          {(points as string[]).map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
+</div>
+
+    <div className="execution-note">
+  <div>
+    <strong>
+      qubi does not sell intelligence.
+      <span>We sell execution.</span>
+    </strong>
+
+    <small>
+      Stop managing AI projects.
+     <span>
+      Start getting work done.</span>
+    </small>
+  </div>            
               </div>
-              <div className="manifesto-tag">Outcome first</div>
-            </div>
           </div>
-        </div>
+        
       </section>
 
       <section id="compare" className="pricing-section pricing-compare">
@@ -308,7 +334,7 @@ const Pricingpage = () => {
             </div>
             {[
               ["AI Role", "Optional add-on", "Core decision engine"],
-              ["Document Processing", "Requires separate tools", "Built-in DocumentAI"],
+              ["Document Processing", "Requires separate tools", "Built-in DoqumentAI"],
               ["Delivery Model", "You build and operate", "We design and run (managed)"],
               ["Success Metric", "Task completion", "Business outcomes"],
               ["Exception Handling", "Manual intervention", "AI-powered escalation"],

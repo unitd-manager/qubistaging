@@ -87,7 +87,22 @@
 .execution-note{margin-top:28px;border-radius:22px;padding:24px 28px;background:var(--pricing-cream);color:var(--pricing-ink);display:flex;align-items:end;justify-content:space-between;gap:24px}
 .execution-note strong{font-family:Georgia,serif;font-size:clamp(1.8rem,2.8vw,2.7rem);font-weight:500;line-height:1.02;color:var(--pricing-ink)}
 .execution-note strong span{color:var(--pricing-orange)}
-.execution-note small{display:block;margin-top:8px;font-weight:500!important;color:var(--pricing-muted)!important;font-size:.88rem}
+
+.execution-note small {
+  display: block;
+  margin-top: 6px;
+  font-family: Georgia, serif;
+  font-size: clamp(1.2rem, 2.6vw, 2.5rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.02;
+  color: var(--pricing-ink) !important;
+}
+.execution-note small span{
+  color: var(--pricing-orange);
+  display: inline; 
+  margin-left: 6px; 
+}
+
 .manifesto-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--pricing-orange);font-weight:900;white-space:nowrap}
 .pricing-compare{background:var(--pricing-paper);padding-top:60px;padding-bottom:60px}
 .compare-head{display:block;margin-bottom:28px}
@@ -183,3 +198,21 @@
   .execution-note{padding:22px 18px 40px 18px!important;flex-direction:column!important;align-items:flex-start!important; position:relative!important}
   .manifesto-tag{position:absolute!important;right:18px!important;bottom:12px!important}
 }
+.faq-link {
+  display: inline-flex;
+  margin-top: 24px;
+  color: #ff5a1f !important;
+  font-size: 17px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.faq-link:hover {
+  color: #ff5a1f !important;
+  text-decoration: underline;
+}
+
+.execution-points{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.execution-points li{margin:0;color:#aaa59e;font-size:.9rem;line-height:1.6;max-width:360px;padding-left:16px;position:relative}
+.execution-points li::before{content:"-";position:absolute;left:0;color:var(--pricing-orange)}
+.execution-cards article:nth-child(3) .execution-points li::before{content:"✕"}
