@@ -300,7 +300,7 @@ const Pricingpage = () => {
       </article>
     ))}
   </div>
-</div>
+
 
     <div className="execution-note">
   <div>
@@ -317,7 +317,7 @@ const Pricingpage = () => {
   </div>            
               </div>
           </div>
-        
+</div>        
       </section>
 
       <section id="compare" className="pricing-section pricing-compare">

@@ -214,5 +214,5 @@
 
 .execution-points{margin:0;padding:0;list-style:none;display:grid;gap:8px}
 .execution-points li{margin:0;color:#aaa59e;font-size:.9rem;line-height:1.6;max-width:360px;padding-left:16px;position:relative}
-.execution-points li::before{content:"-";position:absolute;left:0;color:var(--pricing-orange)}
+.execution-points li::before{content:"✕";position:absolute;left:0;color:var(--pricing-orange)}
 .execution-cards article:nth-child(3) .execution-points li::before{content:"✕"}
