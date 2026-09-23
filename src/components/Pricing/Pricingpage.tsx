@@ -315,7 +315,7 @@ const Pricingpage = () => {
       Start getting work done.</span>
     </small>
   </div>            
-              </div>
+         </div>
           </div>
 </div>        
       </section>
