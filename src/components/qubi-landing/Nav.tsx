@@ -16,7 +16,7 @@ const Nav = ({ onOpenVideo }: NavProps) => {
     { label: "Pricing", href: "/pricing" },
     { label: "Platform", href: "/#use-cases" },
     { label: "Solutions", href: "/customers#stories" },
-    { label: "FAQs", href: "/pricing#faq" },
+    { label: "FAQs", href: "/faqs" },
   ];
 
   useEffect(() => {

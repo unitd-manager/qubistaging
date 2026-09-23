@@ -21,7 +21,7 @@ const BlogPage = lazy(() => import("./pages/BlogPage.tsx"));
 const BlogDetailPage = lazy(() => import("./pages/BlogDetailPage.tsx"));
 const DemoPage = lazy(() => import("./pages/DemoPage.tsx"));
 const NewsroomPage = lazy(() => import("./pages/NewsroomPage.tsx"));
-const FAQsPage = lazy(() => import("./pages/FAQsPage.tsx"));
+const Faqpage = lazy(() => import("@/components/FAQ/Faqpage.tsx"));
 const Toaster = lazy(() => import("@/components/ui/toaster").then((module) => ({ default: module.Toaster })));
 const SonnerToaster = lazy(() => import("@/components/ui/sonner").then((module) => ({ default: module.Toaster })));
 
@@ -63,7 +63,7 @@ const App = () => {
             <Route path="/resources/blog/:documentId" element={<BlogDetailPage />} />
             <Route path="/resources/demo" element={<DemoPage />} />
             <Route path="/resources/newsroom" element={<NewsroomPage />} />
-            <Route path="/resources/faqs" element={<FAQsPage />} />
+            <Route path="/faqs" element={<Faqpage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
