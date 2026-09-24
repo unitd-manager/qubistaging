@@ -16,7 +16,11 @@ const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 const UseCasesPage = lazy(() => import("./pages/UseCasesPage.tsx"));
 const IndustriesPage = lazy(() => import("./pages/IndustriesPage.tsx"));
 const CustomersPage = lazy(() => import("./pages/CustomersPage.tsx"));
-const PricingPage = lazy(() => import("@/components/Pricing/Pricingpage.tsx"));
+
+
+const PlatformPage = lazy(() => import("@/components/Platform/Platformpage.tsx"));
+const PricingPage = lazy(() => import("@/components/Pricing/PricingPage.tsx"));
+const SolutionPage = lazy(() => import("@/components/Solutions/Solutionpage.tsx")); 
 const BlogPage = lazy(() => import("./pages/BlogPage.tsx"));
 const BlogDetailPage = lazy(() => import("./pages/BlogDetailPage.tsx"));
 const DemoPage = lazy(() => import("./pages/DemoPage.tsx"));
@@ -59,6 +63,9 @@ const App = () => {
             <Route path="/solutions/industries" element={<IndustriesPage />} />
             <Route path="/customers" element={<CustomersPage />} />
             <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/platform" element={<PlatformPage />} />
+
+            <Route path="/solutions" element={<SolutionPage />} /> 
             <Route path="/resources/blog" element={<BlogPage />} />
             <Route path="/resources/blog/:documentId" element={<BlogDetailPage />} />
             <Route path="/resources/demo" element={<DemoPage />} />
