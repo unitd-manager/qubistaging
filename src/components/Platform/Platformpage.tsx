@@ -1,12 +1,12 @@
 import { useState } from "react";
-import "../qubi-landing/qubi-landing.css"; // 1st
-import "./Platformpage.css"; // 2nd - IMPORTANT ORDER
+import "../qubi-landing/qubi-landing.css";
+import "./Platformpage.css";
 import Nav from "../qubi-landing/Nav";
 import QubiFooter from "../qubi-landing/QubiFooter";
 import VideoModal from "../qubi-landing/VideoModal";
 import { useSEO } from "@/hooks/useSEO";
 import { SEOHead } from "@/components/SEOHead";
-
+import qubiLogo from "@/assets/qubi-logo.png";
 type Capability = {
   cat: string;
   tag: string;
@@ -46,13 +46,20 @@ export default function Platformpage() {
 
   const selectedItem = data[selected];
   const toggleGroup = (group: string) => {
-    setOpenGroups((current) =>
-      current.includes(group)? current.filter((item) => item!== group) : [...current, group]
-    );
+    const isCurrentlyOpen = openGroups.includes(group);
+    if (!isCurrentlyOpen) {
+      const firstIndexInGroup = data.findIndex(item => item.cat === group);
+      if (firstIndexInGroup !== -1) {
+        setSelected(firstIndexInGroup);
+      }
+      setOpenGroups([group]);        // <- ippo array la idhe group mattum, matha ellam auto close
+    } else {
+      setOpenGroups([]);             // <- same group click pannina close aagum
+    }
   };
-
+  
   return (
-    <div className="qubi-landing"> {/* <-- ITHU THAAN MUKKIYAM DA */}
+    <div className="qubi-landing">
       <SEOHead />
       <Nav onOpenVideo={() => setIsVideoOpen(true)} />
       <VideoModal open={isVideoOpen} onClose={() => setIsVideoOpen(false)} />
@@ -101,7 +108,7 @@ export default function Platformpage() {
             <div className="platform-head">
               <span className="platform-eyebrow">Explore the Platform</span>
               <h2>Explore qubi by <em>capability.</em></h2>
-              <p>Select a capability area on the left to explore the products and functions available across the platform.</p>
+              <p>Select a capability area on the left to explore the products and functions available across the platform.The structure can continue to grow as new capabilities are introduced.</p>
             </div>
             <div className="platform-explorer">
               <aside className="platform-capability-side">
@@ -133,7 +140,17 @@ export default function Platformpage() {
                     {selectedItem.details.map((detail) => <div className="platform-detail" key={detail}>{detail}</div>)}
                   </div>
                 </div>
-                <div className="platform-detail-foot"><span>Part of the connected qubi platform ecosystem</span><b>qubi Platform</b></div>
+                <div className="platform-detail-foot">
+                  <span>Part of the connected qubi platform ecosystem</span>
+                 
+<span className="platform-foot-brand">
+    <img src={qubiLogo} alt="qubi" className="platform-foot-logo" />
+    Platform
+  </span>
+
+
+
+                </div>
               </article>
             </div>
           </div>
@@ -178,7 +195,7 @@ export default function Platformpage() {
             <div>
               <span className="platform-eyebrow">Designed to Grow</span>
               <h2>Not a fixed suite.<br /><em>An expandable platform.</em></h2>
-              <p>qubi does not need to be defined by a fixed number of products. New capabilities can join the same ecosystem while the customer experience stays consistent.</p>
+              <p>qubi does not need to be defined by a fixed number of products. New capabilities can join the same ecosystem while the customer experience — identity, governance, connections, and operations — stays consistent.</p>
             </div>
             <div className="platform-ladder">
               {[
@@ -193,6 +210,22 @@ export default function Platformpage() {
           </div>
         </section>
 
+
+        <section className="platform-section platform-bridge">
+          <div className="platform-shell platform-bridge-grid">
+            <div>
+              <span className="platform-eyebrow">Platform + Solutions</span>
+              <h2>See what the platform can put to work.</h2>
+              <p>The Platform page explains what qubi is made of. The Solutions page shows how those capabilities come together across real workflows and industries.</p>
+            </div>
+            <div className="platform-bridge-actions">
+              <a className="platform-btn platform-orange" href="/solutions">Explore Solutions →</a>
+              <a className="platform-btn platform-watch platform-bridge-watch" onClick={() => setIsVideoOpen(true)}>Watch the Demo</a>
+            </div>
+          </div>
+        </section>
+
+        
         <section className="platform-cta" id="demo">
           <div className="platform-shell">
             <h2>Build from where you are.</h2>
@@ -201,7 +234,6 @@ export default function Platformpage() {
           </div>
         </section>
       </div>
-
       <QubiFooter />
     </div>
   );
